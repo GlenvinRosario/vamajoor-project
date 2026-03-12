@@ -82,7 +82,7 @@ export default function HeroCarousel() {
             {/* Badge */}
             <div className="inline-flex items-center gap-2 bg-gold/20 border border-gold/40 rounded-full px-4 py-1.5 mb-6">
               <span className="w-2 h-2 rounded-full bg-gold animate-pulse"></span>
-              <span className="font-body text-gold text-sm font-medium tracking-wide">Dharma Jyothi Social Centre</span>
+              <span className="font-body text-gold text-sm font-medium tracking-wide">Dharma Jyothi Charitable Society</span>
             </div>
 
             <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">

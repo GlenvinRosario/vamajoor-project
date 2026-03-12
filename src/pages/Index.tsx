@@ -28,13 +28,15 @@ export default function Index() {
       {/* Ticker bar below carousel */}
       <div className="bg-maroon py-2.5 overflow-hidden">
         <div className="flex items-center">
-          <div className="bg-saffron text-white font-body font-bold text-xs px-4 py-1 shrink-0 mr-4 rounded-r-full">
+          <div className="bg-lightgreen text-white font-body font-bold text-xs px-4 py-1 shrink-0 mr-4 rounded-r-full">
             LATEST
           </div>
           <div className="overflow-hidden flex-1 relative">
             <div className="marquee-content flex gap-12 whitespace-nowrap">
               {[...announcements, ...announcements].map((a, i) => (
-                <span key={i} className="font-body text-white/90 text-sm">{a}</span>
+                <span key={i} className="font-body text-white/90 text-sm">
+                  {a}
+                </span>
               ))}
             </div>
           </div>
