@@ -1,117 +1,182 @@
-import { useState, useEffect } from "react";
-import { Calendar, Tag, Search } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
+import { motion } from "framer-motion";
 
-interface NewsEvent {
-  id: string;
-  title: string;
-  content: string | null;
-  image_url: string | null;
-  event_date: string | null;
-  category: string | null;
-  created_at: string;
-}
+const highlights = [
+  {
+    title: "Empowering Communities Since 1976",
+    desc: "Dharma Jyothi Charitable Society has transformed lives across Karnataka, Goa, and Manipur through education, healthcare, and outreach.",
+  },
+  {
+    title: "Global Missionary Network",
+    desc: "Part of the Missionary Sisters of the Queen of the Apostles (SRA), serving across India, Europe, Africa, and beyond.",
+  },
+  {
+    title: "Women & Child Upliftment",
+    desc: "Focused initiatives supporting marginalized women, children, and youth for a better future.",
+  },
+];
 
-const fallback: NewsEvent[] = [
-  { id: "1", title: "Annual Scholarship Drive 2024", content: "Applications open for our annual scholarship program providing financial aid to 500 deserving students across Karnataka.", image_url: null, event_date: "2024-12-15", category: "event", created_at: new Date().toISOString() },
-  { id: "2", title: "Free Health Camp at Rural Villages", content: "Our medical team conducted free health check-ups for over 1,200 villagers across 8 villages in Karnataka.", image_url: null, event_date: "2024-11-20", category: "news", created_at: new Date().toISOString() },
-  { id: "3", title: "Women Empowerment Workshop", content: "Month-long skill development workshop series empowering rural women with vocational training and entrepreneurship skills.", image_url: null, event_date: "2025-01-10", category: "event", created_at: new Date().toISOString() },
-  { id: "4", title: "Tree Plantation Drive 2024", content: "Over 5,000 saplings planted across 15 villages to promote environmental awareness and sustainability.", image_url: null, event_date: "2024-10-05", category: "news", created_at: new Date().toISOString() },
-  { id: "5", title: "Digital Literacy Program Launch", content: "Launched a new digital literacy initiative teaching basic computer and internet skills to rural youth.", image_url: null, event_date: "2025-02-01", category: "event", created_at: new Date().toISOString() },
-  { id: "6", title: "Disaster Relief Fund Update", content: "Successfully distributed relief material to 300 families affected by floods in North Karnataka.", image_url: null, event_date: "2024-09-20", category: "news", created_at: new Date().toISOString() },
+const programs = [
+  "Medical Camps & Rural Healthcare",
+  "Child Sponsorship Programs",
+  "Women Empowerment & Skill Training",
+  "Environmental Protection Initiatives",
+  "Anti Human Trafficking Programs",
+];
+
+const institutions = [
+  "St. Ignatius Hospital (100 Beds)",
+  "Goretti Hospital, Udupi",
+  "Maria Giri Health Centre",
+  "Vidya Jyothi School",
+  "Asha Kiran Play Home",
+];
+
+const awards = [
+  "SPANDANA Award for De-Addiction Services",
+  "NABH Kayakalpa Certification",
+  "COVID-19 Service Recognition",
+  "Ayushman Bharat Excellence Award",
 ];
 
 export default function NewsPage() {
-  const [items, setItems] = useState<NewsEvent[]>([]);
-  const [filter, setFilter] = useState("all");
-  const [search, setSearch] = useState("");
-
-  useEffect(() => {
-    const fetchNews = async () => {
-      const { data } = await supabase.from("news_events").select("*").eq("is_published", true).order("created_at", { ascending: false });
-      setItems(data && data.length > 0 ? data : fallback);
-    };
-    fetchNews();
-  }, []);
-
-  const display = items.filter((i) => {
-    const matchFilter = filter === "all" || i.category === filter;
-    const matchSearch = !search || i.title.toLowerCase().includes(search.toLowerCase());
-    return matchFilter && matchSearch;
-  });
-
   return (
-    <main>
-      <section className="py-24 bg-maroon text-center">
-        <div className="container mx-auto px-4">
-          <h1 className="font-display text-5xl font-bold text-white mb-4">News & Events</h1>
-          <p className="font-body text-white/70 text-lg">Stay updated with our latest activities</p>
+    <main className="bg-gradient-to-b from-[#eaf4ee] via-white to-[#eaf4ee]">
+      {/* HERO */}
+      <section className="relative py-24 text-center bg-gradient-to-br from-[#355E3B] via-[#2f4f34] to-[#1f2d24] text-white overflow-hidden">
+        {/* Glow blobs */}
+        <div className="absolute -top-20 -left-20 w-80 h-80 bg-emerald-300/20 blur-3xl rounded-full"></div>
+        <div className="absolute bottom-0 right-0 w-80 h-80 bg-lime-200/10 blur-3xl rounded-full"></div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+        >
+          <h1 className="text-5xl font-bold mb-4">News & Impact</h1>
+          <p className="text-white/70 text-lg">
+            Real stories of service, compassion, and transformation
+          </p>
+        </motion.div>
+      </section>
+
+      {/* HIGHLIGHTS */}
+      <section className="container mx-auto px-4 py-20">
+        <div className="grid md:grid-cols-3 gap-8">
+          {highlights.map((item, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.1 }}
+              whileHover={{ y: -8 }}
+              className="p-6 rounded-2xl bg-white/70 backdrop-blur-md border border-[#355E3B]/10 shadow-md hover:shadow-xl transition-all"
+            >
+              <h3 className="text-[#355E3B] font-bold text-lg mb-3">
+                {item.title}
+              </h3>
+              <p className="text-gray-600 text-sm">{item.desc}</p>
+            </motion.div>
+          ))}
         </div>
       </section>
 
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4">
-          {/* Filters */}
-          <div className="flex flex-col sm:flex-row gap-4 mb-10">
-            <div className="relative flex-1 max-w-sm">
-              <Search size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-muted-foreground" />
-              <input
-                type="text"
-                placeholder="Search news..."
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-                className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-border focus:border-saffron outline-none font-body text-sm bg-background"
-              />
-            </div>
-            <div className="flex gap-2">
-              {["all", "news", "event"].map((f) => (
-                <button
-                  key={f}
-                  onClick={() => setFilter(f)}
-                  className={`px-5 py-2.5 rounded-xl font-body font-semibold text-sm capitalize transition-all ${filter === f ? "bg-saffron text-white" : "bg-muted text-muted-foreground hover:bg-saffron/10 hover:text-saffron"}`}
-                >
-                  {f === "all" ? "All" : f === "news" ? "News" : "Events"}
-                </button>
-              ))}
-            </div>
-          </div>
+      {/* PROGRAMS */}
+      <section className="py-20 bg-gradient-to-br from-[#f4f9f6] to-[#eaf4ee]">
+        <div className="container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+          >
+            <h2 className="text-3xl font-bold text-[#355E3B] mb-6">
+              Our Key Initiatives
+            </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {display.map((item, i) => (
-              <article key={item.id} className="bg-card rounded-2xl shadow-card border border-border overflow-hidden hover-lift group">
-                <div className="h-48 overflow-hidden relative">
-                  {item.image_url ? (
-                    <img src={item.image_url} alt={item.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                  ) : (
-                    <div className={`w-full h-full flex items-center justify-center ${i % 2 === 0 ? "gradient-saffron" : "gradient-maroon"}`}>
-                      <Calendar size={40} className="text-white/30" />
-                    </div>
-                  )}
-                  <div className={`absolute top-3 left-3 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold font-body ${item.category === "event" ? "bg-saffron text-white" : "bg-maroon text-white"}`}>
-                    <Tag size={10} />
-                    {item.category === "event" ? "Event" : "News"}
-                  </div>
-                </div>
-                <div className="p-6">
-                  {item.event_date && (
-                    <div className="flex items-center gap-2 text-muted-foreground text-sm font-body mb-3">
-                      <Calendar size={13} />
-                      {new Date(item.event_date).toLocaleDateString("en-IN", { day: "numeric", month: "long", year: "numeric" })}
-                    </div>
-                  )}
-                  <h3 className="font-display font-semibold text-foreground text-lg mb-3 line-clamp-2 group-hover:text-saffron transition-colors">{item.title}</h3>
-                  {item.content && <p className="font-body text-muted-foreground text-sm leading-relaxed line-clamp-3">{item.content}</p>}
-                </div>
-              </article>
+            <ul className="space-y-3 text-gray-600">
+              {programs.map((p, i) => (
+                <li key={i} className="flex gap-2">
+                  <span className="w-2 h-2 bg-emerald-500 rounded-full mt-2"></span>
+                  {p}
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+
+          {/* Gradient card */}
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            className="p-8 rounded-2xl bg-gradient-to-br from-[#355E3B] via-[#2f4f34] to-[#1f2d24] text-white shadow-xl relative overflow-hidden"
+          >
+            <div className="absolute inset-0 bg-white/5"></div>
+
+            <h3 className="text-xl font-semibold mb-4">Our Mission</h3>
+            <p className="text-white/80 text-sm leading-relaxed">
+              To proclaim the compassionate love of God and empower marginalized
+              communities to build a just and dignified society.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* INSTITUTIONS */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-[#355E3B] mb-12 text-center">
+            Our Institutions
+          </h2>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {institutions.map((item, i) => (
+              <motion.div
+                key={i}
+                whileHover={{ scale: 1.05 }}
+                className="p-5 rounded-xl bg-gradient-to-br from-[#eaf4ee] to-white border border-[#355E3B]/10 shadow-sm hover:shadow-md"
+              >
+                <p className="text-[#355E3B] font-semibold">{item}</p>
+              </motion.div>
             ))}
           </div>
-
-          {display.length === 0 && (
-            <div className="text-center py-20">
-              <p className="font-body text-muted-foreground">No results found.</p>
-            </div>
-          )}
         </div>
+      </section>
+
+      {/* AWARDS */}
+      <section className="py-20 bg-gradient-to-br from-[#eef5f0] to-[#f8fbf9]">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl font-bold text-[#355E3B] mb-10">
+            Recognitions & Awards
+          </h2>
+
+          <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+            {awards.map((a, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                whileHover={{ y: -5 }}
+                className="p-5 rounded-xl bg-white shadow-md border border-[#355E3B]/10"
+              >
+                {a}
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FUTURE NEEDS */}
+      <section className="py-20 bg-gradient-to-br from-[#355E3B] to-[#1f2d24] text-white text-center relative overflow-hidden">
+        <div className="absolute -top-10 right-10 w-60 h-60 bg-white/10 blur-3xl rounded-full"></div>
+
+        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}>
+          <h2 className="text-3xl font-bold mb-4">Future Vision</h2>
+          <p className="text-white/70 max-w-2xl mx-auto mb-6">
+            Expanding our mission with new initiatives to serve the vulnerable.
+          </p>
+
+          <ul className="space-y-2 text-white/80 text-sm">
+            <li>• New psychiatric block at St. Ignatius Hospital</li>
+            <li>• Care center for destitute</li>
+            <li>• New pre-primary schools</li>
+          </ul>
+        </motion.div>
       </section>
     </main>
   );

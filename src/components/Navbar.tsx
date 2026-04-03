@@ -22,37 +22,51 @@ const navItems = [
       { label: "About Us", href: "/about" },
       { label: "Our Mission", href: "/about#mission" },
       { label: "Our Vision", href: "/about#vision" },
+      { label: "Our History", href: "/about#history" },
     ],
   },
-  { label: "Our Team", href: "/team" },
+
   {
-    label: "Programs",
+    label: "Our Work",
     href: "/programs",
     children: [
-      { label: "Education", href: "/programs#education" },
-      { label: "Health & Welfare", href: "/programs#health" },
+      { label: "Education Services", href: "/programs#education" },
+      { label: "Healthcare Services", href: "/programs#health" },
       { label: "Women Empowerment", href: "/programs#women" },
-      { label: "Rural Development", href: "/programs#rural" },
+      { label: "Social Outreach", href: "/programs#social" },
     ],
   },
+
+  // {
+  //   label: "Institutions",
+  //   href: "/institutions",
+  //   children: [
+  //     { label: "Schools", href: "/institutions#schools" },
+  //     { label: "Hospitals", href: "/institutions#hospitals" },
+  //     { label: "Social Centres", href: "/institutions#centres" },
+  //   ],
+  // },
+
   { label: "News & Events", href: "/news" },
-  { label: "Donations", href: "/donations" },
-  {
-    label: "Gallery",
-    href: "/gallery",
-    children: [
-      { label: "Photo Gallery", href: "/gallery" },
-      { label: "Video Gallery", href: "/gallery#videos" },
-    ],
-  },
+
+  { label: "Gallery", href: "/gallery" },
+
   { label: "E-Magazine", href: "/magazine" },
+
+  {
+    label: "Donate",
+    href: "/donations",
+    highlight: true,
+  },
+
   { label: "Contact", href: "/contact" },
+  { label: "Achievements", href: "/achievements" },
 ];
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [openDropdown, setOpenDropdown] = useState(null);
   const location = useLocation();
 
   useEffect(() => {
@@ -68,7 +82,6 @@ export default function Navbar() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
-
       {/* Top bar */}
       <div className="bg-[#355E3B] text-white py-1.5 px-4 hidden md:flex items-center justify-between text-xs">
         <div className="flex items-center gap-4">
@@ -90,16 +103,16 @@ export default function Navbar() {
         </div>
 
         <div className="flex items-center gap-3">
-          <a href="https://facebook.com" target="_blank" rel="noreferrer">
+          <a href="#">
             <Facebook size={13} />
           </a>
-          <a href="https://instagram.com" target="_blank" rel="noreferrer">
+          <a href="#">
             <Instagram size={13} />
           </a>
-          <a href="https://linkedin.com" target="_blank" rel="noreferrer">
+          <a href="#">
             <Linkedin size={13} />
           </a>
-          <a href="https://twitter.com" target="_blank" rel="noreferrer">
+          <a href="#">
             <Twitter size={13} />
           </a>
         </div>
@@ -114,20 +127,22 @@ export default function Navbar() {
         }`}
       >
         <div className="container mx-auto px-4 flex items-center justify-between">
+          {/* 🔥 LOGO (Improved) */}
+          <Link to="/" className="flex items-center gap-3 group">
+            <div className="bg-white p-1.5 rounded-xl shadow-sm group-hover:shadow-md transition">
+              <img
+                src={dharmaLogo}
+                alt="Dharma Jyothi"
+                className="h-11 w-11 object-contain group-hover:scale-105 transition"
+              />
+            </div>
 
-          {/* Logo */}
-          <Link to="/" className="flex items-center gap-3">
-            <img
-              src={dharmaLogo}
-              alt="Dharma Jyothi Charitable Society"
-              className="h-12 w-12 object-contain"
-            />
-            <div>
-              <p className="font-bold text-[#355E3B] text-lg leading-tight">
-                DHARMA JYOTHI
+            <div className="leading-tight">
+              <p className="text-[#355E3B] font-bold text-base tracking-wide">
+                Dharma Jyothi
               </p>
-              <p className="font-semibold text-[#355E3B] text-base leading-tight">
-                CHARITABLE SOCIETY
+              <p className="text-gray-600 text-xs font-medium">
+                Charitable Society
               </p>
             </div>
           </Link>
@@ -146,9 +161,11 @@ export default function Navbar() {
                 <Link
                   to={item.href}
                   className={`flex items-center gap-1 px-3 py-2 rounded-md text-sm font-medium transition-all ${
-                    location.pathname === item.href
-                      ? "text-[#355E3B] bg-[#355E3B]/10"
-                      : "text-gray-700 hover:text-[#355E3B] hover:bg-[#355E3B]/5"
+                    item.highlight
+                      ? "bg-[#355E3B] text-white hover:bg-green-800"
+                      : location.pathname === item.href
+                        ? "text-[#355E3B] bg-[#355E3B]/10"
+                        : "text-gray-700 hover:text-[#355E3B] hover:bg-[#355E3B]/5"
                   }`}
                 >
                   {item.label}
@@ -190,9 +207,11 @@ export default function Navbar() {
                   <Link
                     to={item.href}
                     className={`block px-4 py-2.5 rounded-md text-sm font-medium ${
-                      location.pathname === item.href
-                        ? "text-[#355E3B] bg-[#355E3B]/10"
-                        : "text-gray-700 hover:text-[#355E3B] hover:bg-[#355E3B]/5"
+                      item.highlight
+                        ? "bg-[#355E3B] text-white"
+                        : location.pathname === item.href
+                          ? "text-[#355E3B] bg-[#355E3B]/10"
+                          : "text-gray-700 hover:text-[#355E3B] hover:bg-[#355E3B]/5"
                     }`}
                   >
                     {item.label}

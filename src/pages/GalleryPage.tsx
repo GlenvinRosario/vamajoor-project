@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { supabase } from "@/integrations/supabase/client";
 import { Image, X } from "lucide-react";
 
@@ -25,91 +26,150 @@ export default function GalleryPage() {
 
   useEffect(() => {
     const fetch = async () => {
-      const { data } = await supabase.from("gallery_images").select("*").order("created_at", { ascending: false });
+      const { data } = await supabase
+        .from("gallery_images")
+        .select("*")
+        .order("created_at", { ascending: false });
+
       setImages(data && data.length > 0 ? data : []);
     };
     fetch();
   }, []);
 
-  const display = images.length > 0
-    ? images.filter((i) => filter === "All" || i.category?.toLowerCase() === filter.toLowerCase())
-    : placeholders;
-
-  const placeholderBgs = ["gradient-saffron", "gradient-maroon", "bg-amber-500", "bg-amber-600", "gradient-saffron", "gradient-maroon", "bg-orange-500", "gradient-saffron", "gradient-maroon"];
+  const display =
+    images.length > 0
+      ? images.filter(
+          (i) =>
+            filter === "All" ||
+            i.category?.toLowerCase() === filter.toLowerCase(),
+        )
+      : placeholders;
 
   return (
-    <main>
-      <section className="py-24 bg-maroon text-center">
-        <div className="container mx-auto px-4">
-          <h1 className="font-display text-5xl font-bold text-white mb-4">Photo Gallery</h1>
-          <p className="font-body text-white/70 text-lg">Moments that tell our story</p>
-        </div>
+    <main className="bg-gradient-to-b from-[#f4f7f5] via-white to-[#eef3ef]">
+      {/* HERO */}
+      <section className="relative py-24 text-center bg-gradient-to-br from-[#355E3B] to-[#1f2d24] overflow-hidden">
+        {/* glow */}
+        <div className="absolute -top-20 left-0 w-72 h-72 bg-white/10 blur-3xl rounded-full"></div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="container mx-auto px-4"
+        >
+          <h1 className="text-5xl font-bold text-white mb-4">Photo Gallery</h1>
+          <p className="text-white/70 text-lg">
+            Moments of impact, service, and transformation
+          </p>
+        </motion.div>
       </section>
 
-      <section className="py-20 bg-background">
+      {/* GALLERY */}
+      <section className="py-20">
         <div className="container mx-auto px-4">
-          {/* Filter */}
-          <div className="flex flex-wrap gap-3 mb-10 justify-center">
-            {categories.map((cat) => (
-              <button
+          {/* FILTER */}
+          <div className="flex flex-wrap justify-center gap-3 mb-12">
+            {categories.map((cat, i) => (
+              <motion.button
                 key={cat}
                 onClick={() => setFilter(cat)}
-                className={`px-5 py-2.5 rounded-full font-body font-semibold text-sm transition-all ${filter === cat ? "bg-saffron text-white shadow-glow" : "bg-muted text-muted-foreground hover:bg-saffron/10 hover:text-saffron"}`}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.05 }}
+                className={`px-5 py-2.5 rounded-full text-sm font-semibold backdrop-blur-md border transition-all ${
+                  filter === cat
+                    ? "bg-[#355E3B] text-white border-[#355E3B] shadow-md"
+                    : "bg-white/60 text-gray-600 border-[#355E3B]/10 hover:bg-[#355E3B]/10 hover:text-[#355E3B]"
+                }`}
               >
                 {cat}
-              </button>
+              </motion.button>
             ))}
           </div>
 
-          {/* Grid */}
-          <div className="columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
+          {/* GRID */}
+          <motion.div
+            layout
+            className="columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4"
+          >
             {display.map((img, i) => (
-              <div
+              <motion.div
                 key={img.id}
-                onClick={() => img.image_url ? setSelected(img) : null}
-                className="break-inside-avoid rounded-2xl overflow-hidden shadow-card hover-lift cursor-pointer group"
+                layout
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: i * 0.03 }}
+                onClick={() => img.image_url && setSelected(img)}
+                className="relative break-inside-avoid rounded-2xl overflow-hidden shadow-md hover:shadow-xl cursor-pointer group"
               >
                 {img.image_url ? (
-                  <img src={img.image_url} alt={img.title || ""} className="w-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <>
+                    <img
+                      src={img.image_url}
+                      alt={img.title || ""}
+                      className="w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+
+                    {/* HOVER OVERLAY */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#1f2d24]/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-4">
+                      <p className="text-white text-sm font-medium">
+                        {img.title || "View Image"}
+                      </p>
+                    </div>
+                  </>
                 ) : (
-                  <div className={`w-full h-48 ${placeholderBgs[i % placeholderBgs.length]} flex items-center justify-center`}>
+                  <div className="w-full h-48 bg-gradient-to-br from-[#355E3B] to-[#1f2d24] flex items-center justify-center">
                     <Image size={32} className="text-white/30" />
                   </div>
                 )}
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
 
           {images.length === 0 && (
-            <p className="text-center font-body text-muted-foreground text-sm mt-8">
-              Gallery images will appear here once the admin uploads them.
+            <p className="text-center text-gray-500 text-sm mt-10">
+              Gallery images will appear here once uploaded.
             </p>
           )}
         </div>
       </section>
 
-      {/* Lightbox */}
-      {selected && (
-        <div
-          className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4"
-          onClick={() => setSelected(null)}
-        >
-          <button className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20 transition-colors">
-            <X size={20} />
-          </button>
-          <img
-            src={selected.image_url}
-            alt={selected.title || ""}
-            className="max-w-full max-h-[90vh] rounded-xl object-contain"
-            onClick={(e) => e.stopPropagation()}
-          />
-          {selected.title && (
-            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 bg-black/50 text-white font-body px-6 py-2 rounded-full text-sm backdrop-blur-sm">
-              {selected.title}
-            </div>
-          )}
-        </div>
-      )}
+      {/* LIGHTBOX */}
+      <AnimatePresence>
+        {selected && (
+          <motion.div
+            className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSelected(null)}
+          >
+            <button className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20">
+              <X size={20} />
+            </button>
+
+            <motion.img
+              src={selected.image_url}
+              alt={selected.title || ""}
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              className="max-w-full max-h-[90vh] rounded-xl object-contain"
+              onClick={(e) => e.stopPropagation()}
+            />
+
+            {selected.title && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="absolute bottom-6 left-1/2 -translate-x-1/2 bg-black/50 text-white px-6 py-2 rounded-full text-sm backdrop-blur-sm"
+              >
+                {selected.title}
+              </motion.div>
+            )}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </main>
   );
 }
