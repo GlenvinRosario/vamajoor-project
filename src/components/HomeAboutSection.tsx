@@ -4,98 +4,209 @@ import hero1 from "@/assets/hero1.jpg";
 
 const programs = [
   {
-    icon: BookOpen,
-    title: "Child Education",
-    description: "Providing scholarships, books, and mentoring to children from underprivileged families to ensure they receive quality education.",
-    color: "bg-saffron/10 text-saffron",
-  },
-  {
     icon: Heart,
-    title: "Health & Medical Aid",
-    description: "Free medical camps, health check-ups, and medicines for those who cannot afford healthcare.",
+    title: "Healthcare Services",
+    description:
+      "Providing medical care through hospitals, dispensaries, and outreach programs serving the sick and vulnerable.",
     color: "bg-maroon/10 text-maroon",
   },
   {
+    icon: BookOpen,
+    title: "Education",
+    description:
+      "Empowering children and youth through schools and educational initiatives for a better future.",
+    color: "bg-saffron/10 text-saffron",
+  },
+  {
     icon: Users,
-    title: "Women Empowerment",
-    description: "Skill development workshops, self-help groups, and microfinance support to empower women across rural communities.",
+    title: "Social Outreach",
+    description:
+      "Supporting marginalized communities through social programs, child care, and awareness initiatives.",
     color: "bg-gold/20 text-amber-700",
   },
   {
     icon: Leaf,
-    title: "Rural Development",
-    description: "Infrastructure development, clean water initiatives, and sustainable farming programs for rural communities.",
+    title: "Women Empowerment",
+    description:
+      "Helping women become independent through skill training and self-help group initiatives.",
     color: "bg-green-100 text-green-700",
   },
 ];
 
-export default function HomeAboutSection() {
+export default function Home() {
   return (
-    <section className="py-20 bg-cream">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          {/* Left: Image */}
-          <div className="relative">
-            <div className="rounded-3xl overflow-hidden shadow-lg">
-              <img src={hero1} alt="About Dharma Jyothi Social Centre" className="w-full h-[480px] object-cover" />
-            </div>
-            {/* Badge overlay */}
-            <div className="absolute -bottom-6 -right-4 bg-card rounded-2xl p-5 shadow-lg border border-border">
-              <p className="font-display text-saffron font-bold text-3xl">15+</p>
-              <p className="font-body text-muted-foreground text-sm">Years of Service</p>
-            </div>
-            {/* Accent dot pattern */}
-            <div className="absolute -top-4 -left-4 w-24 h-24 grid grid-cols-4 gap-1.5 opacity-20">
-              {Array.from({ length: 16 }).map((_, i) => (
-                <div key={i} className="w-2 h-2 rounded-full bg-saffron" />
-              ))}
-            </div>
-          </div>
+    <div>
 
-          {/* Right: Content */}
-          <div>
-            <div className="inline-flex items-center gap-2 bg-saffron/10 rounded-full px-4 py-1.5 mb-5">
-              <span className="w-2 h-2 rounded-full bg-saffron"></span>
-              <span className="font-body text-saffron text-sm font-semibold uppercase tracking-wider">About Us</span>
-            </div>
+      {/* 🔹 HERO SECTION */}
+      <section className="relative h-[90vh] flex items-center justify-center text-center">
+        <img
+          src={hero1}
+          alt="Church"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black/50"></div>
 
-            <h2 className="font-display text-4xl font-bold text-foreground mb-6 leading-tight">
-              Serving Humanity with <span className="text-saffron">Compassion</span> & <span className="text-maroon">Dedication</span>
-            </h2>
+        <div className="relative z-10 text-white px-4">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+            Serving Humanity with Compassion & Faith
+          </h1>
+          <p className="max-w-2xl mx-auto text-lg mb-8">
+            Dharma Jyothi Charitable Society, Vamanjoor — empowering lives
+            through education, healthcare, and social service since 1976.
+          </p>
 
-            <p className="font-body text-muted-foreground text-base leading-relaxed mb-6">
-              Dharma Jyothi Social Centre is a wing of Dharma Jyothi Charitable Society, established with a mission to uplift underprivileged communities through education, health, and sustainable development programs across Karnataka.
-            </p>
-
-            <p className="font-body text-muted-foreground text-base leading-relaxed mb-8">
-              For over 15 years, we have been the light of hope for thousands of families, working tirelessly to ensure that no child goes without education, no family lacks healthcare, and no community is left behind.
-            </p>
-
-            {/* Programs grid */}
-            <div className="grid grid-cols-2 gap-4 mb-8">
-              {programs.map((prog) => (
-                <div key={prog.title} className="flex items-start gap-3 p-3 rounded-xl bg-card shadow-sm border border-border">
-                  <div className={`w-9 h-9 rounded-lg flex items-center justify-center shrink-0 ${prog.color}`}>
-                    <prog.icon size={16} />
-                  </div>
-                  <div>
-                    <p className="font-body font-semibold text-foreground text-sm">{prog.title}</p>
-                    <p className="font-body text-muted-foreground text-xs leading-snug mt-0.5 line-clamp-2">{prog.description}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-
+          <div className="flex gap-4 justify-center">
             <Link
               to="/about"
-              className="inline-flex items-center gap-2 bg-saffron text-white font-body font-semibold px-7 py-3 rounded-xl hover:bg-saffron-light transition-all duration-300 hover:-translate-y-1 shadow-glow group"
+              className="bg-saffron px-6 py-3 rounded-xl font-semibold hover:bg-saffron-light transition"
             >
-              Learn More About Us
-              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+              Explore More
+            </Link>
+            <Link
+              to="/contact"
+              className="border border-white px-6 py-3 rounded-xl font-semibold hover:bg-white hover:text-black transition"
+            >
+              Contact Us
             </Link>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      {/* 🔹 ABOUT SECTION */}
+      <section className="py-20 bg-cream">
+        <div className="container mx-auto px-4 grid lg:grid-cols-2 gap-16 items-center">
+
+          <img
+            src={hero1}
+            alt="About"
+            className="rounded-3xl shadow-lg h-[450px] object-cover w-full"
+          />
+
+          <div>
+            <h2 className="text-4xl font-bold mb-6">
+              Who We Are
+            </h2>
+
+            <p className="text-muted-foreground mb-6">
+              Dharma Jyothi Charitable Society is a non-profit organization
+              dedicated to uplifting marginalized communities through
+              education, healthcare, and social outreach. Founded in 1976,
+              the society continues to serve with compassion and faith.
+            </p>
+
+            <p className="text-muted-foreground mb-8">
+              Inspired by the Missionary Sisters, our work reaches across
+              communities supporting women, children, and the needy through
+              various ministries and outreach programs.
+            </p>
+
+            <Link
+              to="/about"
+              className="inline-flex items-center gap-2 bg-saffron text-white px-6 py-3 rounded-xl"
+            >
+              Learn More <ArrowRight size={16} />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* 🔹 SERVICES */}
+      <section className="py-20">
+        <div className="container mx-auto px-4 text-center">
+
+          <h2 className="text-4xl font-bold mb-12">
+            Our Services
+          </h2>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {programs.map((prog) => (
+              <div key={prog.title} className="p-6 rounded-2xl shadow border bg-white">
+                <div className={`w-12 h-12 flex items-center justify-center rounded-lg mb-4 ${prog.color}`}>
+                  <prog.icon />
+                </div>
+                <h3 className="font-semibold mb-2">{prog.title}</h3>
+                <p className="text-sm text-muted-foreground">
+                  {prog.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 🔹 STATS */}
+      <section className="py-16 bg-saffron text-white text-center">
+        <div className="container mx-auto px-4 grid md:grid-cols-4 gap-6">
+
+          <div>
+            <h3 className="text-3xl font-bold">950+</h3>
+            <p>Sisters Worldwide</p>
+          </div>
+
+          <div>
+            <h3 className="text-3xl font-bold">7</h3>
+            <p>Countries Served</p>
+          </div>
+
+          <div>
+            <h3 className="text-3xl font-bold">45+</h3>
+            <p>Years of Service</p>
+          </div>
+
+          <div>
+            <h3 className="text-3xl font-bold">1000+</h3>
+            <p>Lives Impacted</p>
+          </div>
+
+        </div>
+      </section>
+
+      {/* 🔹 GALLERY PREVIEW */}
+      <section className="py-20">
+        <div className="container mx-auto px-4 text-center">
+
+          <h2 className="text-4xl font-bold mb-10">
+            Our Work in Action
+          </h2>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+            {[1, 2, 3, 4].map((i) => (
+              <img
+                key={i}
+                src={hero1}
+                className="rounded-xl h-40 w-full object-cover"
+              />
+            ))}
+          </div>
+
+          <Link to="/gallery" className="text-saffron font-semibold">
+            View Full Gallery →
+          </Link>
+        </div>
+      </section>
+
+      {/* 🔹 CTA */}
+      <section className="py-20 bg-cream text-center">
+        <div className="container mx-auto px-4">
+
+          <h2 className="text-4xl font-bold mb-6">
+            Join Us in Making a Difference
+          </h2>
+
+          <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
+            Be a part of our mission to uplift lives and build a better society
+            through compassion, service, and faith.
+          </p>
+
+          <Link
+            to="/contact"
+            className="bg-saffron text-white px-8 py-3 rounded-xl"
+          >
+            Get Involved
+          </Link>
+        </div>
+      </section>
+
+    </div>
   );
 }
