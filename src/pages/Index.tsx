@@ -3,11 +3,10 @@ import HeroCarousel from "@/components/HeroCarousel";
 import HomeQuickLinks from "@/components/HomeQuickLinks";
 import HomeAboutSection from "@/components/HomeAboutSection";
 import HomeNewsSection from "@/components/HomeNewsSection";
-import HomeDonationSection from "@/components/HomeDonationSection";
 import HomeGallerySection from "@/components/HomeGallerySection";
 import Achievements from "@/pages/Achievements";
+import DonationsPage from "./DonationsPage";
 
-// 🔥 REAL ANNOUNCEMENTS (from PDF)
 const announcements = [
   "🏥 Serving communities through hospitals, dispensaries & mental health care",
   "📚 Child Sponsorship Programme helping children achieve education",
@@ -29,7 +28,6 @@ export default function Index() {
       {/* HERO */}
       <HeroCarousel />
 
-      {/* 🔥 PREMIUM + MEANINGFUL TICKER */}
       <div className="bg-gradient-to-r from-[#1f2d24] via-[#355E3B] to-[#2f4f34] py-2.5 overflow-hidden border-y border-white/10">
         <div className="flex items-center">
           {/* Label */}
@@ -100,7 +98,7 @@ export default function Index() {
         transition={{ duration: 0.6, delay: 0.3 }}
         viewport={{ once: true }}
       >
-        <HomeDonationSection />
+        <DonationsPage />
       </motion.div>
 
       <motion.div
@@ -123,7 +121,6 @@ export default function Index() {
         <Achievements />
       </motion.div>
 
-      {/* 🔥 IMPACT STRIP (NEW — HIGH VALUE) */}
       <div className="bg-gradient-to-r from-[#355E3B] to-[#1f2d24] py-10 text-center">
         <p className="text-white text-lg font-medium max-w-3xl mx-auto px-4">
           Empowering lives through education, healthcare, and social outreach —

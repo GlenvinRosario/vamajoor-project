@@ -123,9 +123,11 @@ export default function Footer() {
             <div className="flex gap-3">
               <MapPin size={16} className="text-gold mt-0.5 shrink-0" />
               <p className="font-body text-white/70 text-sm">
-                Dharma Jyothi Social Centre,
+               Dharma Jyothi Charitable Society,
                 <br />
-                Vamanjoor, Karnataka, India
+                Queen of Apostles Convent
+                Vamanjoor P O
+                MANGALURU-575028
               </p>
             </div>
 
@@ -135,17 +137,17 @@ export default function Footer() {
                 href="tel:+916360143936"
                 className="font-body text-white/70 text-sm hover:text-gold transition-colors"
               >
-                +91 63601-43936
+                +91 7019249483
               </a>
             </div>
 
             <div className="flex gap-3">
               <Mail size={16} className="text-gold shrink-0" />
               <a
-                href="mailto:info@dharmajyothisc.org"
+                href="mailto:dharmajyothicharitablesociety@gmail.com"
                 className="font-body text-white/70 text-sm hover:text-gold transition-colors"
               >
-                info@dharmajyothisc.org
+                dharmajyothicharitablesociety@gmail.com
               </a>
             </div>
           </div>

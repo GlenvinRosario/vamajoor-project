@@ -51,7 +51,7 @@ export default function DonationsPage() {
                 </div>
                 <div className="mt-4 flex items-center gap-2 text-white/60 text-xs">
                   <Phone size={12} />
-                  <span>Call +91 63601-43936 for assistance</span>
+                  <span>Call +91 7019249483 for assistance</span>
                 </div>
               </div>
             </div>
