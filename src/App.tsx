@@ -12,7 +12,6 @@ import ProgramsPage from "./pages/ProgramsPage";
 import NewsPage from "./pages/NewsPage";
 import DonationsPage from "./pages/DonationsPage";
 import GalleryPage from "./pages/GalleryPage";
-import MagazinePage from "./pages/MagazinePage";
 import ContactPage from "./pages/ContactPage";
 import AdminPage from "./pages/AdminPage";
 import AuthPage from "./pages/AuthPage";
@@ -38,7 +37,6 @@ const App = () => (
             <Route path="/news" element={<NewsPage />} />
             <Route path="/donations" element={<DonationsPage />} />
             <Route path="/gallery" element={<GalleryPage />} />
-            <Route path="/magazine" element={<MagazinePage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/admin" element={<AdminPage />} />
             <Route path="/auth" element={<AuthPage />} />

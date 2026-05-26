@@ -15,37 +15,10 @@ import dharmaLogo from "@/assets/dharmaLogo.png";
 
 const navItems = [
   { label: "Home", href: "/" },
-  {
-    label: "About",
-    href: "/about",
-    children: [
-      { label: "About Us", href: "/about" },
-      { label: "Our Mission", href: "/about#mission" },
-      { label: "Our Vision", href: "/about#vision" },
-      { label: "Our History", href: "/about#history" },
-    ],
-  },
 
-  {
-    label: "Our Work",
-    href: "/programs",
-    children: [
-      { label: "Education Services", href: "/programs#education" },
-      { label: "Healthcare Services", href: "/programs#health" },
-      { label: "Women Empowerment", href: "/programs#women" },
-      { label: "Social Outreach", href: "/programs#social" },
-    ],
-  },
+  { label: "About Us", href: "/about" },
 
-  // {
-  //   label: "Institutions",
-  //   href: "/institutions",
-  //   children: [
-  //     { label: "Schools", href: "/institutions#schools" },
-  //     { label: "Hospitals", href: "/institutions#hospitals" },
-  //     { label: "Social Centres", href: "/institutions#centres" },
-  //   ],
-  // },
+  { label: "Our Work", href: "/programs" },
 
   { label: "News & Events", href: "/news" },
 
@@ -59,8 +32,9 @@ const navItems = [
     highlight: true,
   },
 
-  { label: "Contact", href: "/contact" },
   { label: "Achievements", href: "/achievements" },
+
+  { label: "Contact", href: "/contact" },
 ];
 
 export default function Navbar() {
