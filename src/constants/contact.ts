@@ -9,14 +9,14 @@ export const CONTACT_INFO = [
     icon: MapPin,
     label: "Address",
     value: `Dharma Jyothi Charitable Society
-Queen of Apostles Convent
-Vamanjoor P O
-MANGALURU - 575028`,
+    Queen of Apostles Convent
+    Vamanjoor P O
+    MANGALURU - 575028`,
   },
   {
     icon: Phone,
     label: "Phone",
-    value: "+91 63601 43936",
+    value: "+91 7019249483",
   },
   {
     icon: Mail,

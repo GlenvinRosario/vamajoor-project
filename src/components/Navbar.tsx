@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   Menu,
   X,
@@ -9,207 +10,156 @@ import {
   Instagram,
   Linkedin,
   Twitter,
-  ChevronDown,
 } from "lucide-react";
 import dharmaLogo from "@/assets/dharmaLogo.png";
 
 const navItems = [
   { label: "Home", href: "/" },
-
-  { label: "About Us", href: "/about" },
-
-  { label: "Our Work", href: "/programs" },
-
-  { label: "News & Events", href: "/news" },
-
+  { label: "About", href: "/about" },
+  { label: "Team", href: "/our-team" },
+  { label: "Work", href: "/programs" },
+  { label: "News", href: "/news" },
   { label: "Gallery", href: "/gallery" },
-
-  { label: "E-Magazine", href: "/magazine" },
-
-  {
-    label: "Donate",
-    href: "/donations",
-    highlight: true,
-  },
-
   { label: "Achievements", href: "/achievements" },
-
   { label: "Contact", href: "/contact" },
 ];
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [openDropdown, setOpenDropdown] = useState(null);
   const location = useLocation();
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   useEffect(() => {
-    setIsOpen(false);
-    setOpenDropdown(null);
+    setOpen(false);
   }, [location]);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50">
-      {/* Top bar */}
-      <div className="bg-[#355E3B] text-white py-1.5 px-4 hidden md:flex items-center justify-between text-xs">
-        <div className="flex items-center gap-4">
-          <a
-            href="mailto:dharmajyothicharitablesociety@gmail.com"
-            className="flex items-center gap-1.5 hover:text-gray-200"
-          >
-            <Mail size={12} />
-            <span>dharmajyothicharitablesociety@gmail.com</span>
-          </a>
-
-          <a
-            href="tel:+916360143936"
-            className="flex items-center gap-1.5 hover:text-gray-200"
-          >
-            <Phone size={12} />
-            <span>+91 7019249483</span>
-          </a>
+    <header className="fixed top-0 left-0 w-full z-50">
+      {/* TOP BAR */}
+      <div className="hidden md:flex justify-between items-center px-6 py-2 bg-gradient-to-r from-[#0f2f1c] to-[#1e4a2f] text-white text-xs tracking-wide">
+        <div className="flex gap-4 items-center opacity-80">
+          <span className="flex items-center gap-1">
+            <Mail size={12} /> dharmajyothi@gmail.com
+          </span>
+          <span className="flex items-center gap-1">
+            <Phone size={12} /> +91 70192 49483
+          </span>
         </div>
 
-        <div className="flex items-center gap-3">
-          <a href="#">
-            <Facebook size={13} />
-          </a>
-          <a href="#">
-            <Instagram size={13} />
-          </a>
-          <a href="#">
-            <Linkedin size={13} />
-          </a>
-          <a href="#">
-            <Twitter size={13} />
-          </a>
+        <div className="flex gap-3 opacity-80">
+          <Facebook size={14} />
+          <Instagram size={14} />
+          <Linkedin size={14} />
+          <Twitter size={14} />
         </div>
       </div>
 
-      {/* Main nav */}
-      <nav
-        className={`transition-all duration-300 ${
+      {/* NAVBAR */}
+      <motion.nav
+        animate={{
+          padding: scrolled ? "10px 0" : "16px 0",
+        }}
+        className={`backdrop-blur-xl transition-all duration-300 ${
           scrolled
-            ? "bg-white/95 backdrop-blur-md shadow-lg py-2"
-            : "bg-white py-3"
+            ? "bg-white/80 shadow-lg border-b border-green-100"
+            : "bg-white/60"
         }`}
       >
         <div className="container mx-auto px-4 flex items-center justify-between">
-          {/* 🔥 LOGO (Improved) */}
-          <Link to="/" className="flex items-center gap-3 group">
-            <div className="bg-white p-1.5 rounded-xl shadow-sm group-hover:shadow-md transition">
-              <img
-                src={dharmaLogo}
-                alt="Dharma Jyothi"
-                className="h-11 w-11 object-contain group-hover:scale-105 transition"
-              />
+          {/* LOGO */}
+          <Link to="/" className="flex items-center gap-3">
+            <div className="bg-white p-1.5 rounded-xl shadow-md">
+              <img src={dharmaLogo} className="h-10 w-10" />
             </div>
 
-            <div className="leading-tight">
-              <p className="text-[#355E3B] font-bold text-base tracking-wide">
+            <div>
+              <h1 className="text-[#1e4a2f] font-bold leading-tight">
                 Dharma Jyothi
-              </p>
-              <p className="text-gray-600 text-xs font-medium">
+              </h1>
+              <p className="text-xs text-gray-500">
                 Charitable Society
               </p>
             </div>
           </Link>
 
-          {/* Desktop nav */}
+          {/* DESKTOP NAV */}
           <div className="hidden lg:flex items-center gap-1">
-            {navItems.map((item) => (
-              <div
-                key={item.label}
-                className="relative group"
-                onMouseEnter={() =>
-                  item.children && setOpenDropdown(item.label)
-                }
-                onMouseLeave={() => setOpenDropdown(null)}
-              >
+            {navItems.map((item) => {
+              const active = location.pathname === item.href;
+
+              return (
                 <Link
+                  key={item.label}
                   to={item.href}
-                  className={`flex items-center gap-1 px-3 py-2 rounded-md text-sm font-medium transition-all ${
-                    item.highlight
-                      ? "bg-[#355E3B] text-white hover:bg-green-800"
-                      : location.pathname === item.href
-                        ? "text-[#355E3B] bg-[#355E3B]/10"
-                        : "text-gray-700 hover:text-[#355E3B] hover:bg-[#355E3B]/5"
-                  }`}
+                  className="relative px-4 py-2 text-sm font-medium text-gray-700 hover:text-[#1e4a2f] transition group"
                 >
                   {item.label}
-                  {item.children && <ChevronDown size={13} />}
-                </Link>
 
-                {item.children && openDropdown === item.label && (
-                  <div className="absolute top-full left-0 mt-1 w-52 bg-white rounded-lg shadow-lg border overflow-hidden z-50">
-                    {item.children.map((child) => (
-                      <Link
-                        key={child.label}
-                        to={child.href}
-                        className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-[#355E3B]/10 hover:text-[#355E3B]"
-                      >
-                        {child.label}
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </div>
-            ))}
+                  {/* underline animation */}
+                  <span
+                    className={`absolute left-1/2 -bottom-1 h-[2px] w-0 bg-gradient-to-r from-green-600 to-emerald-400 transition-all duration-300 group-hover:w-full group-hover:left-0 ${
+                      active ? "w-full left-0" : ""
+                    }`}
+                  />
+                </Link>
+              );
+            })}
+
+            {/* CTA BUTTON */}
+            <Link
+              to="/donations"
+              className="ml-4 px-5 py-2 rounded-full bg-gradient-to-r from-green-700 to-emerald-500 text-white font-semibold shadow-md hover:scale-105 transition"
+            >
+              Donate
+            </Link>
           </div>
 
-          {/* Mobile toggle */}
+          {/* MOBILE BUTTON */}
           <button
-            className="lg:hidden p-2 rounded-md text-gray-700 hover:bg-gray-100"
-            onClick={() => setIsOpen(!isOpen)}
+            onClick={() => setOpen(!open)}
+            className="lg:hidden p-2 rounded-lg bg-green-50"
           >
-            {isOpen ? <X size={22} /> : <Menu size={22} />}
+            {open ? <X /> : <Menu />}
           </button>
         </div>
 
-        {/* Mobile menu */}
-        {isOpen && (
-          <div className="lg:hidden bg-white border-t">
-            <div className="container mx-auto px-4 py-4 space-y-1">
-              {navItems.map((item) => (
-                <div key={item.label}>
+        {/* MOBILE MENU */}
+        <AnimatePresence>
+          {open && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              className="lg:hidden bg-white border-t overflow-hidden"
+            >
+              <div className="px-4 py-4 space-y-2">
+                {navItems.map((item) => (
                   <Link
+                    key={item.label}
                     to={item.href}
-                    className={`block px-4 py-2.5 rounded-md text-sm font-medium ${
-                      item.highlight
-                        ? "bg-[#355E3B] text-white"
-                        : location.pathname === item.href
-                          ? "text-[#355E3B] bg-[#355E3B]/10"
-                          : "text-gray-700 hover:text-[#355E3B] hover:bg-[#355E3B]/5"
-                    }`}
+                    className="block px-4 py-2 rounded-lg text-gray-700 hover:bg-green-50 hover:text-green-700"
                   >
                     {item.label}
                   </Link>
+                ))}
 
-                  {item.children && (
-                    <div className="ml-4 mt-1 space-y-1">
-                      {item.children.map((child) => (
-                        <Link
-                          key={child.label}
-                          to={child.href}
-                          className="block px-4 py-2 text-xs text-gray-500 hover:text-[#355E3B]"
-                        >
-                          {child.label}
-                        </Link>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
-      </nav>
+                <Link
+                  to="/donations"
+                  className="block text-center mt-3 px-4 py-3 rounded-xl bg-gradient-to-r from-green-700 to-emerald-500 text-white font-semibold"
+                >
+                  Donate Now
+                </Link>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </motion.nav>
     </header>
   );
 }

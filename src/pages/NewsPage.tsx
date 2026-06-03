@@ -3,15 +3,15 @@ import { motion } from "framer-motion";
 const highlights = [
   {
     title: "Empowering Communities Since 1976",
-    desc: "Dharma Jyothi Charitable Society has transformed lives across Karnataka, Goa, and Manipur through education, healthcare, and outreach.",
+    desc: "Dharma Jyothi Charitable Society has transformed lives through education, healthcare and social outreach across multiple states.",
   },
   {
-    title: "Global Missionary Network",
-    desc: "Part of the Missionary Sisters of the Queen of the Apostles (SRA), serving across India, Europe, Africa, and beyond.",
+    title: "Global Mission Network",
+    desc: "Part of a worldwide missionary ecosystem serving across continents with compassion and service.",
   },
   {
     title: "Women & Child Upliftment",
-    desc: "Focused initiatives supporting marginalized women, children, and youth for a better future.",
+    desc: "Focused initiatives supporting women, children, and youth through sustainable empowerment programs.",
   },
 ];
 
@@ -19,8 +19,8 @@ const programs = [
   "Medical Camps & Rural Healthcare",
   "Child Sponsorship Programs",
   "Women Empowerment & Skill Training",
-  "Environmental Protection Initiatives",
-  "Anti Human Trafficking Programs",
+  "Environmental Sustainability Initiatives",
+  "Humanitarian Outreach Programs",
 ];
 
 const institutions = [
@@ -40,87 +40,128 @@ const awards = [
 
 export default function NewsPage() {
   return (
-    <main className="bg-gradient-to-b from-[#eaf4ee] via-white to-[#eaf4ee]">
-      {/* HERO */}
-      <section className="relative py-24 text-center bg-gradient-to-br from-[#355E3B] via-[#2f4f34] to-[#1f2d24] text-white overflow-hidden">
-        {/* Glow blobs */}
-        <div className="absolute -top-20 -left-20 w-80 h-80 bg-emerald-300/20 blur-3xl rounded-full"></div>
-        <div className="absolute bottom-0 right-0 w-80 h-80 bg-lime-200/10 blur-3xl rounded-full"></div>
+    <main className="bg-[#f6fbf7] text-[#1b2a1e] overflow-hidden">
+
+      {/* ================= HERO ================= */}
+      <section className="relative min-h-[60vh] flex items-center justify-center text-center bg-gradient-to-br from-[#1f3b28] via-[#2f5a3d] to-[#163022] text-white overflow-hidden">
+
+        {/* glow blobs */}
+        <div className="absolute -top-20 -left-20 w-96 h-96 bg-green-300/10 blur-3xl rounded-full" />
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-white/10 blur-3xl rounded-full" />
 
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="px-4"
         >
-          <h1 className="text-5xl font-bold mb-4">News & Impact</h1>
-          <p className="text-white/70 text-lg">
-            Real stories of service, compassion, and transformation
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/15 backdrop-blur-md mb-6">
+            <span className="h-2 w-2 rounded-full bg-green-300" />
+            <span className="text-xs tracking-[3px] uppercase text-white/80">
+              Impact & Updates
+            </span>
+          </div>
+
+          <h1 className="text-5xl md:text-6xl font-bold leading-tight">
+            News & <span className="text-green-300">Impact</span>
+          </h1>
+
+          <p className="mt-5 text-white/70 max-w-2xl mx-auto text-lg">
+            Stories of transformation, service, and community development
+            driven by compassion and action.
           </p>
         </motion.div>
       </section>
 
-      {/* HIGHLIGHTS */}
+      {/* ================= HIGHLIGHTS ================= */}
       <section className="container mx-auto px-4 py-20">
         <div className="grid md:grid-cols-3 gap-8">
           {highlights.map((item, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              whileHover={{ y: -8 }}
-              className="p-6 rounded-2xl bg-white/70 backdrop-blur-md border border-[#355E3B]/10 shadow-md hover:shadow-xl transition-all"
+              whileHover={{ y: -10 }}
+              className="
+                rounded-[28px]
+                bg-white/70
+                backdrop-blur-xl
+                border border-green-900/10
+                shadow-[0_10px_40px_rgba(0,0,0,0.06)]
+                hover:shadow-[0_25px_60px_rgba(46,125,78,0.15)]
+                transition-all duration-500
+                p-7
+              "
             >
-              <h3 className="text-[#355E3B] font-bold text-lg mb-3">
+              <h3 className="text-[#2f5a3d] font-bold text-lg mb-3">
                 {item.title}
               </h3>
-              <p className="text-gray-600 text-sm">{item.desc}</p>
+              <p className="text-gray-600 text-sm leading-6">
+                {item.desc}
+              </p>
             </motion.div>
           ))}
         </div>
       </section>
 
-      {/* PROGRAMS */}
-      <section className="py-20 bg-gradient-to-br from-[#f4f9f6] to-[#eaf4ee]">
+      {/* ================= PROGRAMS ================= */}
+      <section className="py-20 bg-gradient-to-b from-white to-[#eef7f0]">
         <div className="container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
+
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
           >
-            <h2 className="text-3xl font-bold text-[#355E3B] mb-6">
+            <h2 className="text-4xl font-bold mb-6 text-[#1f3b28]">
               Our Key Initiatives
             </h2>
 
-            <ul className="space-y-3 text-gray-600">
+            <ul className="space-y-4">
               {programs.map((p, i) => (
-                <li key={i} className="flex gap-2">
-                  <span className="w-2 h-2 bg-emerald-500 rounded-full mt-2"></span>
-                  {p}
+                <li key={i} className="flex items-start gap-3 text-gray-600">
+                  <span className="mt-2 h-2 w-2 rounded-full bg-green-600 shrink-0" />
+                  <span>{p}</span>
                 </li>
               ))}
             </ul>
           </motion.div>
 
-          {/* Gradient card */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
-            className="p-8 rounded-2xl bg-gradient-to-br from-[#355E3B] via-[#2f4f34] to-[#1f2d24] text-white shadow-xl relative overflow-hidden"
+            viewport={{ once: true }}
+            className="
+              relative
+              rounded-[32px]
+              overflow-hidden
+              p-10
+              text-white
+              bg-gradient-to-br from-[#1f3b28] via-[#2f5a3d] to-[#163022]
+              shadow-2xl
+            "
           >
-            <div className="absolute inset-0 bg-white/5"></div>
+            <div className="absolute inset-0 bg-white/5" />
 
-            <h3 className="text-xl font-semibold mb-4">Our Mission</h3>
-            <p className="text-white/80 text-sm leading-relaxed">
-              To proclaim the compassionate love of God and empower marginalized
-              communities to build a just and dignified society.
+            <h3 className="text-2xl font-semibold mb-4">
+              Our Mission
+            </h3>
+
+            <p className="text-white/75 leading-7">
+              To serve humanity through education, healthcare, and social
+              upliftment while building a compassionate and just society.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* INSTITUTIONS */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-[#355E3B] mb-12 text-center">
+      {/* ================= INSTITUTIONS ================= */}
+      <section className="py-20 bg-[#f6fbf7]">
+        <div className="container mx-auto px-4 text-center">
+
+          <h2 className="text-4xl font-bold mb-12 text-[#1f3b28]">
             Our Institutions
           </h2>
 
@@ -128,56 +169,88 @@ export default function NewsPage() {
             {institutions.map((item, i) => (
               <motion.div
                 key={i}
-                whileHover={{ scale: 1.05 }}
-                className="p-5 rounded-xl bg-gradient-to-br from-[#eaf4ee] to-white border border-[#355E3B]/10 shadow-sm hover:shadow-md"
+                whileHover={{ y: -6 }}
+                className="
+                  rounded-[24px]
+                  bg-white
+                  border border-green-900/10
+                  shadow-md
+                  hover:shadow-xl
+                  transition-all
+                  p-6
+                "
               >
-                <p className="text-[#355E3B] font-semibold">{item}</p>
+                <p className="font-semibold text-[#2f5a3d]">
+                  {item}
+                </p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* AWARDS */}
-      <section className="py-20 bg-gradient-to-br from-[#eef5f0] to-[#f8fbf9]">
+      {/* ================= AWARDS ================= */}
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold text-[#355E3B] mb-10">
+
+          <h2 className="text-4xl font-bold mb-12 text-[#1f3b28]">
             Recognitions & Awards
           </h2>
 
-          <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {awards.map((a, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                whileHover={{ y: -5 }}
-                className="p-5 rounded-xl bg-white shadow-md border border-[#355E3B]/10"
+                whileHover={{ scale: 1.03 }}
+                className="
+                  rounded-[24px]
+                  bg-[#f3faf5]
+                  border border-green-900/10
+                  p-6
+                  shadow-sm
+                  hover:shadow-lg
+                  transition-all
+                "
               >
-                {a}
+                <p className="font-medium text-[#1f3b28]">
+                  {a}
+                </p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* FUTURE NEEDS */}
-      <section className="py-20 bg-gradient-to-br from-[#355E3B] to-[#1f2d24] text-white text-center relative overflow-hidden">
-        <div className="absolute -top-10 right-10 w-60 h-60 bg-white/10 blur-3xl rounded-full"></div>
+      {/* ================= FUTURE ================= */}
+      <section className="py-24 text-center relative overflow-hidden bg-gradient-to-br from-[#1f3b28] to-[#0f1f16] text-white">
 
-        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}>
-          <h2 className="text-3xl font-bold mb-4">Future Vision</h2>
-          <p className="text-white/70 max-w-2xl mx-auto mb-6">
-            Expanding our mission with new initiatives to serve the vulnerable.
+        <div className="absolute -top-20 right-10 w-96 h-96 bg-green-300/10 blur-3xl rounded-full" />
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+        >
+          <h2 className="text-4xl font-bold mb-4">
+            Future Vision
+          </h2>
+
+          <p className="text-white/70 max-w-2xl mx-auto mb-8">
+            Expanding our reach with new initiatives focused on healthcare,
+            education, and social welfare.
           </p>
 
-          <ul className="space-y-2 text-white/80 text-sm">
-            <li>• New psychiatric block at St. Ignatius Hospital</li>
-            <li>• Care center for destitute</li>
-            <li>• New pre-primary schools</li>
+          <ul className="space-y-2 text-white/80">
+            <li>New healthcare expansion projects</li>
+            <li>Educational institution growth</li>
+            <li>Care centers for the vulnerable</li>
           </ul>
         </motion.div>
       </section>
+
     </main>
   );
 }
+

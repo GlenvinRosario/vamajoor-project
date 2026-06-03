@@ -10,7 +10,6 @@ import AboutPage from "./pages/AboutPage";
 import TeamPage from "./pages/TeamPage";
 import ProgramsPage from "./pages/ProgramsPage";
 import NewsPage from "./pages/NewsPage";
-import DonationsPage from "./pages/DonationsPage";
 import GalleryPage from "./pages/GalleryPage";
 import ContactPage from "./pages/ContactPage";
 import AdminPage from "./pages/AdminPage";
@@ -18,6 +17,7 @@ import AuthPage from "./pages/AuthPage";
 import NotFound from "./pages/NotFound";
 import Donations from "./pages/Donations";
 import Achievements from "./pages/Achievements";
+import OurTeam from "./pages/OurTeam";
 
 const queryClient = new QueryClient();
 
@@ -32,10 +32,11 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/about" element={<AboutPage />} />
+            <Route path="/our-team" element={<OurTeam />} />
             <Route path="/team" element={<TeamPage />} />
             <Route path="/programs" element={<ProgramsPage />} />
             <Route path="/news" element={<NewsPage />} />
-            <Route path="/donations" element={<DonationsPage />} />
+            <Route path="/donations" element={<Donations />} />
             <Route path="/gallery" element={<GalleryPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/admin" element={<AdminPage />} />
@@ -43,6 +44,7 @@ const App = () => (
             <Route path="/donations2" element={<Donations />} />
             <Route path="/achievements" element={<Achievements />} />
             <Route path="*" element={<NotFound />} />
+           
           </Routes>
         </div>
         <Footer />

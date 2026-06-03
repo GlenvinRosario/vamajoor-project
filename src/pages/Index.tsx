@@ -3,9 +3,8 @@ import HeroCarousel from "@/components/HeroCarousel";
 import HomeQuickLinks from "@/components/HomeQuickLinks";
 import HomeAboutSection from "@/components/HomeAboutSection";
 import HomeNewsSection from "@/components/HomeNewsSection";
-import HomeGallerySection from "@/components/HomeGallerySection";
+
 import Achievements from "@/pages/Achievements";
-import DonationsPage from "./DonationsPage";
 
 const announcements = [
   "🏥 Serving communities through hospitals, dispensaries & mental health care",
@@ -91,25 +90,6 @@ export default function Index() {
         <HomeNewsSection />
       </motion.div>
 
-      <motion.div
-        variants={sectionVariant}
-        initial="hidden"
-        whileInView="visible"
-        transition={{ duration: 0.6, delay: 0.3 }}
-        viewport={{ once: true }}
-      >
-        <DonationsPage />
-      </motion.div>
-
-      <motion.div
-        variants={sectionVariant}
-        initial="hidden"
-        whileInView="visible"
-        transition={{ duration: 0.6, delay: 0.4 }}
-        viewport={{ once: true }}
-      >
-        <HomeGallerySection />
-      </motion.div>
 
       <motion.div
         variants={sectionVariant}

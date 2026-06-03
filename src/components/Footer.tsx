@@ -13,46 +13,50 @@ import dharmaLogo from "@/assets/dharmaLogo.png";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#355E3B] text-white">
-      {/* Main footer */}
-      <div className="container mx-auto px-4 py-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-        {/* Brand */}
-        <div className="space-y-4">
+    <footer className="relative text-white overflow-hidden">
+
+      {/* BACKGROUND LAYERS */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[#0e2417] via-[#163b26] to-[#0b1710]" />
+
+      <div className="absolute -top-24 -left-24 w-96 h-96 bg-emerald-400/20 blur-3xl rounded-full" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-cyan-300/10 blur-3xl rounded-full" />
+
+      {/* MAIN */}
+      <div className="relative container mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        {/* BRAND */}
+        <div className="space-y-5">
+
           <div className="flex items-center gap-3">
-            {/* ✅ ONLY LOGO CLICKABLE */}
             <Link to="/">
               <img
                 src={dharmaLogo}
-                alt="Dharma Jyothi"
-                className="h-14 w-14 object-contain bg-white p-1.5 rounded-lg hover:scale-105 transition-transform duration-300"
+                alt="logo"
+                className="h-14 w-14 rounded-2xl bg-white p-2 shadow-lg hover:scale-105 transition"
               />
             </Link>
 
-            {/* Text (not clickable) */}
             <div>
-              <p className="font-display font-bold text-gold text-lg leading-tight">
+              <h1 className="text-lg font-bold tracking-wide">
                 DHARMA JYOTHI
-              </p>
-              <p className="font-display font-semibold text-white/90 text-base leading-tight">
+              </h1>
+              <p className="text-xs text-white/60 tracking-[3px]">
                 CHARITABLE SOCIETY
               </p>
             </div>
           </div>
 
-          <p className="font-body text-white/70 text-sm leading-relaxed">
-            Founded in 1976, Dharma Jyothi Charitable Society is committed to
-            proclaiming the compassionate love of God through education,
-            healthcare, and social outreach programs across Karnataka, Goa, and
-            Manipur.
+          <p className="text-sm text-white/60 leading-relaxed">
+            Building stronger communities through compassion, education, and healthcare since 1976.
           </p>
 
-          {/* Social Icons */}
-          <div className="flex items-center gap-3 pt-2">
+          {/* SOCIAL */}
+          <div className="flex gap-3">
             {[Facebook, Instagram, Linkedin, Twitter].map((Icon, i) => (
               <a
                 key={i}
                 href="#"
-                className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-gold hover:text-maroon transition-all duration-200"
+                className="w-9 h-9 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center hover:bg-emerald-500 hover:scale-110 transition"
               >
                 <Icon size={15} />
               </a>
@@ -60,109 +64,103 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Quick Links */}
+        {/* LINKS */}
         <div>
-          <h3 className="font-display text-gold font-semibold text-lg mb-5">
-            Quick Links
+          <h3 className="text-emerald-300 font-semibold mb-5 tracking-wide">
+            Explore
           </h3>
-          <ul className="space-y-2.5">
+
+          <ul className="space-y-3 text-sm">
             {[
               { label: "Home", href: "/" },
-              { label: "About Us", href: "/about" },
-              { label: "Our Mission", href: "/about#mission" },
-              { label: "Our Vision", href: "/about#vision" },
-              { label: "Our Work", href: "/programs" },
+              { label: "About", href: "/about" },
+              { label: "Our Team", href: "/our-team" },
               { label: "Gallery", href: "/gallery" },
               { label: "Achievements", href: "/achievements" },
               { label: "Contact", href: "/contact" },
-            ].map((link) => (
-              <li key={link.label}>
+            ].map((l) => (
+              <li key={l.label}>
                 <Link
-                  to={link.href}
-                  className="font-body text-white/70 text-sm hover:text-gold transition-colors flex items-center gap-2 group"
+                  to={l.href}
+                  className="text-white/60 hover:text-emerald-300 transition flex items-center gap-2 group"
                 >
-                  <span className="w-1.5 h-1.5 rounded-full bg-gold/50 group-hover:bg-gold"></span>
-                  {link.label}
+                  <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full opacity-60 group-hover:opacity-100" />
+                  {l.label}
                 </Link>
               </li>
             ))}
           </ul>
         </div>
 
-        {/* Our Work */}
+        {/* WORK */}
         <div>
-          <h3 className="font-display text-gold font-semibold text-lg mb-5">
+          <h3 className="text-emerald-300 font-semibold mb-5 tracking-wide">
             Our Work
           </h3>
-          <ul className="space-y-2.5">
+
+          <ul className="space-y-3 text-sm text-white/60">
             {[
-              "Education & Formation",
+              "Education Programs",
               "Healthcare Services",
               "Women Empowerment",
-              "Social Outreach Programs",
-              "Community Development",
-            ].map((item) => (
-              <li
-                key={item}
-                className="font-body text-white/70 text-sm flex items-center gap-2"
-              >
-                <span className="w-1.5 h-1.5 rounded-full bg-gold/60"></span>
-                {item}
+              "Community Outreach",
+              "Social Development",
+            ].map((i) => (
+              <li key={i} className="flex items-center gap-2">
+                <span className="w-1.5 h-1.5 bg-cyan-300 rounded-full" />
+                {i}
               </li>
             ))}
           </ul>
         </div>
 
-        {/* Contact */}
+        {/* CONTACT */}
         <div>
-          <h3 className="font-display text-gold font-semibold text-lg mb-5">
-            Contact Us
+          <h3 className="text-emerald-300 font-semibold mb-5 tracking-wide">
+            Connect
           </h3>
 
-          <div className="space-y-4">
+          <div className="space-y-4 text-sm text-white/60">
+
             <div className="flex gap-3">
-              <MapPin size={16} className="text-gold mt-0.5 shrink-0" />
-              <p className="font-body text-white/70 text-sm">
-               Dharma Jyothi Charitable Society,
-                <br />
-                Queen of Apostles Convent
-                Vamanjoor P O
-                MANGALURU-575028
+              <MapPin size={16} className="text-emerald-300 mt-1" />
+              <p>
+                Queen of Apostles Convent, Vamanjoor, Mangaluru
               </p>
             </div>
 
             <div className="flex gap-3">
-              <Phone size={16} className="text-gold shrink-0" />
-              <a
-                href="tel:+916360143936"
-                className="font-body text-white/70 text-sm hover:text-gold transition-colors"
-              >
+              <Phone size={16} className="text-emerald-300" />
+              <a href="tel:+916360143936" className="hover:text-emerald-300">
                 +91 7019249483
               </a>
             </div>
 
             <div className="flex gap-3">
-              <Mail size={16} className="text-gold shrink-0" />
+              <Mail size={16} className="text-emerald-300" />
               <a
                 href="mailto:dharmajyothicharitablesociety@gmail.com"
-                className="font-body text-white/70 text-sm hover:text-gold transition-colors"
+                className="hover:text-emerald-300 break-all"
               >
                 dharmajyothicharitablesociety@gmail.com
               </a>
             </div>
           </div>
 
-          {/* Donate Box */}
-          <div className="mt-6 p-4 bg-white/5 rounded-xl border border-white/10">
-            <p className="font-display text-gold font-semibold text-sm mb-2">
-              Support Our Mission
+          {/* DONATE CARD */}
+          <div className="mt-6 p-4 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 hover:border-emerald-400/40 transition">
+
+            <p className="text-emerald-300 font-semibold text-sm mb-1">
+              Support Mission
             </p>
-            <p className="font-body text-white/60 text-xs mb-3">
-              Your contribution helps transform lives
+
+            <p className="text-xs text-white/50 mb-3">
+              Your contribution creates real impact
             </p>
+
             <Link
               to="/donations"
-              className="inline-flex items-center gap-2 bg-gold text-maroon font-body font-semibold text-sm px-4 py-2 rounded-lg hover:bg-saffron hover:text-white transition-all duration-200"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-semibold hover:scale-105 transition"
             >
               <Heart size={14} />
               Donate Now
@@ -171,41 +169,30 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Bottom bar */}
-      <div className="border-t border-white/10 py-4">
-        <div className="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-3 text-center">
-          <p className="font-body text-white/50 text-xs">
-            © {new Date().getFullYear()} Dharma Jyothi Charitable Society. All
-            rights reserved.
+      {/* BOTTOM BAR */}
+      <div className="relative border-t border-white/10 py-5">
+        <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-white/50">
+
+          <p>
+            © {new Date().getFullYear()} Dharma Jyothi Charitable Society
           </p>
 
-          {/* 🚀 CREATIVE PERSONAL BRAND */}
-          <div className="flex flex-wrap items-center justify-center gap-3 text-xs">
-            <span className="text-white/60">Crafted with ❤️ by</span>
+          <div className="flex items-center gap-2">
+            <span>Crafted with</span>
+            <Heart size={12} className="text-emerald-400" />
+            <span>by</span>
 
-            {/* Name + LinkedIn */}
             <a
-              href="https://www.linkedin.com/in/glenvin-anil-rosario/"
-              target="_blank"
-              rel="noreferrer"
-              className="text-gold font-semibold hover:text-white transition-colors"
+              href="https://www.linkedin.com"
+              className="text-emerald-300 hover:text-white font-semibold"
             >
               Glenvin Rosario
             </a>
-
-            {/* Divider */}
-            <span className="text-white/30">|</span>
-
-            {/* Phone clickable */}
-            <a
-              href="tel:9741053341"
-              className="text-white/70 hover:text-gold transition-colors"
-            >
-              📞 97410 53341
-            </a>
           </div>
+
         </div>
       </div>
+
     </footer>
   );
 }
