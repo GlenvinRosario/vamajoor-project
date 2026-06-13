@@ -39,7 +39,7 @@ export default function AboutPage() {
         <div
           className="absolute inset-0 opacity-20"
           style={{
-            backgroundImage: `url(${hero2})`,
+            backgroundImage: `url("https://res.cloudinary.com/dapmnkke3/image/upload/v1781386506/zhjqerwalfzqcnmyw84r.png")`,
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
@@ -65,7 +65,7 @@ export default function AboutPage() {
           </h1>
 
           <p className="mt-5 text-white/70 max-w-2xl mx-auto text-lg">
-            A journey of compassion, service, and transformation since 1976
+            A journey of compassion, service, and transformation
           </p>
         </motion.div>
       </section>
@@ -128,7 +128,7 @@ export default function AboutPage() {
           >
             <div className="rounded-[32px] overflow-hidden shadow-2xl group">
               <img
-                src={hero2}
+                src="https://res.cloudinary.com/dapmnkke3/image/upload/v1781385896/lg551uypqaeanwshjtef.png"
                 className="h-[450px] w-full object-cover group-hover:scale-105 transition duration-700"
               />
 
