@@ -17,7 +17,7 @@ const slides = [
     secondCtaHref: "/contact",
   },
   {
-    image: 'https://res.cloudinary.com/dapmnkke3/image/upload/v1781387860/zdvrdegtqts3tk8bi495.png',
+    image: 'https://res.cloudinary.com/dapmnkke3/image/upload/v1781430316/bppl6yfs4vfebs4klvyj.png',
     title: "A Mission Rooted in Faith and Service",
     subtitle:
       "Inspired by the Missionary Sisters of the Queen of the Apostles, we proclaim the compassionate love of God by uplifting women, children, and the vulnerable in society.",
@@ -65,12 +65,19 @@ export default function HeroCarousel() {
 
   return (
     <section className="relative w-full h-[90vh] min-h-[560px] overflow-hidden">
-      {/* Background Image */}
-      <div
-        key={current}
-        className="absolute inset-0 bg-cover bg-center transition-all duration-700"
-        style={{ backgroundImage: `url(${slide.image})` }}
-      />
+      {/* Background Images - all rendered, only current is visible, lazy loaded */}
+      {slides.map((s, i) => (
+        <img
+          key={i}
+          src={s.image}
+          alt=""
+          loading="lazy"
+          decoding="async"
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${
+            i === current ? "opacity-100" : "opacity-0"
+          }`}
+        />
+      ))}
 
       <div className="absolute inset-0 bg-black/50" />
 

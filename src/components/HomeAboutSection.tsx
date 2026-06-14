@@ -631,28 +631,60 @@ export default function Home() {
           </div>
 
           {/* masonry-style grid */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {[1, 2, 3, 4].map((item, i) => (
-              <motion.div
-                key={item}
-                custom={i}
-                variants={fadeUp}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                whileHover={{ scale: 1.03, zIndex: 10 }}
-                className="relative overflow-hidden rounded-3xl group"
-                style={{ height: i % 2 === 0 ? "280px" : "220px" }}
-              >
-                <img
-                  src={hero1}
-                  alt=""
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0d3320]/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </motion.div>
-            ))}
-          </div>
+ <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5">
+  {[
+    "https://res.cloudinary.com/dapmnkke3/image/upload/v1781438019/brpkrcclfgzv8uj9ntyi.png",
+    "https://res.cloudinary.com/dapmnkke3/image/upload/v1781438016/bybdjd373tlvimxflpin.jpg",
+    "https://res.cloudinary.com/dapmnkke3/image/upload/v1781438015/jvzvbw2ytbxot7shqzzq.jpg",
+    "https://res.cloudinary.com/dapmnkke3/image/upload/v1781438013/fju0ihov7rxofw7rscsj.jpg",
+  ].map((src, i) => (
+    <motion.div
+      key={i}
+      custom={i}
+      variants={fadeUp}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      whileHover={{ y: -8, scale: 1.02 }}
+      transition={{ type: "spring", stiffness: 300, damping: 20 }}
+      className="relative overflow-hidden rounded-3xl group cursor-pointer
+        border border-white/10
+        shadow-[0_8px_30px_rgba(13,51,32,0.15)]
+        hover:shadow-[0_20px_50px_rgba(13,51,32,0.35)]
+        transition-shadow duration-500"
+      style={{ height: "260px" }}
+    >
+      {/* Image */}
+      <img
+        src={src}
+        alt=""
+        loading="lazy"
+        decoding="async"
+        className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-115"
+      />
+
+      {/* Base gradient for depth */}
+      <div className="absolute inset-0 bg-gradient-to-t from-[#0d3320]/80 via-[#0d3320]/0 to-transparent opacity-60 group-hover:opacity-90 transition-opacity duration-500" />
+
+      {/* Glow ring on hover */}
+      <div className="absolute inset-0 rounded-3xl ring-1 ring-inset ring-white/10 group-hover:ring-white/30 transition-all duration-500" />
+
+      {/* Animated shine sweep */}
+      <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/15 to-transparent skew-x-12" />
+
+      {/* Bottom accent bar */}
+      <motion.div
+        initial={{ width: 0 }}
+        whileHover={{ width: "100%" }}
+        transition={{ duration: 0.4 }}
+        className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-[#355E3B] to-[#f59e0b]"
+      />
+
+      {/* Corner accent dot */}
+      <div className="absolute top-4 right-4 w-2.5 h-2.5 rounded-full bg-white/40 backdrop-blur-sm opacity-0 group-hover:opacity-100 group-hover:scale-125 transition-all duration-300" />
+    </motion.div>
+  ))}
+</div>
         </div>
       </section>
 
