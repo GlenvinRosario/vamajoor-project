@@ -42,9 +42,16 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => {
-    setOpen(false);
-  }, [location]);
+ useEffect(() => {
+  // Close mobile menu whenever route changes
+  setOpen(false);
+
+  // Scroll to the top of the page
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth", // Change to "auto" if you don't want smooth scrolling
+  });
+}, [location.pathname]);
 
   return (
     <header className="fixed top-0 left-0 w-full z-50">

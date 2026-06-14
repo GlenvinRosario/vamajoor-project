@@ -16,9 +16,9 @@ import hero1 from "@/assets/hero1.jpg";
 
 /* ─── DATA ──────────────────────────────────────────────── */
 const stats = [
-  { value: "50+",   label: "Years of Service" },
-  { value: "500+",  label: "Children Supported" },
-  { value: "120+",  label: "Health Camps" },
+  { value: "50+", label: "Years of Service" },
+  { value: "500+", label: "Children Supported" },
+  { value: "120+", label: "Health Camps" },
   { value: "1000+", label: "Lives Impacted" },
 ];
 
@@ -26,7 +26,8 @@ const programs = [
   {
     icon: Heart,
     title: "Healthcare",
-    description: "Providing medical care, health camps, and outreach services for vulnerable communities.",
+    description:
+      "Providing medical care, health camps, and outreach services for vulnerable communities.",
     color: "#22c55e",
     colorLight: "#dcfce7",
     colorMid: "#16a34a",
@@ -34,7 +35,8 @@ const programs = [
   {
     icon: BookOpen,
     title: "Education",
-    description: "Supporting children and youth through quality education and skill development.",
+    description:
+      "Supporting children and youth through quality education and skill development.",
     color: "#34d399",
     colorLight: "#d1fae5",
     colorMid: "#059669",
@@ -42,7 +44,8 @@ const programs = [
   {
     icon: Users,
     title: "Social Outreach",
-    description: "Serving marginalized communities through social and welfare initiatives.",
+    description:
+      "Serving marginalized communities through social and welfare initiatives.",
     color: "#4ade80",
     colorLight: "#bbf7d0",
     colorMid: "#15803d",
@@ -50,7 +53,8 @@ const programs = [
   {
     icon: Leaf,
     title: "Women Empowerment",
-    description: "Creating opportunities through training, self-help groups, and leadership programs.",
+    description:
+      "Creating opportunities through training, self-help groups, and leadership programs.",
     color: "#86efac",
     colorLight: "#f0fdf4",
     colorMid: "#166534",
@@ -76,12 +80,20 @@ const fadeUp = {
 
 const fadeLeft = {
   hidden: { opacity: 0, x: -56 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
+  },
 };
 
 const fadeRight = {
   hidden: { opacity: 0, x: 56 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
+  },
 };
 
 /* ─── SECTION LABEL ─────────────────────────────────────── */
@@ -103,7 +115,6 @@ function Label({ children }: { children: React.ReactNode }) {
 export default function Home() {
   return (
     <main className="overflow-hidden bg-white">
-
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
           HERO
       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
@@ -123,7 +134,10 @@ export default function Home() {
           animate={{ scale: [1, 1.08, 1], opacity: [0.15, 0.25, 0.15] }}
           transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
           className="absolute right-[10%] top-1/3 w-[420px] h-[420px] rounded-full border border-white/10"
-          style={{ background: "radial-gradient(circle, rgba(34,197,94,0.15), transparent 70%)" }}
+          style={{
+            background:
+              "radial-gradient(circle, rgba(34,197,94,0.15), transparent 70%)",
+          }}
         />
 
         <div className="container mx-auto px-6 relative z-10">
@@ -169,14 +183,18 @@ export default function Home() {
               className="mt-8 max-w-xl text-[17px] text-white/70 leading-relaxed"
             >
               Dharma Jyothi Charitable Society is dedicated to education,
-              healthcare, empowerment, and social transformation through
-              faith, service, and compassion.
+              healthcare, empowerment, and social transformation through faith,
+              service, and compassion.
             </motion.p>
 
             {/* buttons */}
-            <motion.div variants={fadeUp} className="mt-10 flex flex-wrap gap-4">
+            <motion.div
+              variants={fadeUp}
+              className="mt-10 flex flex-wrap gap-4"
+            >
               <Link
                 to="/about"
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
                 className="group inline-flex items-center gap-2 rounded-2xl px-8 py-4 font-semibold text-[#0d3320] transition-all duration-300 hover:scale-105 hover:shadow-2xl"
                 style={{
                   background: "linear-gradient(135deg, #ffffff, #f0fdf4)",
@@ -184,11 +202,15 @@ export default function Home() {
                 }}
               >
                 Discover Our Story
-                <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                <ArrowRight
+                  size={18}
+                  className="group-hover:translate-x-1 transition-transform"
+                />
               </Link>
 
               <Link
                 to="/contact"
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
                 className="inline-flex items-center gap-2 rounded-2xl border border-white/25 bg-white/10 px-8 py-4 font-semibold text-white backdrop-blur-md hover:bg-white/20 transition-all duration-300"
               >
                 Contact Us
@@ -228,12 +250,15 @@ export default function Home() {
                   background: "rgba(255,255,255,0.92)",
                   backdropFilter: "blur(20px)",
                   border: "1px solid rgba(34,197,94,0.12)",
-                  boxShadow: "0 8px 32px rgba(0,0,0,0.08), 0 1px 0 rgba(255,255,255,0.8) inset",
+                  boxShadow:
+                    "0 8px 32px rgba(0,0,0,0.08), 0 1px 0 rgba(255,255,255,0.8) inset",
                 }}
               >
                 <div
                   className="absolute top-0 left-0 right-0 h-1 rounded-t-3xl"
-                  style={{ background: "linear-gradient(90deg, #22c55e, #16a34a)" }}
+                  style={{
+                    background: "linear-gradient(90deg, #22c55e, #16a34a)",
+                  }}
                 />
                 <h3
                   className="text-4xl font-bold"
@@ -245,7 +270,9 @@ export default function Home() {
                 >
                   {item.value}
                 </h3>
-                <p className="mt-2 text-sm text-gray-500 font-medium">{item.label}</p>
+                <p className="mt-2 text-sm text-gray-500 font-medium">
+                  {item.label}
+                </p>
               </motion.div>
             ))}
           </div>
@@ -257,11 +284,13 @@ export default function Home() {
       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       <section
         className="py-32"
-        style={{ background: "linear-gradient(160deg, #f0faf4 0%, #ffffff 50%, #e8f5e9 100%)" }}
+        style={{
+          background:
+            "linear-gradient(160deg, #f0faf4 0%, #ffffff 50%, #e8f5e9 100%)",
+        }}
       >
         <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-
             {/* image side */}
             <motion.div
               variants={fadeLeft}
@@ -270,10 +299,7 @@ export default function Home() {
               viewport={{ once: true }}
               className="relative"
             >
-              <div
-                className="absolute -top-6 -left-6 w-full h-full rounded-[36px]"
-              
-              />
+              <div className="absolute -top-6 -left-6 w-full h-full rounded-[36px]" />
               <img
                 src="https://res.cloudinary.com/dapmnkke3/image/upload/v1781383642/a0itfm5tpqfh6tumlpqs.png"
                 alt="About"
@@ -292,7 +318,9 @@ export default function Home() {
                 }}
               >
                 <p className="text-white font-bold text-2xl">1976</p>
-                <p className="text-emerald-300 text-xs tracking-widest uppercase">Founded</p>
+                <p className="text-emerald-300 text-xs tracking-widest uppercase">
+                  Founded
+                </p>
               </motion.div>
             </motion.div>
 
@@ -321,17 +349,19 @@ export default function Home() {
               </h2>
 
               <p className="text-gray-500 leading-8 text-[15px]">
-                Dharma Jyothi Charitable Society has been serving communities through
-                education, healthcare, women empowerment, and social outreach programs
-                since 1976.
+                Dharma Jyothi Charitable Society has been serving communities
+                through education, healthcare, women empowerment, and social
+                outreach programs since 1976.
               </p>
               <p className="text-gray-500 leading-8 text-[15px]">
-                Inspired by faith and committed to human dignity, we work to uplift
-                the vulnerable and create opportunities for sustainable development.
+                Inspired by faith and committed to human dignity, we work to
+                uplift the vulnerable and create opportunities for sustainable
+                development.
               </p>
 
               <Link
                 to="/about"
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
                 className="inline-flex items-center gap-2 rounded-2xl px-7 py-4 font-semibold text-white transition-all hover:scale-105 hover:shadow-xl"
                 style={{
                   background: "linear-gradient(135deg, #0d3320, #16a34a)",
@@ -351,7 +381,6 @@ export default function Home() {
       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       <section className="py-32 bg-white">
         <div className="container mx-auto px-6">
-
           <motion.div
             variants={fadeUp}
             initial="hidden"
@@ -360,9 +389,12 @@ export default function Home() {
             className="text-center mb-16 space-y-4"
           >
             <Label>What We Do</Label>
-            <h2 className="text-5xl font-bold text-[#0d3320]">Our Focus Areas</h2>
+            <h2 className="text-5xl font-bold text-[#0d3320]">
+              Our Focus Areas
+            </h2>
             <p className="text-gray-500 max-w-lg mx-auto text-[15px] leading-relaxed">
-              Four pillars that define our mission and guide every initiative we undertake.
+              Four pillars that define our mission and guide every initiative we
+              undertake.
             </p>
           </motion.div>
 
@@ -386,7 +418,9 @@ export default function Home() {
                 {/* top accent bar */}
                 <div
                   className="absolute top-0 left-0 right-0 h-1 rounded-t-3xl transition-all duration-300"
-                  style={{ background: `linear-gradient(90deg, ${item.colorMid}, ${item.color})` }}
+                  style={{
+                    background: `linear-gradient(90deg, ${item.colorMid}, ${item.color})`,
+                  }}
                 />
 
                 {/* bg blob on hover */}
@@ -422,20 +456,22 @@ export default function Home() {
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
           WHY CHOOSE US
       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-   <section
+      <section
         className="py-32"
-        style={{ background: "linear-gradient(160deg, #e8f5e9, #f0faf4 60%, #e8f5e9)" }}
+        style={{
+          background: "linear-gradient(160deg, #e8f5e9, #f0faf4 60%, #e8f5e9)",
+        }}
       >
         <div className="container mx-auto px-6">
           <div
             className="overflow-hidden rounded-[40px]"
             style={{
-              background: "linear-gradient(135deg, #0d3320 0%, #155c35 40%, #1a7a45 100%)",
+              background:
+                "linear-gradient(135deg, #0d3320 0%, #155c35 40%, #1a7a45 100%)",
               boxShadow: "0 32px 80px rgba(13,51,32,0.35)",
             }}
           >
             <div className="grid lg:grid-cols-2">
- 
               {/* text */}
               <motion.div
                 variants={fadeLeft}
@@ -458,7 +494,7 @@ export default function Home() {
                   <Sparkles size={10} className="text-[#e8d9a8]" />
                   Why Choose Us
                 </motion.span>
- 
+
                 <h2 className="text-4xl md:text-[3.4rem] font-bold leading-[1.08] tracking-tight">
                   <span className="text-white">Creating Meaningful</span>
                   <span className="relative inline-block mt-1">
@@ -475,15 +511,20 @@ export default function Home() {
                       initial={{ scaleX: 0 }}
                       whileInView={{ scaleX: 1 }}
                       viewport={{ once: true }}
-                      transition={{ duration: 0.8, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                      transition={{
+                        duration: 0.8,
+                        delay: 0.4,
+                        ease: [0.22, 1, 0.36, 1],
+                      }}
                       className="absolute left-0 -bottom-2 h-[2px] w-full origin-left"
                       style={{
-                        background: "linear-gradient(90deg, #e8d9a8, transparent)",
+                        background:
+                          "linear-gradient(90deg, #e8d9a8, transparent)",
                       }}
                     />
                   </span>
                 </h2>
- 
+
                 <div className="space-y-5">
                   {whyUs.map((item, i) => (
                     <motion.div
@@ -497,17 +538,25 @@ export default function Home() {
                     >
                       <div
                         className="w-8 h-8 rounded-full flex-shrink-0 flex items-center justify-center"
-                        style={{ background: "rgba(244,236,216,0.08)", border: "1.5px solid rgba(232,217,168,0.3)" }}
+                        style={{
+                          background: "rgba(244,236,216,0.08)",
+                          border: "1.5px solid rgba(232,217,168,0.3)",
+                        }}
                       >
-                        <span className="text-[#e8d9a8] text-xs font-bold">✓</span>
+                        <span className="text-[#e8d9a8] text-xs font-bold">
+                          ✓
+                        </span>
                       </div>
                       <span className="text-white/85 text-[15px]">{item}</span>
                     </motion.div>
                   ))}
                 </div>
- 
+
                 <Link
                   to="/about"
+                  onClick={() =>
+                    window.scrollTo({ top: 0, behavior: "smooth" })
+                  }
                   className="group inline-flex items-center gap-2 rounded-2xl px-7 py-4 font-semibold text-[#0d3320] hover:scale-105 transition-all duration-300"
                   style={{
                     background: "linear-gradient(135deg, #f4ecd8, #e8d9a8)",
@@ -515,10 +564,13 @@ export default function Home() {
                   }}
                 >
                   Learn More
-                  <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight
+                    size={16}
+                    className="group-hover:translate-x-1 transition-transform"
+                  />
                 </Link>
               </motion.div>
- 
+
               {/* image */}
               <motion.div
                 variants={fadeRight}
@@ -544,7 +596,6 @@ export default function Home() {
       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       <section className="py-32 bg-white">
         <div className="container mx-auto px-6">
-
           <div className="flex justify-between items-end mb-12">
             <motion.div
               variants={fadeLeft}
@@ -554,7 +605,9 @@ export default function Home() {
               className="space-y-3"
             >
               <Label>Gallery</Label>
-              <h2 className="text-5xl font-bold text-[#0d3320]">Moments Of Impact</h2>
+              <h2 className="text-5xl font-bold text-[#0d3320]">
+                Moments Of Impact
+              </h2>
             </motion.div>
 
             <motion.div
@@ -618,7 +671,8 @@ export default function Home() {
             viewport={{ once: true }}
             className="relative overflow-hidden rounded-[40px] p-14 md:p-24 text-center"
             style={{
-              background: "linear-gradient(135deg, #0d3320 0%, #155c35 50%, #1a7a45 100%)",
+              background:
+                "linear-gradient(135deg, #0d3320 0%, #155c35 50%, #1a7a45 100%)",
               boxShadow: "0 32px 80px rgba(13,51,32,0.3)",
             }}
           >
@@ -649,8 +703,8 @@ export default function Home() {
               </h2>
 
               <p className="max-w-xl mx-auto text-white/65 text-[16px] leading-relaxed">
-                Together we can create opportunities, empower communities,
-                and bring hope to those who need it most.
+                Together we can create opportunities, empower communities, and
+                bring hope to those who need it most.
               </p>
 
               <div className="flex flex-wrap justify-center gap-4 pt-4">
@@ -676,7 +730,6 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
-
     </main>
   );
 }

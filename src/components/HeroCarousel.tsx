@@ -27,7 +27,7 @@ const slides = [
     secondCtaHref: "/contact",
   },
   {
-    image: hero3,
+    image: 'https://res.cloudinary.com/dapmnkke3/image/upload/v1781429033/yvqdqyvfduvyzsxvddrt.png',
     title: "Transforming Lives Across Communities",
     subtitle:
       "Through hospitals, schools, social centres, and empowerment programs, we bring hope, dignity, and a better future to those in need.",

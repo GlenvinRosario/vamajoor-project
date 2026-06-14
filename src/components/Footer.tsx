@@ -14,7 +14,6 @@ import dharmaLogo from "@/assets/dharmaLogo.png";
 export default function Footer() {
   return (
     <footer className="relative text-white overflow-hidden">
-
       {/* BACKGROUND LAYERS */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#0e2417] via-[#163b26] to-[#0b1710]" />
 
@@ -23,10 +22,8 @@ export default function Footer() {
 
       {/* MAIN */}
       <div className="relative container mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-
         {/* BRAND */}
         <div className="space-y-5">
-
           <div className="flex items-center gap-3">
             <Link to="/">
               <img
@@ -37,9 +34,7 @@ export default function Footer() {
             </Link>
 
             <div>
-              <h1 className="text-lg font-bold tracking-wide">
-                DHARMA JYOTHI
-              </h1>
+              <h1 className="text-lg font-bold tracking-wide">DHARMA JYOTHI</h1>
               <p className="text-xs text-white/60 tracking-[3px]">
                 CHARITABLE SOCIETY
               </p>
@@ -47,7 +42,8 @@ export default function Footer() {
           </div>
 
           <p className="text-sm text-white/60 leading-relaxed">
-            Building stronger communities through compassion, education, and healthcare since 1976.
+            Building stronger communities through compassion, education, and
+            healthcare since 1976.
           </p>
 
           {/* SOCIAL */}
@@ -121,12 +117,9 @@ export default function Footer() {
           </h3>
 
           <div className="space-y-4 text-sm text-white/60">
-
             <div className="flex gap-3">
               <MapPin size={16} className="text-emerald-300 mt-1" />
-              <p>
-                Queen of Apostles Convent, Vamanjoor, Mangaluru
-              </p>
+              <p>Queen of Apostles Convent, Vamanjoor, Mangaluru</p>
             </div>
 
             <div className="flex gap-3">
@@ -149,7 +142,6 @@ export default function Footer() {
 
           {/* DONATE CARD */}
           <div className="mt-6 p-4 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 hover:border-emerald-400/40 transition">
-
             <p className="text-emerald-300 font-semibold text-sm mb-1">
               Support Mission
             </p>
@@ -160,6 +152,7 @@ export default function Footer() {
 
             <Link
               to="/donations"
+              onClick={() => window.scrollTo(0, 0)}
               className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-semibold hover:scale-105 transition"
             >
               <Heart size={14} />
@@ -172,10 +165,7 @@ export default function Footer() {
       {/* BOTTOM BAR */}
       <div className="relative border-t border-white/10 py-5">
         <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-white/50">
-
-          <p>
-            © {new Date().getFullYear()} Dharma Jyothi Charitable Society
-          </p>
+          <p>© {new Date().getFullYear()} Dharma Jyothi Charitable Society</p>
 
           <div className="flex items-center gap-2">
             <span>Crafted with</span>
@@ -189,10 +179,8 @@ export default function Footer() {
               Glenvin Rosario
             </a>
           </div>
-
         </div>
       </div>
-
     </footer>
   );
 }
