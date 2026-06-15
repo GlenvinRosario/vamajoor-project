@@ -2,9 +2,15 @@ import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, ArrowDown } from "lucide-react";
 
 export default function ContactHero() {
+  const handleScrollDown = () => {
+    window.scrollBy({
+      top: window.innerHeight * 0.45,
+      behavior: "smooth",
+    });
+  };
+
   return (
-<section className="relative py-28 md:py-20 text-center overflow-hidden text-white">
-      
+    <section className="relative py-28 md:py-20 text-center overflow-hidden text-white">
       {/* BACKGROUND IMAGE */}
       <div className="absolute inset-0">
         <img
@@ -51,7 +57,6 @@ export default function ContactHero() {
 
         {/* Buttons */}
         <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-          
           <a
             href="tel:+910000000000"
             className="flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/40 rounded-full px-5 py-3 backdrop-blur-md transition-all"
@@ -75,16 +80,19 @@ export default function ContactHero() {
             <MapPin size={16} className="text-emerald-300" />
             Visit Us
           </a>
-
         </div>
       </motion.div>
 
       {/* scroll indicator */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2">
-        <div className="w-9 h-9 rounded-full bg-white/10 border border-white/20 backdrop-blur-md flex items-center justify-center animate-bounce">
+      <button
+        onClick={handleScrollDown}
+        aria-label="Scroll down"
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 cursor-pointer z-10"
+      >
+        <div className="w-9 h-9 rounded-full bg-white/10 border border-white/20 backdrop-blur-md flex items-center justify-center animate-bounce hover:bg-white/20 transition-colors">
           <ArrowDown size={16} className="text-white/70" />
         </div>
-      </div>
+      </button>
 
       {/* bottom accent line */}
       <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-emerald-400 to-sky-300" />
