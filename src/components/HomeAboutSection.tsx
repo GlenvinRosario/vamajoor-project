@@ -233,7 +233,7 @@ export default function Home() {
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
           STATS
       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <section className="relative -mt-20 z-20 px-6">
+      {/* <section className="relative -mt-20 z-20 px-6">
         <div className="container mx-auto">
           <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
             {stats.map((item, i) => (
@@ -277,7 +277,7 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
           ABOUT

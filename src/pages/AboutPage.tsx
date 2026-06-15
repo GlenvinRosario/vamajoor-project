@@ -30,7 +30,7 @@ export default function AboutPage() {
     <main className="bg-[#f6fbf8] text-[#102018] overflow-hidden">
 
       {/* ================= HERO ================= */}
-      <section className="relative py-28 text-center text-white overflow-hidden bg-gradient-to-br from-[#0f2b1c] via-[#1d4a31] to-[#08140d]">
+      <section className="relative py-32 text-center text-white overflow-hidden bg-gradient-to-br from-[#0f2b1c] via-[#1d4a31] to-[#08140d]">
 
         {/* animated glow blobs */}
         <div className="absolute -top-32 -left-32 w-96 h-96 bg-emerald-400/20 blur-3xl rounded-full animate-pulse" />

@@ -119,7 +119,7 @@ function Card({ item, index }: { item: (typeof quickLinks)[0]; index: number }) 
           />
           {/* colour wash overlay on hover */}
           <div
-            className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500 pointer-events-none"
+            className="absolute inset-0 opacity-0  transition-opacity duration-500 pointer-events-none"
             style={{
               background: `linear-gradient(135deg, ${item.accent}, ${item.accentMid})`,
             }}

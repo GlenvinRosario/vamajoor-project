@@ -261,8 +261,23 @@ export default function GalleryPage() {
     <main className="bg-[#f5faf7] text-[#0f1f14] overflow-hidden">
 
       {/* ================= HERO ================= */}
-      <section className="relative py-28 text-center bg-gradient-to-br from-[#0f2a1c] via-[#1c3f2c] to-[#0a1711] text-white overflow-hidden">
-        <div className="absolute -top-24 -left-24 w-96 h-96 bg-emerald-400/20 blur-3xl rounded-full" />
+      <section className="relative py-28 text-center text-white overflow-hidden">
+
+        {/* BACKGROUND IMAGE */}
+        <div className="absolute inset-0">
+          <img
+            src="https://res.cloudinary.com/dapmnkke3/image/upload/f_auto,q_auto,w_1920/v1781555326/bh6nuscxzlnlazoh7vej.png"
+            alt="Gallery Background"
+            loading="eager"
+            decoding="async"
+            className="w-full h-full object-cover scale-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/60 to-[#0a1711]/90" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0a1711] via-transparent to-transparent" />
+        </div>
+
+        {/* glow effects */}
+        <div className="absolute -top-24 -left-24 w-96 h-96 bg-emerald-400/15 blur-3xl rounded-full animate-pulse" />
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-cyan-300/10 blur-3xl rounded-full" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#f59e0b]/5 blur-3xl rounded-full" />
 
@@ -282,6 +297,8 @@ export default function GalleryPage() {
             Moments of compassion, community, and care — captured across our outreach programs
           </p>
         </motion.div>
+
+        <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-[#355E3B] to-[#f59e0b]" />
       </section>
 
       {/* ================= FILTER ================= */}

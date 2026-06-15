@@ -19,7 +19,8 @@ const fallbackNews: NewsEvent[] = [
     title: "Annual Education Scholarship Drive 2024",
     content:
       "We are proud to announce the annual scholarship program providing financial assistance to deserving students.",
-    image_url: 'https://res.cloudinary.com/dapmnkke3/image/upload/v1781439260/nkgew01ybaagmiiwdmcl.png',
+    image_url:
+      "https://res.cloudinary.com/dapmnkke3/image/upload/v1781439260/nkgew01ybaagmiiwdmcl.png",
     event_date: "2024-12-15",
     category: "event",
     created_at: new Date().toISOString(),
@@ -29,7 +30,8 @@ const fallbackNews: NewsEvent[] = [
     title: "Free Health Camp at Rural Villages",
     content:
       "Our medical team conducted free health check-ups for hundreds of villagers across Karnataka.",
-    image_url: 'https://res.cloudinary.com/dapmnkke3/image/upload/v1781439265/t4ushiuhnpmuv1giaz7m.png',
+    image_url:
+      "https://res.cloudinary.com/dapmnkke3/image/upload/v1781439265/t4ushiuhnpmuv1giaz7m.png",
     event_date: "2024-11-20",
     category: "news",
     created_at: new Date().toISOString(),
@@ -39,7 +41,8 @@ const fallbackNews: NewsEvent[] = [
     title: "Women Empowerment Workshop Series",
     content:
       "A month-long skill development initiative empowering women through training and entrepreneurship.",
-    image_url: 'https://res.cloudinary.com/dapmnkke3/image/upload/v1781439263/hac8xbfwbdvnbilpqnwd.png',
+    image_url:
+      "https://res.cloudinary.com/dapmnkke3/image/upload/v1781439263/hac8xbfwbdvnbilpqnwd.png",
     event_date: "2025-01-10",
     category: "event",
     created_at: new Date().toISOString(),
@@ -103,8 +106,8 @@ export default function HomeNewsSection() {
           </h2>
 
           <p className="max-w-2xl mx-auto mt-5 text-gray-600 text-lg">
-            Discover our latest activities, achievements, outreach programs,
-            and community initiatives.
+            Discover our latest activities, achievements, outreach programs, and
+            community initiatives.
           </p>
         </motion.div>
 
@@ -149,7 +152,10 @@ export default function HomeNewsSection() {
                 ) : (
                   <div className="relative h-full bg-gradient-to-br from-[#355E3B] via-[#4D7B54] to-[#6B9B72] flex items-center justify-center">
                     <div className="absolute inset-0 bg-black/10" />
-                    <Calendar size={70} className="text-white/30 relative z-10" />
+                    <Calendar
+                      size={70}
+                      className="text-white/30 relative z-10"
+                    />
                   </div>
                 )}
 
@@ -188,13 +194,16 @@ export default function HomeNewsSection() {
                   </p>
                 )}
 
-                <div className="mt-6 flex items-center gap-2 font-semibold text-[#355E3B]">
+                <Link
+                  to="/news"
+                  className="mt-6 flex items-center gap-2 font-semibold text-[#355E3B] hover:text-[#28482D] transition-colors"
+                >
                   Read More
                   <ArrowRight
                     size={16}
                     className="group-hover:translate-x-1.5 transition-transform duration-300"
                   />
-                </div>
+                </Link>
               </div>
 
               {/* Bottom accent bar */}
