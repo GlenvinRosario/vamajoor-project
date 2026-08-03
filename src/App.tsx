@@ -19,6 +19,9 @@ import Donations from "./pages/Donations";
 import Achievements from "./pages/Achievements";
 import OurTeam from "./pages/OurTeam";
 
+import EventPage from "./pages/EventPage";
+import EventDetailsPage from "./pages/EventDetailsPage";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -26,27 +29,46 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
+
       <BrowserRouter>
         <Navbar />
+
         <div className="pt-[88px] md:pt-[112px]">
           <Routes>
             <Route path="/" element={<Index />} />
+
             <Route path="/about" element={<AboutPage />} />
+
             <Route path="/our-team" element={<OurTeam />} />
+
             <Route path="/team" element={<TeamPage />} />
+
             <Route path="/programs" element={<ProgramsPage />} />
+
             <Route path="/news" element={<NewsPage />} />
+
+            <Route path="/events" element={<EventPage />} />
+
+            <Route path="/events/:id" element={<EventDetailsPage />} />
+
             <Route path="/donations" element={<Donations />} />
+
             <Route path="/gallery" element={<GalleryPage />} />
+
             <Route path="/contact" element={<ContactPage />} />
+
             <Route path="/admin" element={<AdminPage />} />
+
             <Route path="/auth" element={<AuthPage />} />
+
             <Route path="/donations2" element={<Donations />} />
+
             <Route path="/achievements" element={<Achievements />} />
+
             <Route path="*" element={<NotFound />} />
-           
           </Routes>
         </div>
+
         <Footer />
       </BrowserRouter>
     </TooltipProvider>

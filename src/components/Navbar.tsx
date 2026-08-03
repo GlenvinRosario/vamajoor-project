@@ -22,6 +22,7 @@ const navItems = [
   { label: "Gallery", href: "/gallery" },
   { label: "Achievements", href: "/achievements" },
   { label: "Contact", href: "/contact" },
+   { label: "Events", href: "/events" },
 ];
 
 const socialLinks = [
