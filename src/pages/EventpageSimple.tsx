@@ -1,9 +1,26 @@
-import { useEvents } from "../context/EventContext";
+import { useEffect, useState } from "react";
+import { getEvents } from "../services/eventService";
+import { Event } from "../types/event";
+
 import EventGrid from "../components/events/EventGrid";
 import EventHero from "../components/events/EventHero";
 
 export default function EventPage() {
-  const { events, loading } = useEvents();
+  const [events, setEvents] = useState<Event[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    getEvents()
+      .then((data) => {
+        setEvents(data);
+      })
+      .catch((err) => {
+        console.error(err);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  }, []);
 
   if (loading) {
     return (
@@ -16,6 +33,7 @@ export default function EventPage() {
   return (
     <div className="bg-[#fafafa] min-h-screen">
       <EventHero />
+
       <EventGrid events={events} loading={false} />
     </div>
   );
