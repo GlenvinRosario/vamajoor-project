@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -63,11 +63,7 @@
       hsl(355 60% 45%)
     );
 
-    --gradient-card: linear-gradient(
-      145deg,
-      hsl(0 0% 100%),
-      hsl(40 30% 97%)
-    );
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(40 30% 97%));
 
     --shadow-sm: 0 2px 8px hsl(28 90% 45% / 0.1);
     --shadow-md: 0 8px 24px hsl(28 90% 45% / 0.15);
@@ -131,24 +127,24 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
   }
 
   h1,
   h2,
   h3,
   h4 {
-    font-family: 'Playfair Display', serif;
+    font-family: "Playfair Display", serif;
   }
 }
 
 @layer utilities {
   .font-display {
-    font-family: 'Playfair Display', serif;
+    font-family: "Playfair Display", serif;
   }
 
   .font-body {
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
   }
 
   .gradient-hero {
@@ -256,7 +252,9 @@ html {
 }
 
 .hover-lift {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .hover-lift:hover {
