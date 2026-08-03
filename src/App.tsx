@@ -19,7 +19,7 @@ import Donations from "./pages/Donations";
 import Achievements from "./pages/Achievements";
 import OurTeam from "./pages/OurTeam";
 
-import EventPage from "./pages/EventPage";
+import EventPageSimple from "./pages/EventpageSimple";
 import EventDetailsPage from "./pages/EventDetailsPage";
 
 const queryClient = new QueryClient();
@@ -47,7 +47,7 @@ const App = () => (
 
             <Route path="/news" element={<NewsPage />} />
 
-            <Route path="/events" element={<EventPage />} />
+            <Route path="/events" element={<EventPageSimple />} />
 
             <Route path="/events/:id" element={<EventDetailsPage />} />
 
