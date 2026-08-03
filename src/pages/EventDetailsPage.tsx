@@ -4,26 +4,13 @@ import { motion } from "framer-motion";
 import { Sparkles, ArrowLeft } from "lucide-react";
 import { getEvents } from "../services/eventService";
 import { Event } from "../types/event";
-
+import { useEvents } from "../context/EventContext";
 export default function EventDetailsPage() {
   const { id } = useParams();
 
-  const [event, setEvent] = useState<Event>();
-  const [loading, setLoading] = useState(true);
+  const { events, loading } = useEvents();
 
-  useEffect(() => {
-    getEvents()
-      .then((events) => {
-        const found = events.find((e) => e.id === id);
-        setEvent(found);
-      })
-      .catch((error) => {
-        console.error(error);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
-  }, [id]);
+  const event = events.find((e) => e.id === id);
 
   if (loading) {
     return (
