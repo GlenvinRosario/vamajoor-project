@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Sparkles, ArrowLeft } from "lucide-react";
-import { getEvents } from "../services/eventService";
+import { getEventById } from "../services/eventService";
 import { Event } from "../types/event";
 
 export default function EventDetailsPage() {
@@ -10,15 +10,16 @@ export default function EventDetailsPage() {
 
   const [event, setEvent] = useState<Event>();
   const [loading, setLoading] = useState(true);
-
   useEffect(() => {
-    getEvents()
-      .then((events) => {
-        const found = events.find((e) => e.id === id);
-        setEvent(found);
+    if (!id) return;
+
+    getEventById(id)
+      .then((event) => {
+        setEvent(event);
       })
       .catch((error) => {
-        console.error(error);
+        console.error("Failed to fetch event:", error);
+        setEvent(undefined);
       })
       .finally(() => {
         setLoading(false);
