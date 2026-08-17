@@ -240,13 +240,93 @@ const healthImages: GalleryImage[] = [
   },
 ];
 
+const educationImages: GalleryImage[] = [
+  {
+    id: "education-1",
+    title: "Education Program 1",
+    image_url:
+      "https://res.cloudinary.com/dapmnkke3/image/upload/v1786964107/hylldtdkevzshnmhx0gi.jpg",
+    category: "Education",
+  },
+  {
+    id: "education-2",
+    title: "Education Program 2",
+    image_url:
+      "https://res.cloudinary.com/dapmnkke3/image/upload/v1786964105/vilzhmgya3jrfdpi74vu.jpg",
+    category: "Education",
+  },
+  {
+    id: "education-3",
+    title: "Education Program 3",
+    image_url:
+      "https://res.cloudinary.com/dapmnkke3/image/upload/v1786964103/l7xgyg0rntvkyiursirg.jpg",
+    category: "Education",
+  },
+  {
+    id: "education-4",
+    title: "Education Program 4",
+    image_url:
+      "https://res.cloudinary.com/dapmnkke3/image/upload/v1786964099/fv4jshe8zskniaydkmw0.jpg",
+    category: "Education",
+  },
+  {
+    id: "education-5",
+    title: "Education Program 5",
+    image_url:
+      "https://res.cloudinary.com/dapmnkke3/image/upload/v1786964096/rraqbsixdyajtuzlkt0o.jpg",
+    category: "Education",
+  },
+  {
+    id: "education-6",
+    title: "Education Program 6",
+    image_url:
+      "https://res.cloudinary.com/dapmnkke3/image/upload/v1786964094/sura6yylvjco55fiteuw.jpg",
+    category: "Education",
+  },
+  {
+    id: "education-7",
+    title: "Education Program 7",
+    image_url:
+      "https://res.cloudinary.com/dapmnkke3/image/upload/v1786964090/rreglqfrjmy1oe19zfva.jpg",
+    category: "Education",
+  },
+  {
+    id: "education-8",
+    title: "Education Program 8",
+    image_url:
+      "https://res.cloudinary.com/dapmnkke3/image/upload/v1786964088/uaosrx69j6zlqdjaoh5r.jpg",
+    category: "Education",
+  },
+  {
+    id: "education-9",
+    title: "Education Program 9",
+    image_url:
+      "https://res.cloudinary.com/dapmnkke3/image/upload/v1786964086/tj4scxeg5nf6dxlwmdoj.jpg",
+    category: "Education",
+  },
+  {
+    id: "education-10",
+    title: "Education Program 10",
+    image_url:
+      "https://res.cloudinary.com/dapmnkke3/image/upload/v1786964084/vry85pps7h3xaobnhhzr.jpg",
+    category: "Education",
+  },
+  {
+    id: "education-11",
+    title: "Education Program 11",
+    image_url:
+      "https://res.cloudinary.com/dapmnkke3/image/upload/v1786964077/o3wagcmnhinmu9fosjrp.jpg",
+    category: "Education",
+  },
+];
+
 export default function GalleryPage() {
   const [filter, setFilter] = useState("All");
   const [selected, setSelected] = useState<GalleryImage | null>(null);
 
   // ================= MERGED DATA =================
   const images = useMemo(
-    () => [...communityImages, ...eventsImages, ...healthImages],
+    () => [...communityImages, ...eventsImages, ...healthImages, ...educationImages],
     []
   );
 
