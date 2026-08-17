@@ -7,7 +7,7 @@ import hero3 from "@/assets/hero3.jpg";
 
 const slides = [
   {
-    image: "https://res.cloudinary.com/dapmnkke3/image/upload/v1781387571/ujmgod9v9cuqo8ctdxxa.png",
+    image: "https://res.cloudinary.com/dapmnkke3/image/upload/v1786947690/roxdddecutz28hsw8uvm.jpg",
     title: "Serving Humanity with Compassion and Love",
     subtitle:
       "Dharma Jyothi Charitable Society, Vamanjoor — founded in 1976, empowering marginalized communities through education, healthcare, and social outreach across Karnataka, Goa, and Manipur.",
@@ -17,7 +17,7 @@ const slides = [
     secondCtaHref: "/contact",
   },
   {
-    image: 'https://res.cloudinary.com/dapmnkke3/image/upload/v1781430316/bppl6yfs4vfebs4klvyj.png',
+    image: 'https://res.cloudinary.com/dapmnkke3/image/upload/v1786947536/yvqdqyvfduvyzsxvddrt.jpg',
     title: "A Mission Rooted in Faith and Service",
     subtitle:
       "Inspired by the Missionary Sisters of the Queen of the Apostles, we proclaim the compassionate love of God by uplifting women, children, and the vulnerable in society.",
@@ -27,7 +27,7 @@ const slides = [
     secondCtaHref: "/contact",
   },
   {
-    image: 'https://res.cloudinary.com/dapmnkke3/image/upload/v1781429033/yvqdqyvfduvyzsxvddrt.png',
+    image: 'https://res.cloudinary.com/dapmnkke3/image/upload/v1786951935/yxacg84bbpcaqhvvkzhj.jpg',
     title: "Transforming Lives Across Communities",
     subtitle:
       "Through hospitals, schools, social centres, and empowerment programs, we bring hope, dignity, and a better future to those in need.",
