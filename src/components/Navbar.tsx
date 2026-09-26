@@ -127,7 +127,7 @@ export default function Navbar() {
           {/* LOGO */}
           <div
             className="mr-auto flex justify-start pl-4"
-            style={{ marginLeft: "-100px" }}
+
           >
             <Link to="/" className="flex items-center gap-3 group">
               <div
