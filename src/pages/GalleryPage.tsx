@@ -9,7 +9,7 @@ interface GalleryImage {
   category: string | null;
 }
 
-const categories = ["All", "Education", "Health", "Events", "Community"];
+const categories = [ "Education", "Medical", "Social Outreach",];
 
 // ================= COMMUNITY (UNCHANGED) =================
 const communityImages: GalleryImage[] = [
@@ -92,77 +92,77 @@ const eventsImages: GalleryImage[] = [
     title: "Event Moment 1",
     image_url:
       "https://res.cloudinary.com/dapmnkke3/image/upload/v1781435686/posho6ujzqhcyw9x74om.jpg",
-    category: "Events",
+    category: "Social Outreach",
   },
   {
     id: "event-2",
     title: "Event Moment 2",
     image_url:
       "https://res.cloudinary.com/dapmnkke3/image/upload/v1781435685/flqgr745bvd4do7yqmhc.jpg",
-    category: "Events",
+    category: "Social Outreach",
   },
   {
     id: "event-3",
     title: "Event Moment 3",
     image_url:
       "https://res.cloudinary.com/dapmnkke3/image/upload/v1781435685/ahopwxj5ilkgng4nkab5.jpg",
-    category: "Events",
+    category: "Social Outreach",
   },
   {
     id: "event-4",
     title: "Event Moment 4",
     image_url:
       "https://res.cloudinary.com/dapmnkke3/image/upload/v1781435685/fyv2ftsul3ows0e3ukcl.jpg",
-    category: "Events",
+    category: "Social Outreach",
   },
   {
     id: "event-5",
     title: "Event Moment 5",
     image_url:
       "https://res.cloudinary.com/dapmnkke3/image/upload/v1781435685/lerbluyxolpkfhqsmyz7.jpg",
-    category: "Events",
+    category: "Social Outreach",
   },
   {
     id: "event-6",
     title: "Event Moment 6",
     image_url:
       "https://res.cloudinary.com/dapmnkke3/image/upload/v1781435685/rel8vmqcdvb1djymretg.jpg",
-    category: "Events",
+    category: "Social Outreach",
   },
   {
     id: "event-7",
     title: "Event Moment 7",
     image_url:
       "https://res.cloudinary.com/dapmnkke3/image/upload/v1781435684/j8eu0ptv5tzvhj1spme8.jpg",
-    category: "Events",
+    category: "Social Outreach",
   },
   {
     id: "event-8",
     title: "Event Moment 8",
     image_url:
       "https://res.cloudinary.com/dapmnkke3/image/upload/v1781435684/ccrmcaqezaa4hurlagqx.jpg",
-    category: "Events",
+    category: "Social Outreach",
   },
   {
     id: "event-9",
     title: "Event Moment 9",
     image_url:
       "https://res.cloudinary.com/dapmnkke3/image/upload/v1781435684/rqdyqusdurfsawwkssk4.jpg",
-    category: "Events",
+    category: "Social Outreach",
   },
   {
     id: "event-10",
     title: "Event Moment 10",
     image_url:
       "https://res.cloudinary.com/dapmnkke3/image/upload/v1781435684/ethus5mcmsii0w3jj5rz.jpg",
-    category: "Events",
+    category: "Social Outreach",
   },
   {
     id: "event-11",
     title: "Event Moment 11",
     image_url:
       "https://res.cloudinary.com/dapmnkke3/image/upload/v1781435684/ghcqp82tjl1auwch1v61.jpg",
-    category: "Events",
+    category: "Social Outreach",
   },
 ];
 
@@ -173,70 +173,70 @@ const healthImages: GalleryImage[] = [
     title: "Health Camp 1",
     image_url:
       "https://res.cloudinary.com/dapmnkke3/image/upload/v1781436402/rixwnyicpjuxdnv2ggtu.jpg",
-    category: "Health",
+    category: "Medical",
   },
   {
     id: "health-2",
     title: "Health Camp 2",
     image_url:
       "https://res.cloudinary.com/dapmnkke3/image/upload/v1781436400/wt4c1g8mjo2wwnndhyqm.jpg",
-    category: "Health",
+    category: "Medical",
   },
   {
     id: "health-3",
     title: "Health Camp 3",
     image_url:
       "https://res.cloudinary.com/dapmnkke3/image/upload/v1781436399/zhw2oscejmbn1i17lac5.jpg",
-    category: "Health",
+    category: "Medical",
   },
   {
     id: "health-4",
     title: "Health Camp 4",
     image_url:
       "https://res.cloudinary.com/dapmnkke3/image/upload/v1781436397/lklivstenwmeghv2w1ei.jpg",
-    category: "Health",
+    category: "Medical",
   },
   {
     id: "health-5",
     title: "Health Camp 5",
     image_url:
       "https://res.cloudinary.com/dapmnkke3/image/upload/v1781436395/kt2uqijc2lexdh45gi5u.jpg",
-    category: "Health",
+    category: "Medical",
   },
   {
     id: "health-6",
     title: "Health Camp 6",
     image_url:
       "https://res.cloudinary.com/dapmnkke3/image/upload/v1781436393/ktq2hih2qqibcm5qm8dx.jpg",
-    category: "Health",
+    category: "Medical",
   },
   {
     id: "health-7",
     title: "Health Camp 7",
     image_url:
       "https://res.cloudinary.com/dapmnkke3/image/upload/v1781436391/owkwrut3wnj1y4g7qezs.jpg",
-    category: "Health",
+    category: "Medical",
   },
   {
     id: "health-8",
     title: "Health Camp 8",
     image_url:
       "https://res.cloudinary.com/dapmnkke3/image/upload/v1781436389/ccux34dwid5f5e5wjwnp.jpg",
-    category: "Health",
+    category: "Medical",
   },
   {
     id: "health-9",
     title: "Health Camp 9",
     image_url:
       "https://res.cloudinary.com/dapmnkke3/image/upload/v1781436387/m1vlaxvecczqqkcqdbse.jpg",
-    category: "Health",
+    category: "Medical",
   },
   {
     id: "health-10",
     title: "Health Camp 10",
     image_url:
       "https://res.cloudinary.com/dapmnkke3/image/upload/v1781436385/t4w9ffsxyrk2cep00xq4.jpg",
-    category: "Health",
+    category: "Medical",
   },
 ];
 

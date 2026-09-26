@@ -631,7 +631,7 @@ export default function Home() {
           </div>
 
           {/* masonry-style grid */}
- <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5">
+ <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5" style ={{background: "linear-gradient(160deg, #f0faf4, #e8f5e9)" }}>
   {[
     "https://res.cloudinary.com/dapmnkke3/image/upload/v1781438019/brpkrcclfgzv8uj9ntyi.png",
     "https://res.cloudinary.com/dapmnkke3/image/upload/v1781438016/bybdjd373tlvimxflpin.jpg",
@@ -691,7 +691,7 @@ export default function Home() {
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
           CTA
       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <section
+      {/* <section
         className="py-32"
         style={{ background: "linear-gradient(160deg, #f0faf4, #e8f5e9)" }}
       >
@@ -709,7 +709,7 @@ export default function Home() {
             }}
           >
             {/* decorative rings */}
-            <div className="absolute -top-20 -right-20 w-72 h-72 rounded-full border border-white/5" />
+            {/* <div className="absolute -top-20 -right-20 w-72 h-72 rounded-full border border-white/5" />
             <div className="absolute -bottom-20 -left-20 w-56 h-56 rounded-full border border-white/5" />
             <motion.div
               animate={{ rotate: 360 }}
@@ -761,7 +761,7 @@ export default function Home() {
             </div>
           </motion.div>
         </div>
-      </section>
+      </section> */} 
     </main>
   );
 }

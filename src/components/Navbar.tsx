@@ -17,12 +17,12 @@ const navItems = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Team", href: "/our-team" },
-  { label: "Work", href: "/programs" },
+  // { label: "Work", href: "/programs" },
   { label: "News", href: "/news" },
   { label: "Gallery", href: "/gallery" },
   { label: "Achievements", href: "/achievements" },
   { label: "Contact", href: "/contact" },
-   { label: "Events", href: "/events" },
+  { label: "Events", href: "/events" },
 ];
 
 const socialLinks = [
@@ -43,16 +43,16 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
- useEffect(() => {
-  // Close mobile menu whenever route changes
-  setOpen(false);
+  useEffect(() => {
+    // Close mobile menu whenever route changes
+    setOpen(false);
 
-  // Scroll to the top of the page
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth", // Change to "auto" if you don't want smooth scrolling
-  });
-}, [location.pathname]);
+    // Scroll to the top of the page
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth", // Change to "auto" if you don't want smooth scrolling
+    });
+  }, [location.pathname]);
 
   return (
     <header className="fixed top-0 left-0 w-full z-50">
@@ -97,7 +97,10 @@ export default function Navbar() {
 
       {/* ── MAIN NAVBAR ── */}
       <motion.nav
-        animate={{ paddingTop: scrolled ? "8px" : "14px", paddingBottom: scrolled ? "8px" : "14px" }}
+        animate={{
+          paddingTop: scrolled ? "8px" : "14px",
+          paddingBottom: scrolled ? "8px" : "14px",
+        }}
         transition={{ duration: 0.3 }}
         className="relative px-4"
         style={{
@@ -120,34 +123,54 @@ export default function Navbar() {
           }}
         />
 
-        <div className="container mx-auto flex items-center justify-between">
+        <div className="container mx-auto flex items-center justify-between ">
           {/* LOGO */}
-          <Link to="/" className="flex items-center gap-3 group">
-            <div
-              className="p-1.5 rounded-xl shadow-md group-hover:shadow-lg transition-shadow"
-              style={{
-                background: "linear-gradient(135deg, #ffffff, #f0faf4)",
-                border: "1.5px solid rgba(34,197,94,0.2)",
-              }}
-            >
-              <img src={dharmaLogo} className="h-10 w-10" alt="Dharma Jyothi Logo" />
-            </div>
-            <div>
-              <h1
-                className="font-bold leading-tight text-base"
+          <div
+            className="mr-auto flex justify-start pl-4"
+            style={{ marginLeft: "-100px" }}
+          >
+            <Link to="/" className="flex items-center gap-3 group">
+              <div
+                className="py-0.5 px-2 rounded-xl shadow-md group-hover:shadow-lg transition-shadow shrink-0"
                 style={{
-                  background: "linear-gradient(135deg, #0d3320, #1a7a45)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
+                  background: "linear-gradient(135deg, #ffffff, #f0faf4)",
+                  border: "1.5px solid rgba(34,197,94,0.2)",
                 }}
               >
-                Dharma Jyothi
-              </h1>
-              <p className="text-[11px] text-emerald-600/70 tracking-wide">
-                Charitable Society
-              </p>
-            </div>
-          </Link>
+                <img
+                  src={dharmaLogo}
+                  className="h-14 w-14 object-contain"
+                  alt="Dharma Jyothi Logo"
+                />
+              </div>
+
+              <div
+                className="text-left flex flex-col justify-center"
+                style={{
+                  marginRight: "auto",
+                  textAlign: "left",
+                }}
+              >
+                <h1
+                  className="font-bold leading-tight text-2xl"
+                  style={{
+                    background: "linear-gradient(135deg, #0d3320, #1a7a45)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    textAlign: "left",
+                  }}
+                >
+                  Dharma Jyothi
+                </h1>
+                <p
+                  className="text-[11px] text-emerald-600/70 tracking-wide mt-0.5"
+                  style={{ textAlign: "left" }}
+                >
+                  Charitable Society
+                </p>
+              </div>
+            </Link>
+          </div>
 
           {/* DESKTOP NAV */}
           <div className="hidden lg:flex items-center gap-0.5">
@@ -180,24 +203,21 @@ export default function Navbar() {
                     layoutId="nav-underline"
                     className="absolute bottom-0.5 left-3 right-3 h-[2px] rounded-full"
                     style={{
-                      background:
-                        "linear-gradient(90deg, #22c55e, #16a34a)",
+                      background: "linear-gradient(90deg, #22c55e, #16a34a)",
                       opacity: active ? 1 : 0,
                     }}
                   />
 
                   {/* hover dot */}
                   {!active && (
-                    <span
-                      className="absolute bottom-0.5 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-emerald-400 opacity-0 group-hover:opacity-100 transition-opacity"
-                    />
+                    <span className="absolute bottom-0.5 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-emerald-400 opacity-0 group-hover:opacity-100 transition-opacity" />
                   )}
                 </Link>
               );
             })}
 
             {/* DONATE CTA */}
-            <Link
+            {/* <Link
               to="/donations"
               className="ml-3 px-5 py-2 rounded-full text-white text-sm font-semibold shadow-md hover:shadow-lg hover:scale-105 active:scale-95 transition-all duration-200"
               style={{
@@ -207,7 +227,7 @@ export default function Navbar() {
               }}
             >
               Donate
-            </Link>
+            </Link> */}
           </div>
 
           {/* MOBILE HAMBURGER */}

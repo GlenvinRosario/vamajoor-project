@@ -141,7 +141,7 @@ export default function Footer() {
           </div>
 
           {/* DONATE CARD */}
-          <div className="mt-6 p-4 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 hover:border-emerald-400/40 transition">
+          {/* <div className="mt-6 p-4 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 hover:border-emerald-400/40 transition">
             <p className="text-emerald-300 font-semibold text-sm mb-1">
               Support Mission
             </p>
@@ -158,7 +158,7 @@ export default function Footer() {
               <Heart size={14} />
               Donate Now
             </Link>
-          </div>
+          </div> */}
         </div>
       </div>
 

@@ -7,6 +7,7 @@ export default function ContactInfo() {
       initial={{ opacity: 0, x: -40 }}
       whileInView={{ opacity: 1, x: 0 }}
       className="space-y-6"
+      style={{alignItems:"center" }}
     >
       <h2 className="text-3xl font-bold text-[#355E3B]">
         Get In Touch
