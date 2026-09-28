@@ -30,9 +30,9 @@ export default function Index() {
       <div className="bg-gradient-to-r from-[#1f2d24] via-[#355E3B] to-[#2f4f34] py-2.5 overflow-hidden border-y border-white/10">
         <div className="flex items-center">
           {/* Label */}
-          <div className="bg-white/10 backdrop-blur-md text-white font-semibold text-xs px-4 py-1 shrink-0 mr-4 rounded-r-full border border-white/20">
+          {/* <div className="bg-white/10 backdrop-blur-md text-white font-semibold text-xs px-4 py-1 shrink-0 mr-4 rounded-r-full border border-white/20">
             OUR WORK
-          </div>
+          </div> */}
 
           {/* Marquee */}
           <div className="overflow-hidden flex-1 relative">
