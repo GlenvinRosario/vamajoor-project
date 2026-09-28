@@ -10,6 +10,7 @@ import {
   Instagram,
   Linkedin,
   Twitter,
+  ChevronDown,
 } from "lucide-react";
 import dharmaLogo from "@/assets/dharmaLogo.png";
 
@@ -19,11 +20,16 @@ const navItems = [
   { label: "Administration", href: "/our-team" },
   { label: "News", href: "/news" },
   { label: "Gallery", href: "/gallery" },
-  { label: "Achievements", href: "/achievements" },
-  { label: "Events", href: "/events" },
   { label: "Donations", href: "/donations" },
   { label: "Contact", href: "/contact" },
-  { label: "More", href: "/more" }
+];
+
+const dropdownItems = [
+  { label: "Upcoming Events", href: "/events" },
+  { label: "Wishes", href: "/wishes" },
+  { label: "Achievements", href: "/achievements" },
+  { label: "Objectives", href: "/about#objectives" },
+  { label: "Publications", href: "/publications" },
 ];
 
 const socialLinks = [
@@ -35,6 +41,7 @@ const socialLinks = [
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -45,12 +52,13 @@ export default function Navbar() {
 
   useEffect(() => {
     setOpen(false);
+    setDropdownOpen(false);
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [location.pathname]);
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50">
-      {/* ── TOP BAR ── */}
+    <header className="fixed top-0 left-0 w-full z-50 font-sans">
+      {/* ── TOP CONTACT INFO BAR ── */}
       <div
         className="hidden md:flex justify-between items-center px-8 py-2 text-white text-xs tracking-wide"
         style={{
@@ -88,23 +96,23 @@ export default function Navbar() {
           ))}
         </div>
       </div>
-
       {/* ── MAIN NAVBAR ── */}
       <motion.nav
         animate={{
-          paddingTop: scrolled ? "8px" : "14px",
-          paddingBottom: scrolled ? "8px" : "14px",
+          // Increased padding top/bottom to allow the expanded logo and text to breathe
+          paddingTop: scrolled ? "12px" : "20px",
+          paddingBottom: scrolled ? "12px" : "20px",
         }}
         transition={{ duration: 0.3 }}
-        className="relative px-4"
+        className="relative px-2 md:px-4"
         style={{
           background: scrolled
-            ? "rgba(255,255,255,0.92)"
+            ? "rgba(255,255,255,0.95)"
             : "linear-gradient(135deg, rgba(240,250,244,0.97) 0%, rgba(232,245,233,0.97) 50%, rgba(244,253,246,0.97) 100%)",
           backdropFilter: "blur(16px)",
           WebkitBackdropFilter: "blur(16px)",
           boxShadow: scrolled
-            ? "0 4px 24px rgba(21,92,53,0.12), 0 1px 0 rgba(21,92,53,0.08)"
+            ? "0 4px 24px rgba(21,92,53,0.12)"
             : "0 2px 12px rgba(21,92,53,0.06)",
           borderBottom: "1px solid rgba(21,92,53,0.08)",
         }}
@@ -116,10 +124,10 @@ export default function Navbar() {
           }}
         />
 
-        <div className="container mx-auto flex items-center justify-between ">
-          {/* LOGO */}
-          <div className="mr-auto flex justify-start pl-4">
-            <Link to="/" className="flex items-center gap-4 group">
+        <div className="container mx-auto max-w-[99%] flex items-center justify-between">
+          {/* LOGO BRAND BLOCK */}
+          <div className="mr-auto flex justify-start pl-0">
+            <Link to="/" className="flex items-center gap-5 group">
               <div
                 className="p-2 rounded-2xl shadow-md group-hover:shadow-lg transition-shadow shrink-0"
                 style={{
@@ -127,6 +135,7 @@ export default function Navbar() {
                   border: "1.5px solid rgba(34,197,94,0.2)",
                 }}
               >
+                {/* Scaled logo back to h-16 w-16 */}
                 <img
                   src={dharmaLogo}
                   className="h-16 w-16 object-contain"
@@ -134,69 +143,90 @@ export default function Navbar() {
                 />
               </div>
 
-              <div className="text-left flex flex-col justify-center"
-  style={{
-            marginRight: "auto",
-            textAlign: "left",
-          }}
->
-                  <h1
-                  className="font-black leading-none text-3xl tracking-tight "
+              <div className="text-left flex flex-col justify-center">
+                {/* Restored title text to text-4xl font-black */}
+                <h1
+                  className="font-black leading-none text-4xl tracking-tight whitespace-nowrap"
                   style={{
                     background: "linear-gradient(135deg, #0d3320, #1a7a45)",
                     WebkitBackgroundClip: "text",
                     WebkitTextFillColor: "transparent",
-                               textAlign: "left",
+                    paddingBottom: "5px"
                   }}
                 >
                   Dharma Jyothi
                 </h1>
-                <p className="text-[11px] text-emerald-600/70 tracking-widest uppercase mt-1.5"   style={{ textAlign: "left" }}>
+                {/* Scaled tagline to text-sm font-bold matching the prominent header layout */}
+                <p className="text-sm font-bold text-emerald-600/70 tracking-widest uppercase mt-1.5">
                   Charitable Society
                 </p>
               </div>
             </Link>
           </div>
-
-          {/* DESKTOP NAV */}
-          <div className="hidden lg:flex items-center gap-0.5">
+          {/* DESKTOP LINKS TRACKS */}
+          <div className="hidden lg:flex items-center gap-1.5">
             {navItems.map((item) => {
               const active = location.pathname === item.href;
               return (
                 <Link
                   key={item.label}
                   to={item.href}
-                  className="relative px-4 py-3 text-base font-semibold tracking-wide transition-all duration-200 rounded-xl group"
+                  className="relative px-4 py-3 text-base font-semibold tracking-wide transition-all duration-200 rounded-xl"
                   style={{
                     color: active ? "#126630" : "#374151",
                     background: active ? "rgba(34,197,94,0.1)" : "transparent",
                   }}
-                  onMouseEnter={(e) => {
-                    if (!active)
-                      (e.currentTarget as HTMLElement).style.background =
-                        "rgba(34,197,94,0.06)";
-                  }}
-                  onMouseLeave={(e) => {
-                    if (!active)
-                      (e.currentTarget as HTMLElement).style.background =
-                        "transparent";
-                  }}
                 >
                   {item.label}
-                  <motion.span
-                    layoutId="nav-underline"
-                    className="absolute bottom-1 left-4 right-4 h-[2px] rounded-full"
-                    style={{
-                      background: "linear-gradient(90deg, #22c55e, #16a34a)",
-                      opacity: active ? 1 : 0,
-                    }}
-                  />
-                  {!active && (
-                    <span className="absolute bottom-0.5 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-emerald-400 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  {active && (
+                    <motion.span
+                      layoutId="nav-underline"
+                      className="absolute bottom-1 left-4 right-4 h-[2.5px] rounded-full bg-gradient-to-r from-emerald-500 to-green-600"
+                    />
                   )}
                 </Link>
               );
             })}
+
+            {/* ── "MORE" HOVER DROPDOWN CONTAINER ── */}
+            <div
+              className="relative py-4"
+              onMouseEnter={() => setDropdownOpen(true)}
+              onMouseLeave={() => setDropdownOpen(false)}
+            >
+              <button
+                className="flex items-center gap-1 px-4 py-3 text-base font-semibold tracking-wide text-gray-700 hover:text-emerald-800 rounded-xl transition-colors"
+                style={{
+                  background: dropdownOpen ? "rgba(34,197,94,0.06)" : "transparent",
+                }}
+              >
+                <span>More</span>
+                <ChevronDown size={14} className={`transition-transform duration-200 ${dropdownOpen ? "rotate-180 text-emerald-700" : ""}`} />
+              </button>
+
+              {/* FLOATING DROPDOWN OPTIONS CARD */}
+              <AnimatePresence>
+                {dropdownOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                    transition={{ duration: 0.15, ease: "easeOut" }}
+                    className="absolute right-0 top-full mt-1 w-56 rounded-2xl border border-gray-100 bg-white p-2 shadow-[0_10px_30px_rgba(0,0,0,0.08)] backdrop-blur-xl z-50"
+                  >
+                    {dropdownItems.map((subItem) => (
+                      <Link
+                        key={subItem.label}
+                        to={subItem.href}
+                        className="block w-full px-4 py-2.5 text-sm font-semibold text-gray-600 rounded-xl hover:bg-emerald-50/60 hover:text-emerald-800 transition-all text-left"
+                      >
+                        {subItem.label}
+                      </Link>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
           </div>
         </div>
       </motion.nav>
