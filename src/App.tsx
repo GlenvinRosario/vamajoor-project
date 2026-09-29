@@ -18,7 +18,8 @@ import NotFound from "./pages/NotFound";
 import Donations from "./pages/Donations";
 import Achievements from "./pages/Achievements";
 import OurTeam from "./pages/OurTeam";
-
+import WishesWall from "./pages/Wishes";
+import PublicationsComponent from './pages/Publications'
 import EventPageSimple from "./pages/EventpageSimple";
 import EventDetailsPage from "./pages/EventDetailsPage";
 
@@ -51,6 +52,8 @@ const App = () => (
 
             <Route path="/events/:id" element={<EventDetailsPage />} />
 
+            <Route path="/wishes" element ={<WishesWall/>} />
+            <Route path="/publications" element={<PublicationsComponent/>} />
             <Route path="/donations" element={<Donations />} />
 
             <Route path="/gallery" element={<GalleryPage />} />
