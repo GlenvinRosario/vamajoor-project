@@ -169,13 +169,6 @@ const eventsImages: GalleryImage[] = [
 // ================= HEALTH (NEW ADDED) =================
 const healthImages: GalleryImage[] = [
   {
-    id: "health-1",
-    title: "Health Camp 1",
-    image_url:
-      "https://res.cloudinary.com/dapmnkke3/image/upload/v1781436402/rixwnyicpjuxdnv2ggtu.jpg",
-    category: "Medical",
-  },
-  {
     id: "health-4",
     title: "Health Camp 4",
     image_url:
