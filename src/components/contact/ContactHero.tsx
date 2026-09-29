@@ -10,92 +10,76 @@ export default function ContactHero() {
   };
 
   return (
-    <section className="relative py-28 md:py-20 text-center overflow-hidden text-white">
-      {/* BACKGROUND IMAGE */}
-      <div className="absolute inset-0">
-        <img
-          src="https://res.cloudinary.com/dapmnkke3/image/upload/v1781442885/kyldmlqkjfaqhekrm59y.png"
-          alt="Contact Background"
-          loading="eager"
-          decoding="async"
-          className="w-full h-full object-cover scale-105"
-        />
-
-        <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/60 to-[#0a1711]/90" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0a1711] via-transparent to-transparent" />
-      </div>
-
-      {/* glow effects */}
-      <div className="absolute -top-24 -left-24 w-96 h-96 bg-emerald-300/15 blur-3xl rounded-full animate-pulse" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-sky-300/10 blur-3xl rounded-full" />
-      <div className="absolute top-1/2 left-1/2 w-72 h-72 bg-white/5 blur-3xl rounded-full -translate-x-1/2 -translate-y-1/2" />
+    <section className="relative py-24 md:py-17 text-center bg-[#cfe7d8] overflow-hidden border-b border-[#b5dbbe]">
+      {/* Modern Large Dot Matrix Overlay */}
+      <div className="absolute inset-0 bg-[radial-gradient(#1a4d2e_2px,transparent_2px)] [background-size:32px_32px] opacity-10 pointer-events-none" />
+      
+      {/* Clean Ambient Accent Layer */}
+      <div className="absolute -top-32 left-1/2 -translate-x-1/2 h-80 w-[36rem] rounded-full bg-white/20 blur-[100px] pointer-events-none" />
 
       {/* CONTENT */}
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 25 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-        className="px-4 relative z-10"
+        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        className="px-6 relative z-10 max-w-4xl mx-auto"
       >
-        {/* Badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 backdrop-blur-md mb-6">
-          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-          <span className="text-xs tracking-[3px] uppercase text-white/80">
+        {/* Micro-badge */}
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#1a4d2e] border border-[#143d24] shadow-sm mb-6">
+          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+          <span className="text-xs font-bold tracking-wider uppercase text-white">
             Get In Touch
           </span>
         </div>
 
         {/* Title */}
-        <h1 className="text-5xl md:text-7xl font-bold tracking-tight">
-          Contact <span className="text-emerald-300">Us</span>
+        <h1 className="text-5xl md:text-6xl font-black tracking-tight text-[#0a2614] leading-tight">
+          Contact <span className="text-[#1a4d2e] bg-white/40 px-3 py-1 rounded-2xl border border-white/20 shadow-sm inline-block">Us</span>
         </h1>
 
         {/* Subtitle */}
-        <p className="mt-5 text-white/70 max-w-2xl mx-auto text-lg">
-          We'd love to connect with you and support your journey
+        <p className="mt-5 text-[#1c4228] max-w-2xl mx-auto text-base md:text-lg font-medium leading-relaxed">
+          We'd love to connect with you and support your journey. Reach out through any of our primary channels below.
         </p>
 
-        {/* Buttons */}
+        {/* Buttons / Quick Links */}
         <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
           <a
-            href="tel:+910000000000"
-            className="flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/40 rounded-full px-5 py-3 backdrop-blur-md transition-all"
+            href="tel:+7019249483"
+            className="flex items-center gap-2 bg-white/80 hover:bg-white text-[#1a4d2e] border border-[#b5dbbe] font-bold px-6 py-3 rounded-xl transition-all duration-300 shadow-sm hover:-translate-y-0.5"
           >
-            <Phone size={16} className="text-emerald-300" />
+            <Phone size={16} />
             Call Us
           </a>
 
           <a
-            href="mailto:info@example.org"
-            className="flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/40 rounded-full px-5 py-3 backdrop-blur-md transition-all"
+            href="dharmajyothicharitablesociety@gmail.com"
+            className="flex items-center gap-2 bg-white/80 hover:bg-white text-[#1a4d2e] border border-[#b5dbbe] font-bold px-6 py-3 rounded-xl transition-all duration-300 shadow-sm hover:-translate-y-0.5"
           >
-            <Mail size={16} className="text-emerald-300" />
+            <Mail size={16} />
             Email Us
           </a>
 
           <a
             href="#location"
-            className="flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/40 rounded-full px-5 py-3 backdrop-blur-md transition-all"
+            className="flex items-center gap-2 bg-white/80 hover:bg-white text-[#1a4d2e] border border-[#b5dbbe] font-bold px-6 py-3 rounded-xl transition-all duration-300 shadow-sm hover:-translate-y-0.5"
           >
-            <MapPin size={16} className="text-emerald-300" />
+            <MapPin size={16} />
             Visit Us
           </a>
         </div>
       </motion.div>
 
-      {/* scroll indicator */}
+      {/* Scroll indicator */}
       <button
         onClick={handleScrollDown}
         aria-label="Scroll down"
         className="absolute bottom-6 left-1/2 -translate-x-1/2 cursor-pointer z-10"
       >
-        <div className="w-9 h-9 rounded-full bg-white/10 border border-white/20 backdrop-blur-md flex items-center justify-center animate-bounce hover:bg-white/20 transition-colors">
-          <ArrowDown size={16} className="text-white/70" />
+        <div className="w-9 h-9 rounded-full bg-white/40 border border-white/20 backdrop-blur-md flex items-center justify-center animate-bounce hover:bg-white/60 transition-colors shadow-sm text-[#1a4d2e]">
+          <ArrowDown size={16} />
         </div>
       </button>
-
-      {/* bottom accent line */}
-      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-emerald-400 to-sky-300" />
     </section>
   );
 }

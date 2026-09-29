@@ -28,7 +28,6 @@ const dropdownItems = [
   { label: "Upcoming Events", href: "/events" },
   { label: "Wishes", href: "/wishes" },
   { label: "Achievements", href: "/achievements" },
-  { label: "Objectives", href: "/about#objectives" },
   { label: "Publications", href: "/publications" },
 ];
 
