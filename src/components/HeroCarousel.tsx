@@ -196,7 +196,7 @@ export default function HeroCarousel() {
   }, [animating]);
 
   useEffect(() => {
-    const timer = setInterval(next, 3500);
+    const timer = setInterval(next, 2000);
     return () => clearInterval(timer);
   }, [next]);
 
