@@ -18,7 +18,7 @@ const navItems = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Administration", href: "/our-team" },
-  { label: "News", href: "/news" },
+  { label: "Programs", href: "/programs" },
   { label: "Gallery", href: "/gallery" },
   { label: "Donations", href: "/donations" },
   { label: "Contact", href: "/contact" },

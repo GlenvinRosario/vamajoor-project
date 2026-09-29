@@ -32,12 +32,28 @@ const institutionalAwards = [
   },
 ];
 
-const individualAwards = [
-  { year: "2000", text: "Sandesha Award – Sr. Maria Goretti Quadros" },
-  { year: "2004", text: "Gratias Agit – Govt. of Czech Republic" },
-  { year: "2011", text: "Rachana Award for outstanding service" },
-  { year: "2017", text: "Velvin Excellence Recognition" },
-  { year: "2020", text: "COVID Special Service – Sr. Janice Leadership" },
+const groupedAwards = [
+  {
+    recipient: "Sr. Maria Goretti Quadros",
+    role: "Founding Legacy Initiatives",
+    awards: [
+      { year: "2000", text: "Sandesha Award" },
+      { year: "2004", text: "Gratias Agit – Govt. of Czech Republic" },
+      { year: "2011", text: "Rachana Award for outstanding service" },
+      { year: "2017", text: "Velvin Excellence Recognition" },
+    ],
+  },
+  {
+    recipient: "Sr. Janice Leadership",
+    role: "Crisis Response & Governance",
+    awards: [{ year: "2020", text: "COVID Special Service Award" }],
+  },
+];
+const awards = [
+  "SPANDANA Award for De-Addiction Services",
+  "NABH Kayakalpa Certification",
+  "COVID-19 Service Recognition",
+  "Ayushman Bharat Excellence Award",
 ];
 
 const fadeUp = {
@@ -52,10 +68,8 @@ const fadeUp = {
 export default function Achievements() {
   return (
     <main className="bg-[#f4fbf6] text-[#102018] overflow-hidden">
-
       {/* ================= HERO ================= */}
       <section className="relative py-28 md:py-33 text-center text-white overflow-hidden">
-
         {/* BACKGROUND IMAGE */}
         <div className="absolute inset-0">
           <img
@@ -92,7 +106,8 @@ export default function Achievements() {
           </h1>
 
           <p className="mt-5 text-white/70 max-w-2xl mx-auto text-lg">
-            Celebrating decades of service, compassion, and transformation across communities.
+            Celebrating decades of service, compassion, and transformation
+            across communities.
           </p>
         </motion.div>
 
@@ -148,12 +163,12 @@ export default function Achievements() {
               <div className="absolute -top-10 -right-10 w-32 h-32 bg-white/40 blur-2xl rounded-full" />
 
               <div className="flex items-center gap-3 mb-5">
-                <div className={`flex items-center justify-center w-11 h-11 rounded-2xl ${a.iconBg}`}>
+                <div
+                  className={`flex items-center justify-center w-11 h-11 rounded-2xl ${a.iconBg}`}
+                >
                   <Award size={20} className={a.iconColor} />
                 </div>
-                <h3 className="font-bold text-lg leading-snug">
-                  {a.title}
-                </h3>
+                <h3 className="font-bold text-lg leading-snug">{a.title}</h3>
               </div>
 
               <ul className="space-y-3 text-sm text-gray-700">
@@ -178,115 +193,69 @@ export default function Achievements() {
       </section>
 
       {/* ================= TIMELINE ================= */}
-      <section className="bg-gradient-to-b from-white to-[#f0fbf4] py-20 md:py-28">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
-            <div className="inline-flex items-center gap-2 rounded-full border border-emerald-900/10 bg-emerald-900/5 px-5 py-2 mb-5">
-              <span className="h-2 w-2 rounded-full bg-emerald-600" />
-              <span className="text-sm font-semibold tracking-[2px] uppercase text-emerald-800">
-                Honours
-              </span>
-            </div>
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
-              Individual Recognition
-            </h2>
-          </motion.div>
+      <div className="relative max-w-2xl mx-auto px-4 py-8">
+        {/* Central Vertical Tracking Line */}
+        <div className="absolute left-4 top-2 bottom-2 w-0.5 bg-gradient-to-b from-emerald-600 via-[#cfe7d8] to-transparent" />
 
-          <div className="relative max-w-2xl mx-auto">
-            {/* vertical line */}
-            <div className="absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-emerald-300 via-emerald-200 to-transparent" />
-
-            {individualAwards.map((item, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                className="relative mb-8 ml-7"
-              >
-                <span className="absolute -left-[31px] top-5 w-3.5 h-3.5 rounded-full bg-gradient-to-r from-emerald-500 to-sky-500 shadow-md ring-4 ring-[#f0fbf4]" />
-
-                <motion.div
-                  whileHover={{ x: 4 }}
-                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                  className="rounded-2xl bg-white border border-black/5 shadow-sm hover:shadow-lg p-5 transition-shadow duration-300"
-                >
-                  <p className="text-emerald-600 font-bold text-sm tracking-wide mb-1">
-                    {item.year}
-                  </p>
-                  <p className="text-gray-700">{item.text}</p>
-                </motion.div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ================= STATS ================= */}
-      <section className="relative py-20 md:py-24 bg-gradient-to-r from-emerald-900 via-green-800 to-slate-900 text-white overflow-hidden">
-        <div className="absolute -top-20 -left-20 w-72 h-72 bg-lime-400/10 blur-3xl rounded-full" />
-        <div className="absolute bottom-0 right-0 w-72 h-72 bg-emerald-400/10 blur-3xl rounded-full" />
-
-        <div className="container mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 text-center relative z-10">
-          {[
-            { icon: Trophy, value: "10+", label: "Awards" },
-            { icon: Star, value: "50+", label: "Years" },
-            { icon: Award, value: "3", label: "States" },
-            { icon: Trophy, value: "1000+", label: "Lives Impacted" },
-          ].map((s, i) => (
+        {groupedAwards.map((group, groupIdx) => (
+          <div key={groupIdx} className="relative mb-12 last:mb-0">
+            {/* Recipient Profile Anchor Node */}
             <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.1, duration: 0.5 }}
-              whileHover={{ scale: 1.08, y: -4 }}
-              className="space-y-3 p-5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm hover:bg-white/10 hover:border-white/20 transition-all duration-300"
+              transition={{ duration: 0.5 }}
+              className="relative flex items-center gap-4 ml-10 mb-6"
             >
-              <s.icon className="mx-auto text-lime-300" size={28} />
-              <p className="text-3xl md:text-4xl font-bold">{s.value}</p>
-              <p className="text-white/70 text-sm">{s.label}</p>
+              {/* Visual Icon Node on Main Line */}
+              <span className="absolute -left-[33px] top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-[#1a4d2e] ring-4 ring-[#eef7f2] z-10" />
+
+              <div className="bg-[#f4faf6] border border-[#e1f0e7] px-4 py-2 rounded-xl shadow-sm">
+                <h3 className="text-base font-black text-[#0a2313] tracking-tight">
+                  {group.recipient}
+                </h3>
+                <p className="text-[11px] font-bold text-[#2e6f47] uppercase tracking-wider mt-0.5">
+                  {group.role}
+                </p>
+              </div>
             </motion.div>
-          ))}
-        </div>
-      </section>
 
-      {/* ================= CTA ================= */}
-      <section className="py-24 md:py-28 text-center bg-[#f6fbf7] relative overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-emerald-400/5 blur-3xl rounded-full" />
+            {/* Nested Award Event Cards */}
+            <div className="space-y-4 ml-14">
+              {group.awards.map((item, itemIdx) => (
+                <motion.div
+                  key={itemIdx}
+                  initial={{ opacity: 0, x: -30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{
+                    delay: (groupIdx * 3 + itemIdx) * 0.1,
+                    duration: 0.5,
+                    ease: [0.22, 1, 0.36, 1],
+                  }}
+                  className="relative"
+                >
+                  {/* Micro Connector Node to the profile track */}
+                  <span className="absolute -left-[23px] top-6 w-2 h-2 rounded-full bg-emerald-400 ring-2 ring-white" />
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="relative z-10 px-4"
-        >
-          <h3 className="text-3xl md:text-4xl font-bold mb-4 tracking-tight">
-            Be Part of Something Bigger
-          </h3>
-
-          <p className="text-gray-600 max-w-xl mx-auto mb-8">
-            Your support helps us continue building real impact across communities.
-          </p>
-
-          <motion.a
-            href="/donations"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.98 }}
-            className="inline-flex items-center px-8 py-4 rounded-2xl font-semibold text-white bg-gradient-to-r from-emerald-600 to-teal-600 shadow-lg shadow-emerald-900/20 hover:shadow-xl hover:shadow-emerald-900/30 transition-all duration-300"
-          >
-            Support Our Mission
-          </motion.a>
-        </motion.div>
-      </section>
+                  <motion.div
+                    whileHover={{ x: 6 }}
+                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                    className="rounded-2xl bg-white border border-[#e1f0e7] shadow-sm hover:shadow-md p-4 transition-all duration-300"
+                  >
+                    <span className="inline-block bg-[#eaf4ee] text-[#1a4d2e] text-xs font-black px-2.5 py-0.5 rounded-md mb-2">
+                      {item.year}
+                    </span>
+                    <p className="text-slate-700 text-sm font-medium leading-relaxed">
+                      {item.text}
+                    </p>
+                  </motion.div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
 
     </main>
   );

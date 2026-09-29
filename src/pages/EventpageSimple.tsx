@@ -4,6 +4,7 @@ import { Event } from "../types/event";
 
 import EventGrid from "../components/events/EventGrid";
 import EventHero from "../components/events/EventHero";
+import NewsPage from "./NewsPage";
 
 export default function EventPage() {
   const [events, setEvents] = useState<Event[]>([]);
@@ -22,19 +23,20 @@ export default function EventPage() {
       });
   }, []);
 
-  if (loading) {
-    return (
-      <div className="flex min-h-screen items-center justify-center bg-[#fafafa]">
-        <div className="h-12 w-12 animate-spin rounded-full border-4 border-gray-300 border-t-black" />
-      </div>
-    );
-  }
-
   return (
     <div className="bg-[#fafafa] min-h-screen">
+      {/* These will load instantly without waiting for the API */}
+      <NewsPage />
       <EventHero />
 
-      <EventGrid events={events} loading={false} />
+      {/* The loader is localized strictly to the grid area */}
+      {loading ? (
+        <div className="flex py-20 items-center justify-center bg-[#fafafa]">
+          <div className="h-10 w-10 animate-spin rounded-full border-4 border-gray-200 border-t-[#1a4d2e]" />
+        </div>
+      ) : (
+        <EventGrid events={events} loading={false} />
+      )}
     </div>
   );
 }

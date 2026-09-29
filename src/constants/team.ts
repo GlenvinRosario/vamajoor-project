@@ -1,7 +1,7 @@
 export const TEAM_MEMBERS = [
   {
     name: "Leena Valookarna Jose",
-    designation: "President",
+    designation: "Secretary",
     image:
       "https://res.cloudinary.com/dapmnkke3/image/upload/f_auto,q_auto,w_600,h_800,c_fill,g_face/v1781374622/by8itbqnyumwuvbstbh8.jpg",
   },
@@ -13,7 +13,7 @@ export const TEAM_MEMBERS = [
   },
   {
     name: "Laveena Seema D'Cunha",
-    designation: "Treasurer",
+    designation: "Secretary",
     image:
       "https://res.cloudinary.com/dapmnkke3/image/upload/f_auto,q_auto,w_600,h_800,c_fill,g_face/v1781374614/rrfgu8l3pklbcbhiybgd.jpg",
   },

@@ -176,20 +176,6 @@ const healthImages: GalleryImage[] = [
     category: "Medical",
   },
   {
-    id: "health-2",
-    title: "Health Camp 2",
-    image_url:
-      "https://res.cloudinary.com/dapmnkke3/image/upload/v1781436400/wt4c1g8mjo2wwnndhyqm.jpg",
-    category: "Medical",
-  },
-  {
-    id: "health-3",
-    title: "Health Camp 3",
-    image_url:
-      "https://res.cloudinary.com/dapmnkke3/image/upload/v1781436399/zhw2oscejmbn1i17lac5.jpg",
-    category: "Medical",
-  },
-  {
     id: "health-4",
     title: "Health Camp 4",
     image_url:

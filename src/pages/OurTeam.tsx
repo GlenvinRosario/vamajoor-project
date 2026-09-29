@@ -8,8 +8,8 @@ import { TEAM_MEMBERS } from "@/constants/team";
 const getRoleRank = (designation: string) => {
   const d = designation.toLowerCase();
   if (d === "president") return 1;
-  if (d === "secretary" || d === "treasurer") return 2;
-  return 3;
+  if (d === "secretary" || d === "treasurer") return 3;
+  return 4;
 };
 
 const cardVariants = {
@@ -190,44 +190,36 @@ export default function OurTeam() {
       <div className="absolute top-1/3 -right-24 h-80 w-80 rounded-full bg-[#1D9E75]/10 blur-3xl pointer-events-none" />
       <div className="absolute -bottom-24 left-1/3 h-80 w-80 rounded-full bg-[#D4AF37]/10 blur-3xl pointer-events-none" />
 
-      <div className="container mx-auto max-w-6xl px-6 relative z-10">
-        
-        {/* Heading */}
-        <motion.div
-          initial={{ opacity: 0, y: 25 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-4"
-        >
-          <span className="inline-block rounded-full bg-[#d0f0da] px-5 py-2 text-[11px] font-semibold uppercase tracking-[3px] text-[#1a6b3a] mb-4">
-            Meet Our Team
-          </span>
-          <h2 className="text-5xl font-bold text-[#1a4d2e]">
-            Our Leadership Team
-          </h2>
-          <p className="mx-auto mt-4 max-w-xl text-gray-500 text-sm leading-relaxed">
-            Dedicated individuals working together to drive positive change and serve the community with compassion, commitment, and integrity.
-          </p>
-        </motion.div>
+  <div className="container mx-auto max-w-6xl px-6 relative z-10">
+  {/* Heading Block */}
+  <motion.div
+    initial={{ opacity: 0, y: 25 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.6 }}
+    className="text-center mb-12"
+  >
+    {/* Clean, Modern Title */}
+    <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-[#1a4d2e] leading-tight">
+      Governing Board Members
+      <span className="block mt-2 text-2xl md:text-3xl font-medium tracking-wide text-[#2e6f47] opacity-90">
+        Session{" "}
+        <span className="relative inline-block px-3 py-1 font-bold text-[#1a4d2e] bg-[#e2f5e9] rounded-lg border border-[#c4ebd1]">
+          2026–2027
+        </span>
+      </span>
+    </h2>
 
-        {/* ── ROW 1: PRESIDENT ── */}
-        {president.length > 0 && (
-          <>
-            <RowLabel tier="President" />
-            <div className="flex justify-center">
-              <div className="w-full max-w-[320px]">
-                <TeamCard member={president[0]} tier="President" index={0} large />
-              </div>
-            </div>
-          </>
-        )}
+    {/* Subtle Decorative Underline Accent */}
+    <div className="mx-auto mt-5 h-1 w-16 rounded-full bg-gradient-to-r from-[#1a4d2e] to-[#2e6f47]" />
+  </motion.div>
 
-        {/* ── ROW 2: EXECUTIVE BOARD ── */}
+
+    {/* ── ROW 1: Leadership Team ── */}
         {executives.length > 0 && (
           <>
             <RowLabel tier="Executive" />
-            <div className="grid grid-cols-2 gap-6 max-w-[580px] mx-auto">
+            <div className="grid grid-cols-3 gap-6 max-w-[1000px] mx-auto">
               {executives.map((m, i) => (
                 <TeamCard key={m.name} member={m} tier="Executive" index={i} />
               ))}
@@ -235,7 +227,7 @@ export default function OurTeam() {
           </>
         )}
 
-        {/* ── ROW 3: MEMBERS ── */}
+        {/* ── ROW 2: MEMBERS ── */}
         {members.length > 0 && (
           <>
             <RowLabel tier="Member" />
