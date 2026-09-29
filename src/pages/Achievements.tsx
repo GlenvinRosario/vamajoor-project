@@ -32,6 +32,8 @@ const institutionalAwards = [
   },
 ];
 
+
+
 const groupedAwards = [
   {
     recipient: "Sr. Maria Goretti Quadros",
@@ -44,17 +46,25 @@ const groupedAwards = [
     ],
   },
   {
+    recipient: "Sr. M. Melania D’Souza",
+    role: "Healthcare & Prevention Advocacy",
+    awards: [
+      { 
+        year: "2023", 
+        text: "Award from District HIV Control Board, Government of Karnataka, recognizing the contribution towards the cause of prevention of HIV & AIDS and for collaborating with the Government." 
+      },
+    ],
+  },
+  {
     recipient: "Sr. Janice Leadership",
     role: "Crisis Response & Governance",
-    awards: [{ year: "2020", text: "COVID Special Service Award" }],
+    awards: [
+      { year: "2020", text: "COVID Special Service Award" }
+    ],
   },
 ];
-const awards = [
-  "SPANDANA Award for De-Addiction Services",
-  "NABH Kayakalpa Certification",
-  "COVID-19 Service Recognition",
-  "Ayushman Bharat Excellence Award",
-];
+
+
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },

@@ -66,7 +66,13 @@ const cardVariants = {
   },
 };
 
-function Card({ item, index }: { item: (typeof quickLinks)[0]; index: number }) {
+function Card({
+  item,
+  index,
+}: {
+  item: (typeof quickLinks)[0];
+  index: number;
+}) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
   const isEven = index % 2 === 0;
@@ -213,11 +219,15 @@ export default function HomeQuickLinks() {
       {/* background blobs */}
       <div
         className="absolute -top-32 -left-32 w-[500px] h-[500px] rounded-full blur-3xl opacity-30 pointer-events-none"
-        style={{ background: "radial-gradient(circle, #86efac, transparent 70%)" }}
+        style={{
+          background: "radial-gradient(circle, #86efac, transparent 70%)",
+        }}
       />
       <div
         className="absolute -bottom-32 -right-32 w-[400px] h-[400px] rounded-full blur-3xl opacity-20 pointer-events-none"
-        style={{ background: "radial-gradient(circle, #4ade80, transparent 70%)" }}
+        style={{
+          background: "radial-gradient(circle, #4ade80, transparent 70%)",
+        }}
       />
 
       <div className="container mx-auto px-4 relative z-10">
