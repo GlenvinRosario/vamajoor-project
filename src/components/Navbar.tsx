@@ -144,20 +144,10 @@ export default function Navbar() {
               </div>
 
               <div className="text-left flex flex-col justify-center">
-                {/* Restored title text to text-4xl font-black */}
-                <h1
-                  className="font-black leading-none text-4xl tracking-tight whitespace-nowrap"
-                  style={{
-                    background: "linear-gradient(135deg, #0d3320, #1a7a45)",
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                    paddingBottom: "5px"
-                  }}
-                >
+                <h1 className="font-black leading-none text-4xl tracking-tight whitespace-nowrap bg-gradient-to-br from-[#0d3320] to-[#1a7a45] bg-clip-text text-transparent pb-2">
                   Dharma Jyothi
                 </h1>
-                {/* Scaled tagline to text-sm font-bold matching the prominent header layout */}
-                <p className="text-sm font-bold text-emerald-600/70 tracking-widest uppercase mt-1.5">
+                <p className="font-medium text-lg uppercase tracking-widest text-emerald-800 opacity-90 matches-prominent">
                   Charitable Society
                 </p>
               </div>
@@ -197,11 +187,16 @@ export default function Navbar() {
               <button
                 className="flex items-center gap-1 px-4 py-3 text-base font-semibold tracking-wide text-gray-700 hover:text-emerald-800 rounded-xl transition-colors"
                 style={{
-                  background: dropdownOpen ? "rgba(34,197,94,0.06)" : "transparent",
+                  background: dropdownOpen
+                    ? "rgba(34,197,94,0.06)"
+                    : "transparent",
                 }}
               >
                 <span>More</span>
-                <ChevronDown size={14} className={`transition-transform duration-200 ${dropdownOpen ? "rotate-180 text-emerald-700" : ""}`} />
+                <ChevronDown
+                  size={14}
+                  className={`transition-transform duration-200 ${dropdownOpen ? "rotate-180 text-emerald-700" : ""}`}
+                />
               </button>
 
               {/* FLOATING DROPDOWN OPTIONS CARD */}

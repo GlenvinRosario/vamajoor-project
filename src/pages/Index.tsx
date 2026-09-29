@@ -47,19 +47,7 @@ export default function Index() {
         </div>
       </div>
 
-      {/* 🔥 MISSION STRIP (NEW — from PDF) */}
-      <div className="bg-white py-6 border-b border-gray-200">
-        <div className="container mx-auto px-4 text-center">
-          <p className="text-[#355E3B] font-semibold text-lg max-w-4xl mx-auto leading-relaxed">
-            “To proclaim the compassionate love of God and empower women, the
-            marginalized, and the vulnerable to build a just and dignified
-            society.”
-          </p>
-        </div>
-      </div>
-
-      {/* 🔥 SECTIONS */}
-
+    
       <motion.div
         variants={sectionVariant}
         initial="hidden"
@@ -88,17 +76,6 @@ export default function Index() {
         viewport={{ once: true }}
       >
         <HomeNewsSection />
-      </motion.div>
-
-
-      <motion.div
-        variants={sectionVariant}
-        initial="hidden"
-        whileInView="visible"
-        transition={{ duration: 0.6, delay: 0.5 }}
-        viewport={{ once: true }}
-      >
-        <Achievements />
       </motion.div>
 
       <div className="bg-gradient-to-r from-[#355E3B] to-[#1f2d24] py-10 text-center">

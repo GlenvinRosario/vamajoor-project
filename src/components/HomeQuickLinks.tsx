@@ -36,7 +36,7 @@ const quickLinks = [
   },
   {
     icon: Users,
-    title: "Community & Women Empowerment",
+    title: "Social Outreach program",
     description:
       "Empowering women and communities through self-help groups, training, and social development programs.",
     image:
