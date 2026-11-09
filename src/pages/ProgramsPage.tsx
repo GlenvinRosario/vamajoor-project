@@ -126,17 +126,17 @@ interface CardItem {
 }
 
 function InitiativeCard({ card, index }: { card: CardItem; index: number }) {
-  return (
-    <motion.a
-      href={card.url}
-      target="_blank"
-      rel="noopener noreferrer"
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4, delay: index * 0.03 }}
-      whileHover={{ y: -6 }}
-      className="group block bg-white rounded-2xl border border-slate-100 overflow-hidden shadow-sm hover:shadow-[0_16px_36px_rgba(26,77,46,0.06)] hover:border-[#1a4d2e]/20 transition-all duration-300 relative"
-    >
+  // Checks if the card has a valid, actionable external website URL link path
+  const hasValidUrl = card.url && card.url !== "#";
+
+  // Automatically ensures the link has a protocol so it opens externally instead of relatively
+  const externalUrl = hasValidUrl 
+    ? (card.url.startsWith("http://") || card.url.startsWith("https://") ? card.url : `https://${card.url}`)
+    : "";
+
+  // Base card element wrapper
+  const CardContent = (
+    <div className="group block bg-white rounded-2xl border border-slate-100 overflow-hidden shadow-sm hover:shadow-[0_16px_36px_rgba(26,77,46,0.06)] hover:border-[#1a4d2e]/20 transition-all duration-300 relative">
       {/* High-Fidelity Studio Image Framing Container */}
       <div className="p-3 bg-white">
         <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl bg-gradient-to-br from-[#f1f7f3] to-[#e4efe7]">
@@ -161,23 +161,57 @@ function InitiativeCard({ card, index }: { card: CardItem; index: number }) {
             </h3>
           </div>
           
-          {/* Quick Link Floating Button Indicator */}
-          <div className="absolute top-3 right-3 p-2 rounded-xl bg-white/90 backdrop-blur-md opacity-0 group-hover:opacity-100 transition-all duration-300 shadow-sm text-[#1a4d2e] z-20 transform translate-y-1 group-hover:translate-y-0">
-            <ArrowUpRight size={14} />
-          </div>
+          {/* Quick Link Floating Button Indicator - Only visible if valid URL exists */}
+          {hasValidUrl && (
+            <div className="absolute top-3 right-3 p-2 rounded-xl bg-white/90 backdrop-blur-md opacity-0 group-hover:opacity-100 transition-all duration-300 shadow-sm text-[#1a4d2e] z-20 transform translate-y-1 group-hover:translate-y-0">
+              <ArrowUpRight size={14} />
+            </div>
+          )}
         </div>
       </div>
 
-      {/* Interactive Bottom Interactive Bar */}
-      <div className="px-5 pb-4 pt-1 bg-white flex items-center justify-between text-[11px] font-bold tracking-wide uppercase text-[#2e6f47]">
-        <span>Visit Site</span>
-        <span className="text-xs transform translate-x-0 group-hover:translate-x-1 transition-transform duration-200">
-          ➔
-        </span>
-      </div>
-    </motion.a>
+      {/* Interactive Bottom Bar - Only displays if valid URL exists */}
+      {hasValidUrl && (
+        <div className="px-5 pb-4 pt-1 bg-white flex items-center justify-between text-[11px] font-bold tracking-wide uppercase text-[#2e6f47]">
+          <span>Visit Site</span>
+          <span className="text-xs transform translate-x-0 group-hover:translate-x-1 transition-transform duration-200">
+            ➔
+          </span>
+        </div>
+      )}
+    </div>
+  );
+
+  // Render as an interactive link if valid url exists, otherwise render as a stylized static motion div
+  if (hasValidUrl) {
+    return (
+      <motion.a
+        href={externalUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4, delay: index * 0.03 }}
+        whileHover={{ y: -6 }}
+        className="cursor-pointer"
+      >
+        {CardContent}
+      </motion.a>
+    );
+  }
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4, delay: index * 0.03 }}
+      className="pointer-events-none"
+    >
+      {CardContent}
+    </motion.div>
   );
 }
+
 
 
 
@@ -195,7 +229,7 @@ const programData = [
       { title: "Maria Giri Health Centre, Kuppepadavu", image: "https://res.cloudinary.com/dapmnkke3/image/upload/v1794207474/rnli4mqhl9ubswjg3l8i.jpg", tag: "Geriatric Care", url: "#" },
       { title: "Maria Kripa Chikisthalaya", image: "https://res.cloudinary.com/dapmnkke3/image/upload/v1794207481/fno686ptl5mdhyt3onsr.jpg", tag: "Dispensary", url: "#" },
       { title: "Prem Dham", image: "https://res.cloudinary.com/dapmnkke3/image/upload/v1794207483/trqkg8azbtfxx5tthkfp.png", tag: "Dispensary", url: "#" },
-      { title: "St. Ignatius Hospital", image: "https://res.cloudinary.com/dapmnkke3/image/upload/v1794207487/l0fusi4ykh2cdrwdsa9i.png", tag: "Hospital", url: "#" },
+      { title: "St. Ignatius Hospital", image: "https://res.cloudinary.com/dapmnkke3/image/upload/v1794207487/l0fusi4ykh2cdrwdsa9i.png", tag: "Hospital", url: "www.stignatiushospital.org" },
       { title: "St. Ignatius Institute of Health Sciences", image: "https://res.cloudinary.com/dapmnkke3/image/upload/v1794207515/gotucnjtycajb6zztdhd.jpg", tag: "Health Institute", url: "#" },
     ]
   },

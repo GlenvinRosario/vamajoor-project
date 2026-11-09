@@ -9,7 +9,7 @@ export const TEAM_MEMBERS = [
     name: "Laura Rodrigues",
     designation: "Secretary",
     image:
-      "https://res.cloudinary.com/dapmnkke3/image/upload/f_auto,q_auto,w_600,h_800,c_fill,g_face/v1781374606/au4q2eqjysxuwnkcl4a3.jpg",
+      "https://res.cloudinary.com/dapmnkke3/image/upload/v1794224476/mvpvspqygawiw80gn2so.jpg",
   },
   {
     name: "Laveena Seema D'Cunha",

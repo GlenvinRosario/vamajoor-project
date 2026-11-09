@@ -203,9 +203,8 @@ export default function OurTeam() {
     <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-[#1a4d2e] leading-tight">
       Governing Board Members
       <span className="block mt-2 text-2xl md:text-3xl font-medium tracking-wide text-[#2e6f47] opacity-90">
-        Session{" "}
         <span className="relative inline-block px-3 py-1 font-bold text-[#1a4d2e] bg-[#e2f5e9] rounded-lg border border-[#c4ebd1]">
-          2026–2027
+          2024–2027
         </span>
       </span>
     </h2>
