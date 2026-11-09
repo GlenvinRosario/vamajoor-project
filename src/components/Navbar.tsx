@@ -17,7 +17,7 @@ import dharmaLogo from "@/assets/dharmaLogo.png";
 const navItems = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
-  { label: "Administration", href: "/our-team" },
+  { label: "Resources", href: "/resources" },
   { label: "Programs", href: "/programs" },
   { label: "Gallery", href: "/gallery" },
   { label: "Donations", href: "/donations" },

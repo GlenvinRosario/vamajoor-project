@@ -22,6 +22,7 @@ import WishesWall from "./pages/Wishes";
 import PublicationsComponent from './pages/Publications'
 import EventPageSimple from "./pages/EventpageSimple";
 import EventDetailsPage from "./pages/EventDetailsPage";
+import Resources from "./pages/Resources";
 
 const queryClient = new QueryClient();
 
@@ -40,7 +41,7 @@ const App = () => (
 
             <Route path="/about" element={<AboutPage />} />
 
-            <Route path="/our-team" element={<OurTeam />} />
+            <Route path="/resources" element={ <Resources/>} />
 
             <Route path="/team" element={<TeamPage />} />
 
