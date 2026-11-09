@@ -25,17 +25,7 @@ const slides = [
     secondCta: "Join Us",
     secondCtaHref: "/contact",
   },
-  {
-    image:
-      "https://res.cloudinary.com/dapmnkke3/image/upload/v1786951935/yxacg84bbpcaqhvvkzhj.jpg",
-    title: "Transforming Lives Across Communities",
-    subtitle:
-      "Through hospitals, schools, social centres, and empowerment programs, we bring hope, dignity, and a better future to those in need.",
-    cta: "View Our Work",
-    ctaHref: "/gallery",
-    secondCta: "Learn More",
-    secondCtaHref: "/about",
-  },
+
   {
     image:
       "https://res.cloudinary.com/dapmnkke3/image/upload/v1790711021/rek48cnieg2csfehtij3.jpg",
@@ -47,67 +37,10 @@ const slides = [
     secondCta: "Learn More",
     secondCtaHref: "/about",
   },
-  {
-    image:
-      "https://res.cloudinary.com/dapmnkke3/image/upload/v1790711015/kyw8pbmk2bulxbhzz0zi.jpg",
-    title: "Transforming Lives Across Communities",
-    subtitle:
-      "Through hospitals, schools, social centres, and empowerment programs, we bring hope, dignity, and a better future to those in need.",
-    cta: "View Our Work",
-    ctaHref: "/gallery",
-    secondCta: "Learn More",
-    secondCtaHref: "/about",
-  },
+
   {
     image:
       "https://res.cloudinary.com/dapmnkke3/image/upload/v1790711011/axodhovapglgbmof2cwi.jpg",
-    title: "Transforming Lives Across Communities",
-    subtitle:
-      "Through hospitals, schools, social centres, and empowerment programs, we bring hope, dignity, and a better future to those in need.",
-    cta: "View Our Work",
-    ctaHref: "/gallery",
-    secondCta: "Learn More",
-    secondCtaHref: "/about",
-  },
-  {
-    image:
-      "https://res.cloudinary.com/dapmnkke3/image/upload/v1790711009/czcipu0verk71nrjyplc.jpg",
-    title: "Transforming Lives Across Communities",
-    subtitle:
-      "Through hospitals, schools, social centres, and empowerment programs, we bring hope, dignity, and a better future to those in need.",
-    cta: "View Our Work",
-    ctaHref: "/gallery",
-    secondCta: "Learn More",
-    secondCtaHref: "/about",
-  },
-
-  {
-    image:
-      "https://res.cloudinary.com/dapmnkke3/image/upload/v1790711006/tvhg5z1lrkvsvl6xpycs.jpg",
-    title: "Transforming Lives Across Communities",
-    subtitle:
-      "Through hospitals, schools, social centres, and empowerment programs, we bring hope, dignity, and a better future to those in need.",
-    cta: "View Our Work",
-    ctaHref: "/gallery",
-    secondCta: "Learn More",
-    secondCtaHref: "/about",
-  },
-
-  {
-    image:
-      "https://res.cloudinary.com/dapmnkke3/image/upload/v1790711002/qzi0nevwgijcgvktgdrw.jpg",
-    title: "Transforming Lives Across Communities",
-    subtitle:
-      "Through hospitals, schools, social centres, and empowerment programs, we bring hope, dignity, and a better future to those in need.",
-    cta: "View Our Work",
-    ctaHref: "/gallery",
-    secondCta: "Learn More",
-    secondCtaHref: "/about",
-  },
-
-  {
-    image:
-      "https://res.cloudinary.com/dapmnkke3/image/upload/v1790710994/b59psrtikepgosclgpgx.jpg",
     title: "Transforming Lives Across Communities",
     subtitle:
       "Through hospitals, schools, social centres, and empowerment programs, we bring hope, dignity, and a better future to those in need.",
@@ -129,17 +62,7 @@ const slides = [
     secondCtaHref: "/about",
   },
 
-  {
-    image:
-      "https://res.cloudinary.com/dapmnkke3/image/upload/v1790710977/s4isy5anu4ctsjkh2pab.jpg",
-    title: "Transforming Lives Across Communities",
-    subtitle:
-      "Through hospitals, schools, social centres, and empowerment programs, we bring hope, dignity, and a better future to those in need.",
-    cta: "View Our Work",
-    ctaHref: "/gallery",
-    secondCta: "Learn More",
-    secondCtaHref: "/about",
-  },
+
 
   {
     image:
@@ -152,18 +75,7 @@ const slides = [
     secondCta: "Learn More",
     secondCtaHref: "/about",
   },
-  {
-    image:
-      "https://res.cloudinary.com/dapmnkke3/image/upload/v1790710945/rim4tnyf0bd2wqfkj3ta.jpg",
-    title: "Transforming Lives Across Communities",
-    subtitle:
-      "Through hospitals, schools, social centres, and empowerment programs, we bring hope, dignity, and a better future to those in need.",
-    cta: "View Our Work",
-    ctaHref: "/gallery",
-    secondCta: "Learn More",
-    secondCtaHref: "/about",
-  },
-
+ 
   {
     image:
       "https://res.cloudinary.com/dapmnkke3/image/upload/v1790710784/zs3mghirpwxm3mookcze.jpg",
