@@ -3,7 +3,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { BookOpen, Heart, Users, ChevronDown, ArrowUpRight } from "lucide-react";
 
 export default function ProgramsPage() {
-  // Sets default view explicitly to medical as requested by your framework settings
   const [expandedSection, setExpandedSection] = useState<string | null>("medical");
 
   const toggleSection = (sectionId: string) => {
@@ -14,7 +13,6 @@ export default function ProgramsPage() {
     <main className="bg-[#fcfdfc] min-h-screen pb-24 overflow-hidden antialiased">
       {/* Premium Split Tint Hero Grid Banner */}
       <section className="relative pt-24 pb-20 overflow-hidden bg-[#cfe7d8] border-b border-[#b5dbbe]">
-        {/* Fine Grain Grid Mesh Dot Matrix Accent */}
         <div className="absolute inset-0 bg-[radial-gradient(#1a4d2e_2px,transparent_2px)] [background-size:32px_32px] opacity-15" />
         <div className="absolute -top-24 left-1/4 h-64 w-64 rounded-full bg-white/30 blur-2xl pointer-events-none" />
 
@@ -49,14 +47,12 @@ export default function ProgramsPage() {
               layout="position"
               className="bg-white rounded-3xl border border-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.02)] overflow-hidden transition-all duration-300"
             >
-              {/* Category Header Row */}
               <AccordionHeader 
                 category={category} 
                 isExpanded={isExpanded} 
                 onToggle={() => toggleSection(category.id)} 
               />
 
-              {/* Collapsible Content Area */}
               <AnimatePresence initial={false}>
                 {isExpanded && (
                   <motion.div
@@ -82,6 +78,7 @@ export default function ProgramsPage() {
     </main>
   );
 }
+
 interface AccordionHeaderProps {
   category: typeof programData[0];
   isExpanded: boolean;
@@ -138,42 +135,52 @@ function InitiativeCard({ card, index }: { card: CardItem; index: number }) {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, delay: index * 0.03 }}
       whileHover={{ y: -6 }}
-      className="group block bg-[#f4faf6] rounded-2xl border border-[#e1f0e7] overflow-hidden shadow-sm hover:shadow-[0_12px_30px_rgba(26,77,46,0.08)] hover:border-[#1a4d2e]/30 transition-all duration-300 relative"
+      className="group block bg-white rounded-2xl border border-slate-100 overflow-hidden shadow-sm hover:shadow-[0_16px_36px_rgba(26,77,46,0.06)] hover:border-[#1a4d2e]/20 transition-all duration-300 relative"
     >
-      {/* Image Container with Aspect Ratio */}
-      <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#eaf4ee]">
-        <img
-          src={card.image}
-          alt={card.title}
-          className="w-full h-full object-cover transform scale-100 group-hover:scale-105 transition-transform duration-700 ease-out"
-          loading="lazy"
-        />
-        {/* Premium Myntra-esque Tag Overlay */}
-        <span className="absolute bottom-3 left-3 bg-white/95 backdrop-blur-md text-[#1a4d2e] font-bold text-[10px] tracking-wide uppercase px-2.5 py-1 rounded-md shadow-sm border border-[#e1f0e7]">
-          {card.tag}
-        </span>
-        
-        {/* Quick Link Floating Button Indicator */}
-        <div className="absolute top-3 right-3 p-2 rounded-full bg-white/90 backdrop-blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-sm text-[#1a4d2e]">
-          <ArrowUpRight size={14} />
+      {/* High-Fidelity Studio Image Framing Container */}
+      <div className="p-3 bg-white">
+        <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl bg-gradient-to-br from-[#f1f7f3] to-[#e4efe7]">
+          {/* Studio Vignette Overlay for High-Contrast Visibility */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-black/20 opacity-90 z-10 transition-opacity duration-300 group-hover:opacity-100" />
+          
+          <img
+            src={card.image}
+            alt={card.title}
+            decoding="async"
+            loading="lazy"
+            className="w-full h-full object-cover transform scale-100 group-hover:scale-104 transition-transform duration-700 ease-out"
+          />
+
+          {/* Premium Floating Typography System */}
+          <div className="absolute inset-x-0 bottom-0 p-4 z-20 flex flex-col justify-end">
+            <span className="self-start mb-2 bg-white/90 backdrop-blur-md text-[#1a4d2e] font-extrabold text-[9px] tracking-wider uppercase px-2 py-0.5 rounded-md shadow-sm border border-white/20">
+              {card.tag}
+            </span>
+            <h3 className="font-extrabold text-white text-sm md:text-base leading-tight tracking-tight line-clamp-2 drop-shadow-md">
+              {card.title}
+            </h3>
+          </div>
+          
+          {/* Quick Link Floating Button Indicator */}
+          <div className="absolute top-3 right-3 p-2 rounded-xl bg-white/90 backdrop-blur-md opacity-0 group-hover:opacity-100 transition-all duration-300 shadow-sm text-[#1a4d2e] z-20 transform translate-y-1 group-hover:translate-y-0">
+            <ArrowUpRight size={14} />
+          </div>
         </div>
       </div>
 
-      {/* Card Metadata Details */}
-      <div className="p-4 bg-[#f4faf6]">
-        <h3 className="font-bold text-slate-800 text-sm md:text-base leading-snug group-hover:text-[#1a4d2e] transition-colors line-clamp-2 min-h-[44px]">
-          {card.title}
-        </h3>
-        <div className="mt-3 pt-3 border-t border-[#e1f0e7] flex items-center text-[12px] font-bold text-[#2e6f47] gap-1 opacity-90 group-hover:opacity-100">
-          View Details 
-          <span className="inline-block transform translate-x-0 group-hover:translate-x-1 group-hover:-translate-y-0.5 transition-transform duration-200 text-xs">
-            ↗
-          </span>
-        </div>
+      {/* Interactive Bottom Interactive Bar */}
+      <div className="px-5 pb-4 pt-1 bg-white flex items-center justify-between text-[11px] font-bold tracking-wide uppercase text-[#2e6f47]">
+        <span>Visit Site</span>
+        <span className="text-xs transform translate-x-0 group-hover:translate-x-1 transition-transform duration-200">
+          ➔
+        </span>
       </div>
     </motion.a>
   );
 }
+
+
+
 const programData = [
   {
     id: "medical",
@@ -182,18 +189,14 @@ const programData = [
     icon: Heart,
     color: "from-[#1a4d2e] to-[#2e6f47]",
     cards: [
-      { title: "Maria Giri Health Centre, Kuppepadavu", image: "https://res.cloudinary.com/dapmnkke3/image/upload/v1786964103/l7xgyg0rntvkyiursirg.jpg", tag: "Health Centre", url: "#" },
-      { title: "Maria Giri Geriatric Care Unit, Kuppepadavu", image: "https://res.cloudinary.com/dapmnkke3/image/upload/v1786964103/l7xgyg0rntvkyiursirg.jpg", tag: "Geriatric Care", url: "#" },
-      { title: "Dharma Jyothi Dispensary, Madangeri", image: "https://res.cloudinary.com/dapmnkke3/image/upload/v1786964103/l7xgyg0rntvkyiursirg.jpg", tag: "Dispensary", url: "#" },
-      { title: "Maria Kripa Dispensary, Santhpur, Bidar", image: "https://res.cloudinary.com/dapmnkke3/image/upload/v1786964103/l7xgyg0rntvkyiursirg.jpg", tag: "Dispensary", url: "#" },
-      { title: "Goretti Hospital, Kallianpur, Udupi", image: "https://res.cloudinary.com/dapmnkke3/image/upload/v1786964103/l7xgyg0rntvkyiursirg.jpg", tag: "Hospital", url: "#" },
-      { title: "St. Ignatius Hospital, Honavar", image: "https://res.cloudinary.com/dapmnkke3/image/upload/v1786964103/l7xgyg0rntvkyiursirg.jpg", tag: "Hospital", url: "#" },
-      { title: "St. Ignatius Institute of Health Sciences, Honavar", image: "https://res.cloudinary.com/dapmnkke3/image/upload/v1786964103/l7xgyg0rntvkyiursirg.jpg", tag: "Health Institute", url: "#" },
-      { title: "Cynthia Fernandes Palliative Care Centre, Kallianpur, Udupi", image: "https://res.cloudinary.com/dapmnkke3/image/upload/v1786964103/l7xgyg0rntvkyiursirg.jpg", tag: "Palliative Care", url: "#" },
-      { title: "Old Age Home / Senior Citizens Home, Kallianpur", image: "https://res.cloudinary.com/dapmnkke3/image/upload/v1786964103/l7xgyg0rntvkyiursirg.jpg", tag: "Senior Home", url: "#" },
-      { title: "Premdham Home for Psychiatric Care, Honavar", image: "https://res.cloudinary.com/dapmnkke3/image/upload/v1786964103/l7xgyg0rntvkyiursirg.jpg", tag: "Psychiatric Care", url: "#" },
-      { title: "Hostel for Nursing Students", image: "https://res.cloudinary.com/dapmnkke3/image/upload/v1786964103/l7xgyg0rntvkyiursirg.jpg", tag: "Student Housing", url: "#" },
-      { title: "Working Women’s Hostel", image: "https://res.cloudinary.com/dapmnkke3/image/upload/v1786964103/l7xgyg0rntvkyiursirg.jpg", tag: "Womens Hostel", url: "#" }
+      { title: "Dharma Jyothi Clinic Madangeri", image: "https://res.cloudinary.com/dapmnkke3/image/upload/v1794207413/oscddd6ssvzonbt3aits.jpg", tag: "Health Centre", url: "#" },
+      { title: "Goretti Hospital", image: "https://res.cloudinary.com/dapmnkke3/image/upload/v1794207465/xkvij2oeycm20luv6rts.jpg", tag: "Hospital", url: "#" },
+      { title: "Maria Giri Geriatric Care Unit, Kuppepadavu", image: "https://res.cloudinary.com/dapmnkke3/image/upload/v1794207471/arfkb4fmqwevdhwp5q1b.jpg", tag: "Geriatric Care", url: "#" },
+      { title: "Maria Giri Health Centre, Kuppepadavu", image: "https://res.cloudinary.com/dapmnkke3/image/upload/v1794207474/rnli4mqhl9ubswjg3l8i.jpg", tag: "Geriatric Care", url: "#" },
+      { title: "Maria Kripa Chikisthalaya", image: "https://res.cloudinary.com/dapmnkke3/image/upload/v1794207481/fno686ptl5mdhyt3onsr.jpg", tag: "Dispensary", url: "#" },
+      { title: "Prem Dham", image: "https://res.cloudinary.com/dapmnkke3/image/upload/v1794207483/trqkg8azbtfxx5tthkfp.png", tag: "Dispensary", url: "#" },
+      { title: "St. Ignatius Hospital", image: "https://res.cloudinary.com/dapmnkke3/image/upload/v1794207487/l0fusi4ykh2cdrwdsa9i.png", tag: "Hospital", url: "#" },
+      { title: "St. Ignatius Institute of Health Sciences", image: "https://res.cloudinary.com/dapmnkke3/image/upload/v1794207515/gotucnjtycajb6zztdhd.jpg", tag: "Health Institute", url: "#" },
     ]
   },
   {
@@ -203,9 +206,8 @@ const programData = [
     icon: BookOpen,
     color: "from-[#2e6f47] to-[#3f935d]",
     cards: [
-      { title: "Vidya Jyothi English Medium Primary & High School, Vamanjoor", image: "https://res.cloudinary.com/dapmnkke3/image/upload/v1786964103/l7xgyg0rntvkyiursirg.jpg", tag: "Primary & High School", url: "#" },
-      { title: "Institutional Boardings Group", image: "https://res.cloudinary.com/dapmnkke3/image/upload/v1786964103/l7xgyg0rntvkyiursirg.jpg", tag: "Boarding Home", url: "#" },
-      { title: "Asha Kiran Play School", image: "https://res.cloudinary.com/dapmnkke3/image/upload/v1786964103/l7xgyg0rntvkyiursirg.jpg", tag: "Play School", url: "#" }
+      { title: "Asha Kiran Play School", image: "https://res.cloudinary.com/dapmnkke3/image/upload/v1794207771/ds7xkuxh7bkad2syus1r.jpg", tag: "Play School", url: "#" },
+      { title: "Vidya Jyothi English Medium Primary & High School, Vamanjoor", image: "https://res.cloudinary.com/dapmnkke3/image/upload/v1794207777/ipdsr8o18jrwdtebawam.jpg", tag: "Primary & High School", url: "#" },
     ]
   },
   {
@@ -215,15 +217,10 @@ const programData = [
     icon: Users,
     color: "from-[#3f935d] to-[#55b376]",
     cards: [
-      { title: "Dharma Jyothi Social Centre, Vamanjoor, Mangalore", image: "https://res.cloudinary.com/dapmnkke3/image/upload/v1786964103/l7xgyg0rntvkyiursirg.jpg", tag: "Social Centre", url: "#" },
-      { title: "Pragati Social Centre, Khanapur, Belgavi", image: "https://res.cloudinary.com/dapmnkke3/image/upload/v1786964103/l7xgyg0rntvkyiursirg.jpg", tag: "Social Centre", url: "#" },
-      { title: "Deepalaya Vocational Training Centre, Santhpur, Bidar", image: "https://res.cloudinary.com/dapmnkke3/image/upload/v1786964103/l7xgyg0rntvkyiursirg.jpg", tag: "Vocational Center", url: "#" },
-      { title: "Sneha Jyothi Social Centre, Sorab", image: "https://res.cloudinary.com/dapmnkke3/image/upload/v1786964103/l7xgyg0rntvkyiursirg.jpg", tag: "Social Centre", url: "#" },
-      { title: "Child Sponsorship Programme", image: "https://res.cloudinary.com/dapmnkke3/image/upload/v1786964103/l7xgyg0rntvkyiursirg.jpg", tag: "Outreach Sponsorship", url: "#" },
-      { title: "Community Outreach & Skill Training Programmes", image: "https://res.cloudinary.com/dapmnkke3/image/upload/v1786964103/l7xgyg0rntvkyiursirg.jpg", tag: "Skill Development", url: "#" },
-      { title: "Women Empowerment Programme Networks", image: "https://res.cloudinary.com/dapmnkke3/image/upload/v1786964103/l7xgyg0rntvkyiursirg.jpg", tag: "Empowerment Guild", url: "#" },
-      { title: "Institutional Legal Aid Programmes", image: "https://res.cloudinary.com/dapmnkke3/image/upload/v1786964103/l7xgyg0rntvkyiursirg.jpg", tag: "Legal Aid Support", url: "#" },
-      { title: "Asha Kiran Working Women Hostel, Hebbagodi, Bangalore", image: "https://res.cloudinary.com/dapmnkke3/image/upload/v1786964103/l7xgyg0rntvkyiursirg.jpg", tag: "Womens Hostel", url: "#" }
+      { title: "Deepalaya Social Centre", image: "https://res.cloudinary.com/dapmnkke3/image/upload/v1794207829/rbfqeqrdes8vqaovtjzu.jpg", tag: "Vocational Center", url: "#" },
+      { title: "Dharma Jyothi Social Centre", image: "https://res.cloudinary.com/dapmnkke3/image/upload/v1794207833/i9uwhhlu3eypodkvqawh.jpg", tag: "Social Centre", url: "#" },
+      { title: "Pragati Social Centre", image: "https://res.cloudinary.com/dapmnkke3/image/upload/v1794207841/piaswkacvhxne3jtk61u.jpg", tag: "Social Centre", url: "#" },
+      { title: "Sneha Jyothi Social Centre", image: "https://res.cloudinary.com/dapmnkke3/image/upload/v1794207841/piaswkacvhxne3jtk61u.jpg", tag: "Social Centre", url: "#" },
     ]
   }
 ];
