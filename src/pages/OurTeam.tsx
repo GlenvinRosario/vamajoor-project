@@ -76,14 +76,31 @@ const ROW_LABELS: Record<string, { label: string; className: string }> = {
 
 // Hardcoded sample data for older terms using exact same interface types
 const HISTORICAL_MEMBERS_2020_2025 = [
-  { name: "Sister Leena V.J", designation: "Former Executive Member", image: "" },
+  {
+    name: "Sister Leena V.J",
+    designation: "Former Executive Member",
+    image: "",
+  },
   { name: "Sister Maria D'Souza", designation: "Past Secretary", image: "" },
-  { name: "Father Gregary Rosario", designation: "Advisory Council", image: "" }
+  {
+    name: "Father Gregary Rosario",
+    designation: "Advisory Council",
+    image: "",
+  },
+    { name: "Doreen Pinto", designation: "Member", image: " https://res.cloudinary.com/dapmnkke3/image/upload/v1794227183/gqcz6z0zaotjtnpgzufg.jpg" },
 ];
 
 const HISTORICAL_MEMBERS_2015_2020 = [
   { name: "Dr. Anil Kumar", designation: "Former Medical Director", image: "" },
-  { name: "Sister Silfa Rodriguez", designation: "Past Treasurer", image: "" }
+  { name: "Juliet lobo", designation: "SRA- President", image: "https://res.cloudinary.com/dapmnkke3/image/upload/v1794227020/nf8acwbkzrbcsi553rzn.jpg" },
+  { name: "Sister Silfa Rodriguez", designation: "Past Treasurer", image: "" },
+  { name: "MariaKutty", designation: "Member", image: "https://res.cloudinary.com/dapmnkke3/image/upload/v1794227003/lx4m6nkh7q55c2d8jnmr.jpg" },
+  { name: "Mary Lissy", designation: "Member", image: "https://res.cloudinary.com/dapmnkke3/image/upload/v1794227016/krnzxl7wtzhsss3ziljj.jpg" },
+  { name: "Thankamma", designation: "Member", image: "https://res.cloudinary.com/dapmnkke3/image/upload/v1794227030/wdk2kaqy1q1hqk1bqtss.jpg" },
+   { name: "Ancilla", designation: "Member", image: "" },
+    { name: "Zarina", designation: "Member", image: "" },
+   
+   
 ];
 const RowLabel = ({ tier }: { tier: keyof typeof ROW_LABELS }) => {
   const { label, className } = ROW_LABELS[tier];
@@ -137,7 +154,9 @@ const TeamCard = ({
     >
       <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none bg-gradient-to-br from-white/10 via-transparent to-transparent z-10" />
 
-      <div className={`relative overflow-hidden bg-gradient-to-br ${colors.photoBg} ${photoHeight}`}>
+      <div
+        className={`relative overflow-hidden bg-gradient-to-br ${colors.photoBg} ${photoHeight}`}
+      >
         <img
           src={member.image}
           alt={member.name}
@@ -155,15 +174,23 @@ const TeamCard = ({
 
       <div className="p-5 text-center">
         {tier === "President" && colors.badge && (
-          <span className={`inline-block rounded-full px-4 py-1 text-[10px] font-semibold tracking-[2px] uppercase mb-2 ${colors.badge}`}>
+          <span
+            className={`inline-block rounded-full px-4 py-1 text-[10px] font-semibold tracking-[2px] uppercase mb-2 ${colors.badge}`}
+          >
             President
           </span>
         )}
-        <h3 className={`font-semibold text-gray-900 ${large ? "text-[15px]" : "text-[14px]"}`}>
+        <h3
+          className={`font-semibold text-gray-900 ${large ? "text-[15px]" : "text-[14px]"}`}
+        >
           {member.name}
         </h3>
-        <div className={`mx-auto mt-2 mb-2 h-[3px] w-8 rounded-full ${colors.divider}`} />
-        <p className={`text-[10px] font-semibold tracking-[2px] uppercase ${colors.role}`}>
+        <div
+          className={`mx-auto mt-2 mb-2 h-[3px] w-8 rounded-full ${colors.divider}`}
+        />
+        <p
+          className={`text-[10px] font-semibold tracking-[2px] uppercase ${colors.role}`}
+        >
           {member.designation}
         </p>
       </div>
@@ -175,12 +202,12 @@ export default function OurTeam() {
   const [open2015, setOpen2015] = useState(false);
 
   const sorted = [...TEAM_MEMBERS].sort(
-    (a, b) => getRoleRank(a.designation) - getRoleRank(b.designation)
+    (a, b) => getRoleRank(a.designation) - getRoleRank(b.designation),
   );
 
   const president = sorted.filter((m) => m.designation === "President");
   const executives = sorted.filter(
-    (m) => m.designation === "Secretary" || m.designation === "Treasurer"
+    (m) => m.designation === "Secretary" || m.designation === "Treasurer",
   );
   const members = sorted.filter((m) => m.designation === "Member");
 
@@ -190,31 +217,30 @@ export default function OurTeam() {
       <div className="absolute top-1/3 -right-24 h-80 w-80 rounded-full bg-[#1D9E75]/10 blur-3xl pointer-events-none" />
       <div className="absolute -bottom-24 left-1/3 h-80 w-80 rounded-full bg-[#D4AF37]/10 blur-3xl pointer-events-none" />
 
-  <div className="container mx-auto max-w-6xl px-6 relative z-10">
-  {/* Heading Block */}
-  <motion.div
-    initial={{ opacity: 0, y: 25 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    transition={{ duration: 0.6 }}
-    className="text-center mb-12"
-  >
-    {/* Clean, Modern Title */}
-    <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-[#1a4d2e] leading-tight">
-      Governing Board Members
-      <span className="block mt-2 text-2xl md:text-3xl font-medium tracking-wide text-[#2e6f47] opacity-90">
-        <span className="relative inline-block px-3 py-1 font-bold text-[#1a4d2e] bg-[#e2f5e9] rounded-lg border border-[#c4ebd1]">
-          2024–2027
-        </span>
-      </span>
-    </h2>
+      <div className="container mx-auto max-w-6xl px-6 relative z-10">
+        {/* Heading Block */}
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12"
+        >
+          {/* Clean, Modern Title */}
+          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-[#1a4d2e] leading-tight">
+            Governing Board Members
+            <span className="block mt-2 text-2xl md:text-3xl font-medium tracking-wide text-[#2e6f47] opacity-90">
+              <span className="relative inline-block px-3 py-1 font-bold text-[#1a4d2e] bg-[#e2f5e9] rounded-lg border border-[#c4ebd1]">
+                2024–2027
+              </span>
+            </span>
+          </h2>
 
-    {/* Subtle Decorative Underline Accent */}
-    <div className="mx-auto mt-5 h-1 w-16 rounded-full bg-gradient-to-r from-[#1a4d2e] to-[#2e6f47]" />
-  </motion.div>
+          {/* Subtle Decorative Underline Accent */}
+          <div className="mx-auto mt-5 h-1 w-16 rounded-full bg-gradient-to-r from-[#1a4d2e] to-[#2e6f47]" />
+        </motion.div>
 
-
-    {/* ── ROW 1: Leadership Team ── */}
+        {/* ── ROW 1: Leadership Team ── */}
         {executives.length > 0 && (
           <>
             <RowLabel tier="Executive" />
@@ -239,10 +265,13 @@ export default function OurTeam() {
         )}
         {/* ================= HISTORICAL SECTIONS ================= */}
         <div className="mt-24 space-y-6 max-w-5xl mx-auto">
-          
           <div className="text-center mb-10">
-            <h3 className="text-2xl font-bold text-[#1a4d2e] tracking-tight">Historical Operational Terms</h3>
-            <p className="text-xs text-gray-400 mt-1">Click to view past organizational serving cohorts</p>
+            <h3 className="text-2xl font-bold text-[#1a4d2e] tracking-tight">
+              Historical Operational Terms
+            </h3>
+            <p className="text-xs text-gray-400 mt-1">
+              Click to view past organizational serving cohorts
+            </p>
           </div>
 
           {/* ── SECTION: 2020 - 2025 TERM ── */}
@@ -255,7 +284,9 @@ export default function OurTeam() {
                 <Users size={18} className="text-emerald-700" />
                 <span>Term Cohort: 2020 – 2025 Members</span>
               </div>
-              <ChevronDown className={`w-5 h-5 transition-transform duration-300 ${open2020 ? "rotate-180" : ""}`} />
+              <ChevronDown
+                className={`w-5 h-5 transition-transform duration-300 ${open2020 ? "rotate-180" : ""}`}
+              />
             </button>
 
             <AnimatePresence initial={false}>
@@ -268,7 +299,12 @@ export default function OurTeam() {
                 >
                   <div className="p-6 border-t border-emerald-950/5 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
                     {HISTORICAL_MEMBERS_2020_2025.map((m, i) => (
-                      <TeamCard key={m.name} member={m} tier="Historical" index={i} />
+                      <TeamCard
+                        key={m.name}
+                        member={m}
+                        tier="Historical"
+                        index={i}
+                      />
                     ))}
                   </div>
                 </motion.div>
@@ -284,9 +320,11 @@ export default function OurTeam() {
             >
               <div className="flex items-center gap-3">
                 <Users size={18} className="text-emerald-700" />
-                <span>Term Cohort: 2015 – 2020 Members</span>
+                <span>Term Cohort: 2019 – 2020 Members</span>
               </div>
-              <ChevronDown className={`w-5 h-5 transition-transform duration-300 ${open2015 ? "rotate-180" : ""}`} />
+              <ChevronDown
+                className={`w-5 h-5 transition-transform duration-300 ${open2015 ? "rotate-180" : ""}`}
+              />
             </button>
 
             <AnimatePresence initial={false}>
@@ -299,14 +337,18 @@ export default function OurTeam() {
                 >
                   <div className="p-6 border-t border-emerald-950/5 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
                     {HISTORICAL_MEMBERS_2015_2020.map((m, i) => (
-                      <TeamCard key={m.name} member={m} tier="Historical" index={i} />
+                      <TeamCard
+                        key={m.name}
+                        member={m}
+                        tier="Historical"
+                        index={i}
+                      />
                     ))}
                   </div>
                 </motion.div>
               )}
             </AnimatePresence>
           </div>
-
         </div>
       </div>
     </section>
