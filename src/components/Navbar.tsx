@@ -28,7 +28,7 @@ const dropdownItems = [
   { label: "Upcoming Events", href: "/events" },
   { label: "Wishes", href: "/wishes" },
   { label: "Achievements", href: "/achievements" },
-  { label: "Publications", href: "/publications" },
+  // { label: "Publications", href: "/publications" },
 ];
 
 const socialLinks = [
@@ -144,7 +144,7 @@ export default function Navbar() {
 
               <div className="text-left flex flex-col justify-center">
                 <h1 className="font-black leading-none text-4xl tracking-tight whitespace-nowrap bg-gradient-to-br from-[#0d3320] to-[#1a7a45] bg-clip-text text-transparent pb-2">
-                  Dharma Jyothi
+                  DHARMA JYOTHI
                 </h1>
                 <p className="font-medium text-lg uppercase tracking-widest text-emerald-800 opacity-90 matches-prominent">
                   Charitable Society
