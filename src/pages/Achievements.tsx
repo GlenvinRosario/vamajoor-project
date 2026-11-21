@@ -58,6 +58,29 @@ const ignatiusAwardPhotos = [
   },
 ];
 
+const mariaGorettiAwardPhotos = [
+  {
+    id: "goretti-award-1",
+    image_url: "https://res.cloudinary.com/dapmnkke3/image/upload/v1795288398/td0doljo2lyzdxldilzj.jpg",
+  },
+  {
+    id: "goretti-award-2",
+    image_url: "https://res.cloudinary.com/dapmnkke3/image/upload/v1795288390/vvlk0fpni0napn4ghedl.jpg",
+  },
+  {
+    id: "goretti-award-3",
+    image_url: "https://res.cloudinary.com/dapmnkke3/image/upload/v1795288374/cqqbgekhnchf1rienpyv.jpg",
+  },
+  {
+    id: "goretti-award-4",
+    image_url: "https://res.cloudinary.com/dapmnkke3/image/upload/v1795288352/mmxjdawlqyk9dv2yngnp.jpg",
+  },
+  {
+    id: "goretti-award-5",
+    image_url: "https://res.cloudinary.com/dapmnkke3/image/upload/v1795288346/esrcssjffxarzsoj6bgl.jpg",
+  },
+];
+
 const groupedAwards = [
   {
     recipient: "Sr. Maria Goretti Quadros",
@@ -96,17 +119,15 @@ const fadeUp = {
 };
 
 export default function Achievements() {
-  const [selectedPhoto, setSelectedPhoto] = useState<{
-    src: string;
-    caption: string;
-  } | null>(null);
+  const [selectedPhoto, setSelectedPhoto] = useState<string | null>(null);
+
   return (
     <main className="bg-[#f4fbf6] text-[#102018] overflow-hidden">
       {/* ================= HERO ================= */}
       <section className="relative py-28 md:py-33 text-center text-white overflow-hidden">
         <div className="absolute inset-0">
           <img
-             src="https://res.cloudinary.com/dapmnkke3/image/upload/v1781442371/spcama1gsubvzhz7v8rq.png"
+            src="https://cloudinary.com"
             alt="Achievements Background"
             loading="eager"
             decoding="async"
@@ -146,7 +167,6 @@ export default function Achievements() {
 
         <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-emerald-400 to-lime-300" />
       </section>
-
       {/* ================= INSTITUTIONAL ================= */}
       <section className="container mx-auto px-4 pt-20 pb-12 md:pt-28 md:pb-16">
         <motion.div
@@ -222,7 +242,7 @@ export default function Achievements() {
             </motion.div>
           ))}
         </div>
-        
+
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -258,32 +278,21 @@ export default function Achievements() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: idx * 0.08 }}
                 whileHover={{ y: -5 }}
-                onClick={() =>
-                  setSelectedPhoto({
-                    src: photo.image_url,
-                    caption: photo.title,
-                  })
-                }
+                onClick={() => setSelectedPhoto(photo.image_url)}
                 className="group relative aspect-[4/3] rounded-2xl overflow-hidden cursor-pointer border border-emerald-900/10 bg-[#eaf4ee] shadow-sm hover:shadow-lg transition-all duration-300"
               >
                 <img
                   src={photo.image_url}
-                  alt={photo.title}
+                  alt={`St. Ignatius Award ${idx + 1}`}
                   loading="lazy"
                   decoding="async"
                   className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                 />
 
-                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent opacity-80 group-hover:opacity-95 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-black/10 group-hover:bg-black/25 transition-opacity duration-300" />
 
                 <div className="absolute top-3 right-3 p-2 rounded-full bg-white/90 text-emerald-900 opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-sm">
                   <ZoomIn size={14} />
-                </div>
-
-                <div className="absolute bottom-0 left-0 right-0 p-3.5">
-                  <p className="text-white text-xs md:text-sm font-semibold leading-snug line-clamp-2 drop-shadow-sm">
-                    {photo.title}
-                  </p>
                 </div>
               </motion.div>
             ))}
@@ -345,6 +354,52 @@ export default function Achievements() {
                   </motion.div>
                 </motion.div>
               ))}
+
+              {/* 5 Award Photos for Sr. Maria Goretti Quadros (No Titles) */}
+              {group.recipient === "Sr. Maria Goretti Quadros" && (
+                <motion.div
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5 }}
+                  className="pt-2"
+                >
+                  <div className="rounded-2xl bg-white border border-[#e1f0e7] p-4 shadow-sm">
+                    <div className="flex items-center justify-between mb-3">
+                      <span className="inline-flex items-center gap-1.5 text-xs font-bold text-[#1a4d2e]">
+                        <Camera size={14} />
+                        Award Gallery
+                      </span>
+                      <span className="text-[11px] font-semibold text-emerald-700 bg-[#eaf4ee] px-2.5 py-0.5 rounded-full">
+                        {mariaGorettiAwardPhotos.length} Photos
+                      </span>
+                    </div>
+
+                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                      {mariaGorettiAwardPhotos.map((photo, idx) => (
+                        <motion.div
+                          key={photo.id}
+                          whileHover={{ y: -3 }}
+                          onClick={() => setSelectedPhoto(photo.image_url)}
+                          className="group relative aspect-[4/3] rounded-xl overflow-hidden cursor-pointer border border-emerald-900/10 bg-[#eaf4ee] shadow-sm hover:shadow-md transition-all duration-300"
+                        >
+                          <img
+                            src={photo.image_url}
+                            alt={`Sr. Maria Goretti Award ${idx + 1}`}
+                            loading="lazy"
+                            decoding="async"
+                            className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                          />
+                          <div className="absolute inset-0 bg-black/10 group-hover:bg-black/25 transition-opacity duration-300" />
+                          <div className="absolute top-2 right-2 p-1.5 rounded-full bg-white/90 text-emerald-900 opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-sm">
+                            <ZoomIn size={12} />
+                          </div>
+                        </motion.div>
+                      ))}
+                    </div>
+                  </div>
+                </motion.div>
+              )}
             </div>
           </div>
         ))}
@@ -375,13 +430,10 @@ export default function Achievements() {
               className="max-w-4xl w-full flex flex-col items-center"
             >
               <img
-                src={selectedPhoto.src}
-                alt={selectedPhoto.caption}
-                className="max-h-[80vh] w-auto rounded-2xl shadow-2xl border border-white/10"
+                src={selectedPhoto}
+                alt="Award Recognition"
+                className="max-h-[82vh] w-auto rounded-2xl shadow-2xl border border-white/10"
               />
-              <p className="mt-4 text-white/90 text-sm font-medium bg-white/10 px-4 py-2 rounded-full">
-                {selectedPhoto.caption}
-              </p>
             </motion.div>
           </motion.div>
         )}
