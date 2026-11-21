@@ -48,7 +48,9 @@ const programData = [
           "https://res.cloudinary.com/dapmnkke3/image/upload/v1794207465/xkvij2oeycm20luv6rts.jpg",
         tag: "Hospital",
         url: "#",
-        gallery: ["https://res.cloudinary.com/dapmnkke3/image/upload/v1795287624/jw5iucedreczdbbeet3n.jpg"],
+        gallery: [
+          "https://res.cloudinary.com/dapmnkke3/image/upload/v1795287624/jw5iucedreczdbbeet3n.jpg",
+        ],
       },
       {
         title: "Maria Giri Geriatric Care Unit, Kuppepadavu",
@@ -56,6 +58,14 @@ const programData = [
           "https://res.cloudinary.com/dapmnkke3/image/upload/v1795243546/axp6twjhpiprwmkzlggj.jpg",
         tag: "Geriatric Care",
         url: "#",
+        gallery: [
+          "https://res.cloudinary.com/dapmnkke3/image/upload/v1795288639/jv0aypeoqk6fqxfkzjv9.jpg",
+          "https://res.cloudinary.com/dapmnkke3/image/upload/v1795288670/qthsqlpij4y4yrhqfyjz.jpg",
+          "https://res.cloudinary.com/dapmnkke3/image/upload/v1795288631/thxlfakw740uhrkjspar.jpg",
+          "https://res.cloudinary.com/dapmnkke3/image/upload/v1795288621/j76yl9vs3fvhslc5at46.jpg",
+          "https://res.cloudinary.com/dapmnkke3/image/upload/v1795288615/xjnrzgqpywflvehcwsru.jpg",
+          "https://res.cloudinary.com/dapmnkke3/image/upload/v1795288613/sqnudvnvpjqi0kmz4fw0.jpg",
+        ],
       },
       {
         title: "Maria Giri Health Centre, Kuppepadavu",
@@ -142,7 +152,7 @@ const programData = [
       {
         title: "Dharma Jyothi Social Centre",
         image:
-          "https://res.cloudinary.com/dapmnkke3/image/upload/v1794207833/i9uwhhlu3eypodkvqawh.jpg",
+          "https://res.cloudinary.com/dapmnkke3/image/upload/v1795288909/mpfzfqt4fo1s0arazyxt.jpg",
         tag: "Social Centre",
         url: "https://share.google/Cn2ET3STAEtsm8ZAM",
       },
@@ -152,6 +162,19 @@ const programData = [
           "https://res.cloudinary.com/dapmnkke3/image/upload/v1794207841/piaswkacvhxne3jtk61u.jpg",
         tag: "Social Centre",
         url: "#",
+        gallery: [
+          "https://res.cloudinary.com/dapmnkke3/image/upload/v1795289051/eqdafokumfk79dejey6j.jpg",
+          "https://res.cloudinary.com/dapmnkke3/image/upload/v1795289182/ytlmlxr3jbhtdniuwrbu.jpg",
+          "https://res.cloudinary.com/dapmnkke3/image/upload/v1795289182/ytlmlxr3jbhtdniuwrbu.jpg",
+          "https://res.cloudinary.com/dapmnkke3/image/upload/v1795289051/eqdafokumfk79dejey6j.jpg",
+          "https://res.cloudinary.com/dapmnkke3/image/upload/v1795289048/wx5fdfrkbaqeutdesvu4.jpg",
+          "https://res.cloudinary.com/dapmnkke3/image/upload/v1795289045/oh9fyagbbxgrfzlkmheh.jpg",
+          "https://res.cloudinary.com/dapmnkke3/image/upload/v1795289042/lmp2ncjwskvcsgmcjnpm.jpg",
+          "https://res.cloudinary.com/dapmnkke3/image/upload/v1795289039/mbcqhy1p9tntlgitffb7.jpg",
+          "https://res.cloudinary.com/dapmnkke3/image/upload/v1795289034/n0vvqoiqjzzgcgwan5pi.jpg",
+          "https://res.cloudinary.com/dapmnkke3/image/upload/v1795289028/ha6pxsnqeoh4xptvp0zz.jpg",
+          "https://res.cloudinary.com/dapmnkke3/image/upload/v1795289028/ha6pxsnqeoh4xptvp0zz.jpg",
+        ],
       },
       {
         title: "Sneha Jyothi Social Centre",
@@ -166,14 +189,12 @@ const programData = [
           "https://res.cloudinary.com/dapmnkke3/image/upload/v1795287271/talumtsxf92vfkwg9mnc.jpg",
           "https://res.cloudinary.com/dapmnkke3/image/upload/v1795287267/ew9xbsudogsr6cvsr4di.jpg",
           "https://res.cloudinary.com/dapmnkke3/image/upload/v1795287256/nxxuvtckzkfsy8wktvnc.jpg",
-          "https://res.cloudinary.com/dapmnkke3/image/upload/v1795287251/goiykv6rowncfd6ftmfw.jpg"
-
-        ]
+          "https://res.cloudinary.com/dapmnkke3/image/upload/v1795287251/goiykv6rowncfd6ftmfw.jpg",
+        ],
       },
     ],
   },
 ];
-
 
 export default function ProgramsPage() {
   const [expandedSection, setExpandedSection] = useState<string | null>(
