@@ -6,6 +6,10 @@ import {
   Users,
   ChevronDown,
   ArrowUpRight,
+  Images,
+  X,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 
 const programData = [
@@ -93,9 +97,22 @@ const programData = [
       {
         title: "Vidya Jyothi English Medium Primary & High School, Vamanjoor",
         image:
-          "https://res.cloudinary.com/dapmnkke3/image/upload/v1794207777/ipdsr8o18jrwdtebawam.jpg",
+                 "https://res.cloudinary.com/dapmnkke3/image/upload/v1794207777/ipdsr8o18jrwdtebawam.jpg",
         tag: "Primary & High School",
         url: "#",
+        gallery: [
+          "https://res.cloudinary.com/dapmnkke3/image/upload/v1795274063/quexba4wwqbbj1ovglcz.jpg",
+          "https://res.cloudinary.com/dapmnkke3/image/upload/v1795274059/emqd31vs7f36mlr0s9os.jpg",
+          "https://res.cloudinary.com/dapmnkke3/image/upload/v1795274057/l8gwgknlk7c2uggazyx8.jpg",
+          "https://res.cloudinary.com/dapmnkke3/image/upload/v1795274054/cpqd4pqjieagjh8l6apf.jpg",
+          "https://res.cloudinary.com/dapmnkke3/image/upload/v1795274049/jj1mnyf1toyhqzu4pw6j.jpg",
+          "https://res.cloudinary.com/dapmnkke3/image/upload/v1795274044/gry3nxtj8fjexunkfxra.jpg",
+          "https://res.cloudinary.com/dapmnkke3/image/upload/v1795274039/ndwtc8kzfcixnnplzlui.jpg",
+          "https://res.cloudinary.com/dapmnkke3/image/upload/v1795274033/x83pb52dv3uzcaatwu2j.jpg",
+          "https://res.cloudinary.com/dapmnkke3/image/upload/v1795274024/k8uxwcbzzcg59pshmr7d.jpg",
+          "https://res.cloudinary.com/dapmnkke3/image/upload/v1795274020/vnk9bo6rya9h7y8kjucq.jpg",
+          "https://res.cloudinary.com/dapmnkke3/image/upload/v1795274012/jqfcaordbudyjelpdbv9.jpg"
+        ],
       },
     ],
   },
@@ -144,6 +161,11 @@ export default function ProgramsPage() {
   const [expandedSection, setExpandedSection] = useState<string | null>(
     "medical"
   );
+  const [activeGallery, setActiveGallery] = useState<{
+    title: string;
+    images: string[];
+    currentIndex: number;
+  } | null>(null);
 
   const toggleSection = (sectionId: string) => {
     setExpandedSection(expandedSection === sectionId ? null : sectionId);
@@ -213,6 +235,13 @@ export default function ProgramsPage() {
                             key={card.title}
                             card={card}
                             index={cardIdx}
+                            onOpenGallery={(title, images) =>
+                              setActiveGallery({
+                                title,
+                                images,
+                                currentIndex: 0,
+                              })
+                            }
                           />
                         ))}
                       </div>
@@ -224,6 +253,19 @@ export default function ProgramsPage() {
           );
         })}
       </section>
+
+      {/* Interactive Same-Page Photo Gallery Lightbox */}
+      <AnimatePresence>
+        {activeGallery && (
+          <PhotoGalleryModal
+            gallery={activeGallery}
+            onClose={() => setActiveGallery(null)}
+            onSelectIndex={(idx) =>
+              setActiveGallery({ ...activeGallery, currentIndex: idx })
+            }
+          />
+        )}
+      </AnimatePresence>
     </main>
   );
 }
@@ -278,10 +320,19 @@ interface CardItem {
   image: string;
   tag: string;
   url: string;
+  gallery?: string[];
 }
-
-function InitiativeCard({ card, index }: { card: CardItem; index: number }) {
+function InitiativeCard({
+  card,
+  index,
+  onOpenGallery,
+}: {
+  card: CardItem;
+  index: number;
+  onOpenGallery: (title: string, images: string[]) => void;
+}) {
   const hasValidUrl = card.url && card.url !== "#";
+  const hasGallery = Boolean(card.gallery && card.gallery.length > 0);
 
   const externalUrl = hasValidUrl
     ? card.url.startsWith("http://") || card.url.startsWith("https://")
@@ -305,7 +356,7 @@ function InitiativeCard({ card, index }: { card: CardItem; index: number }) {
           className="w-full h-full object-cover transform scale-100 group-hover:scale-105 transition-transform duration-700 ease-out"
         />
 
-        {/* Top Row: Tag Badge & External Link Icon */}
+        {/* Top Row: Tag Badge & Action Icon */}
         <div className="absolute top-4 inset-x-4 z-20 flex items-center justify-between">
           <span className="bg-white/95 backdrop-blur-md text-[#1a4d2e] font-extrabold text-[10px] tracking-wider uppercase px-3 py-1 rounded-full shadow-sm border border-white/40">
             {card.tag}
@@ -314,6 +365,13 @@ function InitiativeCard({ card, index }: { card: CardItem; index: number }) {
           {hasValidUrl && (
             <div className="p-2.5 rounded-full bg-white/90 backdrop-blur-md group-hover:bg-[#1a4d2e] text-[#1a4d2e] group-hover:text-white transition-all duration-300 shadow-md">
               <ArrowUpRight size={16} />
+            </div>
+          )}
+
+          {!hasValidUrl && hasGallery && (
+            <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/95 backdrop-blur-md group-hover:bg-[#1a4d2e] text-[#1a4d2e] group-hover:text-white transition-all duration-300 shadow-md text-[11px] font-extrabold">
+              <Images size={14} />
+              <span>{card.gallery!.length} Photos</span>
             </div>
           )}
         </div>
@@ -327,6 +385,15 @@ function InitiativeCard({ card, index }: { card: CardItem; index: number }) {
           {hasValidUrl && (
             <div className="mt-3 pt-3 border-t border-white/15 flex items-center justify-between text-xs font-bold tracking-wider uppercase text-emerald-300">
               <span>Visit Official Site</span>
+              <span className="transform translate-x-0 group-hover:translate-x-1.5 transition-transform duration-200">
+                →
+              </span>
+            </div>
+          )}
+
+          {!hasValidUrl && hasGallery && (
+            <div className="mt-3 pt-3 border-t border-white/15 flex items-center justify-between text-xs font-bold tracking-wider uppercase text-emerald-300">
+              <span>View Photo Gallery ({card.gallery!.length})</span>
               <span className="transform translate-x-0 group-hover:translate-x-1.5 transition-transform duration-200">
                 →
               </span>
@@ -354,6 +421,29 @@ function InitiativeCard({ card, index }: { card: CardItem; index: number }) {
     );
   }
 
+  if (hasGallery) {
+    return (
+      <motion.div
+        role="button"
+        tabIndex={0}
+        onClick={() => onOpenGallery(card.title, card.gallery!)}
+        onKeyDown={(e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            onOpenGallery(card.title, card.gallery!);
+          }
+        }}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4, delay: index * 0.05 }}
+        whileHover={{ y: -6 }}
+        className="block cursor-pointer"
+      >
+        {CardContent}
+      </motion.div>
+    );
+  }
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -362,6 +452,145 @@ function InitiativeCard({ card, index }: { card: CardItem; index: number }) {
       className="block"
     >
       {CardContent}
+    </motion.div>
+  );
+}
+
+function PhotoGalleryModal({
+  gallery,
+  onClose,
+  onSelectIndex,
+}: {
+  gallery: { title: string; images: string[]; currentIndex: number };
+  onClose: () => void;
+  onSelectIndex: (idx: number) => void;
+}) {
+  const total = gallery.images.length;
+  const currentSrc = gallery.images[gallery.currentIndex];
+
+  const handlePrev = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    onSelectIndex((gallery.currentIndex - 1 + total) % total);
+  };
+
+  const handleNext = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    onSelectIndex((gallery.currentIndex + 1) % total);
+  };
+
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      onClick={onClose}
+      className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex flex-col justify-between p-4 sm:p-6"
+    >
+      {/* Sleek Custom Green Scrollbar Styling */}
+      <style>{`
+        .green-gallery-scroll {
+          scrollbar-width: thin;
+          scrollbar-color: #3f935d rgba(255, 255, 255, 0.12);
+        }
+        .green-gallery-scroll::-webkit-scrollbar {
+          height: 5px;
+        }
+        .green-gallery-scroll::-webkit-scrollbar-track {
+          background: rgba(255, 255, 255, 0.1);
+          border-radius: 9999px;
+        }
+        .green-gallery-scroll::-webkit-scrollbar-thumb {
+          background: linear-gradient(90deg, #2e6f47, #55b376);
+          border-radius: 9999px;
+        }
+        .green-gallery-scroll::-webkit-scrollbar-thumb:hover {
+          background: #3f935d;
+        }
+      `}</style>
+
+      {/* Top Bar: Title, Green Counter & Close Button */}
+      <div
+        onClick={(e) => e.stopPropagation()}
+        className="max-w-5xl w-full mx-auto flex items-center justify-between text-white gap-4"
+      >
+        <div>
+          <span className="inline-block text-xs font-extrabold uppercase tracking-widest text-emerald-400">
+            Photo {gallery.currentIndex + 1} of {total}
+          </span>
+          <h3 className="text-base sm:text-xl font-extrabold leading-snug">
+            {gallery.title}
+          </h3>
+        </div>
+
+        <button
+          onClick={onClose}
+          aria-label="Close gallery"
+          className="p-2.5 rounded-full bg-white/10 hover:bg-[#1a4d2e] text-white transition-colors shrink-0"
+        >
+          <X size={22} />
+        </button>
+      </div>
+
+      {/* Main Image Viewer with Green-Hover Prev / Next Controls */}
+      <div
+        onClick={(e) => e.stopPropagation()}
+        className="relative max-w-5xl w-full mx-auto flex-1 flex items-center justify-center my-4 min-h-0"
+      >
+        <button
+          onClick={handlePrev}
+          aria-label="Previous photo"
+          className="absolute left-2 sm:left-4 z-10 p-3 rounded-full bg-black/60 hover:bg-[#1a4d2e] text-white border border-white/15 hover:border-emerald-400/50 transition-all shadow-lg"
+        >
+          <ChevronLeft size={24} />
+        </button>
+
+        <motion.img
+          key={currentSrc}
+          initial={{ opacity: 0.4, scale: 0.98 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.25 }}
+          src={currentSrc}
+          alt={`${gallery.title} - ${gallery.currentIndex + 1}`}
+          className="max-h-[60vh] sm:max-h-[66vh] w-auto max-w-full rounded-2xl object-contain shadow-2xl border border-emerald-500/20"
+        />
+
+        <button
+          onClick={handleNext}
+          aria-label="Next photo"
+          className="absolute right-2 sm:right-4 z-10 p-3 rounded-full bg-black/60 hover:bg-[#1a4d2e] text-white border border-white/15 hover:border-emerald-400/50 transition-all shadow-lg"
+        >
+          <ChevronRight size={24} />
+        </button>
+      </div>
+
+      {/* Bottom 10-Photo Thumbnail Strip with Thin Green Scrollbar */}
+      <div
+        onClick={(e) => e.stopPropagation()}
+        className="max-w-4xl w-full mx-auto"
+      >
+        <div className="green-gallery-scroll flex items-center justify-start sm:justify-center gap-2.5 overflow-x-auto pb-2.5 pt-1 px-1 snap-x">
+          {gallery.images.map((imgSrc, idx) => {
+            const isActive = idx === gallery.currentIndex;
+            return (
+              <button
+                key={idx}
+                onClick={() => onSelectIndex(idx)}
+                className={`relative h-14 w-16 sm:h-16 sm:w-20 rounded-xl overflow-hidden shrink-0 snap-center transition-all duration-200 ${
+                  isActive
+                    ? "ring-2 ring-emerald-400 ring-offset-2 ring-offset-black/80 scale-105 opacity-100"
+                    : "opacity-50 hover:opacity-90"
+                }`}
+              >
+                <img
+                  src={imgSrc}
+                  alt={`Thumbnail ${idx + 1}`}
+                  className="w-full h-full object-cover"
+                />
+              </button>
+            );
+          })}
+        </div>
+      </div>
     </motion.div>
   );
 }
