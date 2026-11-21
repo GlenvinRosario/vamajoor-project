@@ -45,11 +45,12 @@ const programData = [
       {
         title: "Goretti Hospital",
         image:
-          "https://res.cloudinary.com/dapmnkke3/image/upload/v1794207465/xkvij2oeycm20luv6rts.jpg",
+          "https://res.cloudinary.com/dapmnkke3/image/upload/v1795289367/x8qygagkixzdl4dhgubz.jpg",
         tag: "Hospital",
         url: "#",
         gallery: [
           "https://res.cloudinary.com/dapmnkke3/image/upload/v1795287624/jw5iucedreczdbbeet3n.jpg",
+          "https://res.cloudinary.com/dapmnkke3/image/upload/v1795289367/x8qygagkixzdl4dhgubz.jpg"
         ],
       },
       {
@@ -110,6 +111,8 @@ const programData = [
           "https://res.cloudinary.com/dapmnkke3/image/upload/v1795286801/l58grva4c0bwojo9g2jh.jpg",
           "https://res.cloudinary.com/dapmnkke3/image/upload/v1795286797/ubkkva1jxeatc98kbbdg.jpg",
           "https://res.cloudinary.com/dapmnkke3/image/upload/v1795286751/kolffc54zuh61xibbbpd.jpg",
+          "https://res.cloudinary.com/dapmnkke3/image/upload/v1795289472/mf56qg7ygaks9cizve1r.jpg",
+          "https://res.cloudinary.com/dapmnkke3/image/upload/v1795289546/nwejcbwocj6cvjbrprni.jpg"
         ],
       },
       {
@@ -148,6 +151,9 @@ const programData = [
           "https://res.cloudinary.com/dapmnkke3/image/upload/v1794207829/rbfqeqrdes8vqaovtjzu.jpg",
         tag: "Vocational Center",
         url: "#",
+        gallery: [
+          ""
+        ]
       },
       {
         title: "Dharma Jyothi Social Centre",
