@@ -1,5 +1,8 @@
-import { motion } from "framer-motion";
-import { Award, Trophy, Star, Sparkles } from "lucide-react";
+"use client";
+
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Award, Sparkles, X, ZoomIn, Camera } from "lucide-react";
 
 const institutionalAwards = [
   {
@@ -32,7 +35,28 @@ const institutionalAwards = [
   },
 ];
 
-
+const ignatiusAwardPhotos = [
+  {
+    id: "ignatius-award-1",
+    image_url:
+      "https://res.cloudinary.com/dapmnkke3/image/upload/v1795274408/gmpsdx4rvrfuufms9w2y.jpg",
+  },
+  {
+    id: "ignatius-award-2",
+    image_url:
+      "https://res.cloudinary.com/dapmnkke3/image/upload/v1795274401/i5wfvpphlhc6lfrl4ktd.jpg",
+  },
+  {
+    id: "ignatius-award-3",
+    image_url:
+      "https://res.cloudinary.com/dapmnkke3/image/upload/v1795274383/bwkr29ws8vbw2fo01ae0.jpg",
+  },
+  {
+    id: "ignatius-award-4",
+    image_url:
+      "https://res.cloudinary.com/dapmnkke3/image/upload/v1795274371/cmdragio2ccioxpzeczr.jpg",
+  },
+];
 
 const groupedAwards = [
   {
@@ -49,22 +73,18 @@ const groupedAwards = [
     recipient: "Sr. M. Melania D’Souza",
     role: "Healthcare & Prevention Advocacy",
     awards: [
-      { 
-        year: "2023", 
-        text: "Award from District HIV Control Board, Government of Karnataka, recognizing the contribution towards the cause of prevention of HIV & AIDS and for collaborating with the Government." 
+      {
+        year: "2023",
+        text: "Award from District HIV Control Board, Government of Karnataka, recognizing the contribution towards the cause of prevention of HIV & AIDS and for collaborating with the Government.",
       },
     ],
   },
   {
     recipient: "Sr. Janice Leadership",
     role: "Crisis Response & Governance",
-    awards: [
-      { year: "2020", text: "COVID Special Service Award" }
-    ],
+    awards: [{ year: "2020", text: "COVID Special Service Award" }],
   },
 ];
-
-
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -76,14 +96,17 @@ const fadeUp = {
 };
 
 export default function Achievements() {
+  const [selectedPhoto, setSelectedPhoto] = useState<{
+    src: string;
+    caption: string;
+  } | null>(null);
   return (
     <main className="bg-[#f4fbf6] text-[#102018] overflow-hidden">
       {/* ================= HERO ================= */}
       <section className="relative py-28 md:py-33 text-center text-white overflow-hidden">
-        {/* BACKGROUND IMAGE */}
         <div className="absolute inset-0">
           <img
-            src="https://res.cloudinary.com/dapmnkke3/image/upload/v1781442371/spcama1gsubvzhz7v8rq.png"
+             src="https://res.cloudinary.com/dapmnkke3/image/upload/v1781442371/spcama1gsubvzhz7v8rq.png"
             alt="Achievements Background"
             loading="eager"
             decoding="async"
@@ -93,7 +116,7 @@ export default function Achievements() {
           <div className="absolute inset-0 bg-gradient-to-t from-[#0a1711] via-transparent to-transparent" />
         </div>
 
-        {/* glow effects */}
+        {/* Glow effects */}
         <div className="absolute -top-24 -left-24 w-96 h-96 bg-emerald-300/15 blur-3xl rounded-full animate-pulse" />
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-sky-300/10 blur-3xl rounded-full" />
         <div className="absolute top-1/2 left-1/2 w-72 h-72 bg-lime-300/10 blur-3xl rounded-full -translate-x-1/2 -translate-y-1/2" />
@@ -125,7 +148,7 @@ export default function Achievements() {
       </section>
 
       {/* ================= INSTITUTIONAL ================= */}
-      <section className="container mx-auto px-4 py-20 md:py-28">
+      <section className="container mx-auto px-4 pt-20 pb-12 md:pt-28 md:pb-16">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -190,7 +213,6 @@ export default function Achievements() {
                 ))}
               </ul>
 
-              {/* bottom accent bar */}
               <motion.div
                 initial={{ width: 0 }}
                 whileHover={{ width: "100%" }}
@@ -200,16 +222,80 @@ export default function Achievements() {
             </motion.div>
           ))}
         </div>
-      </section>
+        
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mt-14 rounded-[32px] bg-white border border-emerald-900/10 p-6 md:p-8 shadow-[0_8px_30px_rgba(16,32,24,0.04)]"
+        >
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0">
+                <Camera size={18} />
+              </div>
+              <div>
+                <h3 className="text-lg md:text-xl font-bold text-[#102018]">
+                  St. Ignatius Hospital — Recognition Moments
+                </h3>
+                <p className="text-xs md:text-sm text-gray-500">
+                  Highlights from our award ceremonies and healthcare milestones
+                </p>
+              </div>
+            </div>
+            <span className="self-start sm:self-auto px-3.5 py-1 rounded-full bg-emerald-50 border border-emerald-200/60 text-xs font-semibold text-emerald-800">
+              {ignatiusAwardPhotos.length} Photos
+            </span>
+          </div>
 
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
+            {ignatiusAwardPhotos.map((photo, idx) => (
+              <motion.div
+                key={photo.id}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: idx * 0.08 }}
+                whileHover={{ y: -5 }}
+                onClick={() =>
+                  setSelectedPhoto({
+                    src: photo.image_url,
+                    caption: photo.title,
+                  })
+                }
+                className="group relative aspect-[4/3] rounded-2xl overflow-hidden cursor-pointer border border-emerald-900/10 bg-[#eaf4ee] shadow-sm hover:shadow-lg transition-all duration-300"
+              >
+                <img
+                  src={photo.image_url}
+                  alt={photo.title}
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                />
+
+                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent opacity-80 group-hover:opacity-95 transition-opacity duration-300" />
+
+                <div className="absolute top-3 right-3 p-2 rounded-full bg-white/90 text-emerald-900 opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-sm">
+                  <ZoomIn size={14} />
+                </div>
+
+                <div className="absolute bottom-0 left-0 right-0 p-3.5">
+                  <p className="text-white text-xs md:text-sm font-semibold leading-snug line-clamp-2 drop-shadow-sm">
+                    {photo.title}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+      </section>
       {/* ================= TIMELINE ================= */}
-      <div className="relative max-w-2xl mx-auto px-4 py-8">
-        {/* Central Vertical Tracking Line */}
+      <div className="relative max-w-2xl mx-auto px-4 py-8 pb-24">
         <div className="absolute left-4 top-2 bottom-2 w-0.5 bg-gradient-to-b from-emerald-600 via-[#cfe7d8] to-transparent" />
 
         {groupedAwards.map((group, groupIdx) => (
           <div key={groupIdx} className="relative mb-12 last:mb-0">
-            {/* Recipient Profile Anchor Node */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -217,7 +303,6 @@ export default function Achievements() {
               transition={{ duration: 0.5 }}
               className="relative flex items-center gap-4 ml-10 mb-6"
             >
-              {/* Visual Icon Node on Main Line */}
               <span className="absolute -left-[33px] top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-[#1a4d2e] ring-4 ring-[#eef7f2] z-10" />
 
               <div className="bg-[#f4faf6] border border-[#e1f0e7] px-4 py-2 rounded-xl shadow-sm">
@@ -230,7 +315,6 @@ export default function Achievements() {
               </div>
             </motion.div>
 
-            {/* Nested Award Event Cards */}
             <div className="space-y-4 ml-14">
               {group.awards.map((item, itemIdx) => (
                 <motion.div
@@ -245,7 +329,6 @@ export default function Achievements() {
                   }}
                   className="relative"
                 >
-                  {/* Micro Connector Node to the profile track */}
                   <span className="absolute -left-[23px] top-6 w-2 h-2 rounded-full bg-emerald-400 ring-2 ring-white" />
 
                   <motion.div
@@ -267,6 +350,42 @@ export default function Achievements() {
         ))}
       </div>
 
+      <AnimatePresence>
+        {selectedPhoto && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSelectedPhoto(null)}
+            className="fixed inset-0 z-50 bg-black/90 backdrop-blur-sm flex items-center justify-center p-4"
+          >
+            <button
+              onClick={() => setSelectedPhoto(null)}
+              aria-label="Close photo"
+              className="absolute top-5 right-5 w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center border border-white/15 transition-colors"
+            >
+              <X size={20} />
+            </button>
+
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              onClick={(e) => e.stopPropagation()}
+              className="max-w-4xl w-full flex flex-col items-center"
+            >
+              <img
+                src={selectedPhoto.src}
+                alt={selectedPhoto.caption}
+                className="max-h-[80vh] w-auto rounded-2xl shadow-2xl border border-white/10"
+              />
+              <p className="mt-4 text-white/90 text-sm font-medium bg-white/10 px-4 py-2 rounded-full">
+                {selectedPhoto.caption}
+              </p>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </main>
   );
 }
