@@ -43,7 +43,7 @@ export default function Footer() {
 
           <p className="text-sm text-white/60 leading-relaxed">
             Building stronger communities through compassion, education, and
-            healthcare since 1976.
+            healthcare since 1973.
           </p>
 
           {/* SOCIAL */}

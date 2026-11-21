@@ -61,20 +61,6 @@ const slides = [
     secondCta: "Learn More",
     secondCtaHref: "/about",
   },
-
-
-
-  {
-    image:
-      "https://res.cloudinary.com/dapmnkke3/image/upload/v1790710956/lczoqel1osep7xuoajtn.jpg",
-    title: "Transforming Lives Across Communities",
-    subtitle:
-      "Through hospitals, schools, social centres, and empowerment programs, we bring hope, dignity, and a better future to those in need.",
-    cta: "View Our Work",
-    ctaHref: "/gallery",
-    secondCta: "Learn More",
-    secondCtaHref: "/about",
-  },
  
   {
     image:
@@ -142,7 +128,7 @@ export default function HeroCarousel() {
             <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 mb-6 backdrop-blur-sm">
               <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
               <span className="text-white text-sm font-medium tracking-wide">
-                Since 1976 • Serving with Compassion
+                Since 1973 • Serving with Compassion
               </span>
             </div>
 

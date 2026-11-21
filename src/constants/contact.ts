@@ -11,7 +11,7 @@ export const CONTACT_INFO = [
     value: `Dharma Jyothi Charitable Society
     Queen of Apostles Convent
     Vamanjoor P O
-    MANGALURU - 575028`,
+    Mangaluru - 575028`,
   },
   {
     icon: Phone,

@@ -172,6 +172,59 @@ const eventsImages: GalleryImage[] = [
       "https://res.cloudinary.com/dapmnkke3/image/upload/v1781435684/ghcqp82tjl1auwch1v61.jpg",
     category: "Social Outreach",
   },
+];
+
+// ================= HEALTH (NEW ADDED) =================
+const healthImages: GalleryImage[] = [
+  {
+    id: "health-4",
+    title: "Health Camp 4",
+    image_url:
+      "https://res.cloudinary.com/dapmnkke3/image/upload/v1781436397/lklivstenwmeghv2w1ei.jpg",
+    category: "Medical",
+  },
+  {
+    id: "health-5",
+    title: "Health Camp 5",
+    image_url:
+      "https://res.cloudinary.com/dapmnkke3/image/upload/v1781436395/kt2uqijc2lexdh45gi5u.jpg",
+    category: "Medical",
+  },
+  {
+    id: "health-6",
+    title: "Health Camp 6",
+    image_url:
+      "https://res.cloudinary.com/dapmnkke3/image/upload/v1781436393/ktq2hih2qqibcm5qm8dx.jpg",
+    category: "Medical",
+  },
+  {
+    id: "health-7",
+    title: "Health Camp 7",
+    image_url:
+      "https://res.cloudinary.com/dapmnkke3/image/upload/v1781436391/owkwrut3wnj1y4g7qezs.jpg",
+    category: "Medical",
+  },
+  {
+    id: "health-8",
+    title: "Health Camp 8",
+    image_url:
+      "https://res.cloudinary.com/dapmnkke3/image/upload/v1781436389/ccux34dwid5f5e5wjwnp.jpg",
+    category: "Medical",
+  },
+  {
+    id: "health-9",
+    title: "Health Camp 9",
+    image_url:
+      "https://res.cloudinary.com/dapmnkke3/image/upload/v1781436387/m1vlaxvecczqqkcqdbse.jpg",
+    category: "Medical",
+  },
+  {
+    id: "health-10",
+    title: "Health Camp 10",
+    image_url:
+      "https://res.cloudinary.com/dapmnkke3/image/upload/v1781436385/t4w9ffsxyrk2cep00xq4.jpg",
+    category: "Medical",
+  },
   {
     id: "event-12",
     title: "Community Outreach",
@@ -244,135 +297,119 @@ const eventsImages: GalleryImage[] = [
   },
 ];
 
-// ================= HEALTH (NEW ADDED) =================
-const healthImages: GalleryImage[] = [
-  {
-    id: "health-4",
-    title: "Health Camp 4",
-    image_url:
-      "https://res.cloudinary.com/dapmnkke3/image/upload/v1781436397/lklivstenwmeghv2w1ei.jpg",
-    category: "Medical",
-  },
-  {
-    id: "health-5",
-    title: "Health Camp 5",
-    image_url:
-      "https://res.cloudinary.com/dapmnkke3/image/upload/v1781436395/kt2uqijc2lexdh45gi5u.jpg",
-    category: "Medical",
-  },
-  {
-    id: "health-6",
-    title: "Health Camp 6",
-    image_url:
-      "https://res.cloudinary.com/dapmnkke3/image/upload/v1781436393/ktq2hih2qqibcm5qm8dx.jpg",
-    category: "Medical",
-  },
-  {
-    id: "health-7",
-    title: "Health Camp 7",
-    image_url:
-      "https://res.cloudinary.com/dapmnkke3/image/upload/v1781436391/owkwrut3wnj1y4g7qezs.jpg",
-    category: "Medical",
-  },
-  {
-    id: "health-8",
-    title: "Health Camp 8",
-    image_url:
-      "https://res.cloudinary.com/dapmnkke3/image/upload/v1781436389/ccux34dwid5f5e5wjwnp.jpg",
-    category: "Medical",
-  },
-  {
-    id: "health-9",
-    title: "Health Camp 9",
-    image_url:
-      "https://res.cloudinary.com/dapmnkke3/image/upload/v1781436387/m1vlaxvecczqqkcqdbse.jpg",
-    category: "Medical",
-  },
-  {
-    id: "health-10",
-    title: "Health Camp 10",
-    image_url:
-      "https://res.cloudinary.com/dapmnkke3/image/upload/v1781436385/t4w9ffsxyrk2cep00xq4.jpg",
-    category: "Medical",
-  },
-];
-
 const educationImages: GalleryImage[] = [
   {
     id: "education-1",
     title: "Education Program 1",
     image_url:
-      "https://res.cloudinary.com/dapmnkke3/image/upload/v1786964107/hylldtdkevzshnmhx0gi.jpg",
+      "https://res.cloudinary.com/dapmnkke3/image/upload/v1795274063/quexba4wwqbbj1ovglcz.jpg",
     category: "Education",
   },
   {
     id: "education-2",
     title: "Education Program 2",
     image_url:
-      "https://res.cloudinary.com/dapmnkke3/image/upload/v1786964105/vilzhmgya3jrfdpi74vu.jpg",
+      "https://res.cloudinary.com/dapmnkke3/image/upload/v1795274059/emqd31vs7f36mlr0s9os.jpg",
     category: "Education",
   },
   {
     id: "education-3",
     title: "Education Program 3",
     image_url:
-      "https://res.cloudinary.com/dapmnkke3/image/upload/v1786964103/l7xgyg0rntvkyiursirg.jpg",
+      "https://res.cloudinary.com/dapmnkke3/image/upload/v1795274057/l8gwgknlk7c2uggazyx8.jpg",
     category: "Education",
   },
   {
     id: "education-4",
     title: "Education Program 4",
     image_url:
-      "https://res.cloudinary.com/dapmnkke3/image/upload/v1786964099/fv4jshe8zskniaydkmw0.jpg",
+      "https://res.cloudinary.com/dapmnkke3/image/upload/v1795274054/cpqd4pqjieagjh8l6apf.jpg",
     category: "Education",
   },
   {
     id: "education-5",
     title: "Education Program 5",
     image_url:
-      "https://res.cloudinary.com/dapmnkke3/image/upload/v1786964096/rraqbsixdyajtuzlkt0o.jpg",
+      "https://res.cloudinary.com/dapmnkke3/image/upload/v1795274049/jj1mnyf1toyhqzu4pw6j.jpg",
     category: "Education",
   },
   {
     id: "education-6",
     title: "Education Program 6",
     image_url:
-      "https://res.cloudinary.com/dapmnkke3/image/upload/v1786964094/sura6yylvjco55fiteuw.jpg",
+      "https://res.cloudinary.com/dapmnkke3/image/upload/v1795274044/gry3nxtj8fjexunkfxra.jpg",
     category: "Education",
   },
   {
     id: "education-7",
     title: "Education Program 7",
     image_url:
-      "https://res.cloudinary.com/dapmnkke3/image/upload/v1786964090/rreglqfrjmy1oe19zfva.jpg",
-    category: "Education",
-  },
-  {
-    id: "education-8",
-    title: "Education Program 8",
-    image_url:
-      "https://res.cloudinary.com/dapmnkke3/image/upload/v1786964088/uaosrx69j6zlqdjaoh5r.jpg",
+      "https://res.cloudinary.com/dapmnkke3/image/upload/v1795274039/ndwtc8kzfcixnnplzlui.jpg",
     category: "Education",
   },
   {
     id: "education-9",
     title: "Education Program 9",
     image_url:
-      "https://res.cloudinary.com/dapmnkke3/image/upload/v1786964086/tj4scxeg5nf6dxlwmdoj.jpg",
+      "https://res.cloudinary.com/dapmnkke3/image/upload/v1795274033/x83pb52dv3uzcaatwu2j.jpg",
     category: "Education",
   },
   {
     id: "education-10",
     title: "Education Program 10",
     image_url:
-      "https://res.cloudinary.com/dapmnkke3/image/upload/v1786964084/vry85pps7h3xaobnhhzr.jpg",
+      "https://res.cloudinary.com/dapmnkke3/image/upload/v1795274024/k8uxwcbzzcg59pshmr7d.jpg",
     category: "Education",
   },
   {
     id: "education-11",
     title: "Education Program 11",
     image_url:
-      "https://res.cloudinary.com/dapmnkke3/image/upload/v1786964077/o3wagcmnhinmu9fosjrp.jpg",
+      "https://res.cloudinary.com/dapmnkke3/image/upload/v1795274020/vnk9bo6rya9h7y8kjucq.jpg",
+    category: "Education",
+  },
+  {
+    id: "education-11",
+    title: "Education Program 11",
+    image_url:
+      "https://res.cloudinary.com/dapmnkke3/image/upload/v1795274012/jqfcaordbudyjelpdbv9.jpg",
+    category: "Education",
+  },
+  //here 
+    {
+    id: "education-11",
+    title: "Education Program 11",
+    image_url:
+      "https://res.cloudinary.com/dapmnkke3/image/upload/v1795289546/nwejcbwocj6cvjbrprni.jpg",
+    category: "Education",
+  },
+
+    {
+    id: "education-11",
+    title: "Education Program 11",
+    image_url:
+      "https://res.cloudinary.com/dapmnkke3/image/upload/v1795289472/mf56qg7ygaks9cizve1r.jpg",
+    category: "Education",
+  },
+    {
+    id: "education-11",
+    title: "Education Program 11",
+    image_url:
+      "https://res.cloudinary.com/dapmnkke3/image/upload/v1795286811/diwzb54dpqeeqxesmc0q.jpg",
+    category: "Education",
+  },
+    {
+    id: "education-11",
+    title: "Education Program 11",
+    image_url:
+      "https://res.cloudinary.com/dapmnkke3/image/upload/v1795286751/kolffc54zuh61xibbbpd.jpg",
+    category: "Education",
+  },
+    {
+    id: "education-11",
+    title: "Education Program 11",
+    image_url:
+      "https://res.cloudinary.com/dapmnkke3/image/upload/v1795286797/ubkkva1jxeatc98kbbdg.jpg",
     category: "Education",
   },
 ];
