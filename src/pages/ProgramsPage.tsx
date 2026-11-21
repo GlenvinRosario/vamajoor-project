@@ -119,7 +119,7 @@ const programData = [
         image:
           "https://res.cloudinary.com/dapmnkke3/image/upload/v1794207833/i9uwhhlu3eypodkvqawh.jpg",
         tag: "Social Centre",
-        url: "#",
+        url: "https://share.google/Cn2ET3STAEtsm8ZAM",
       },
       {
         title: "Pragati Social Centre",
