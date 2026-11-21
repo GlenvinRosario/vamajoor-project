@@ -1,15 +1,23 @@
-import { useState, useMemo } from "react";
+"use client";
+
+import React, { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X } from "lucide-react";
+import {
+  X,
+  ArrowLeft,
+  GraduationCap,
+  HeartPulse,
+  HandHeart,
+  Users,
+  Images,
+} from "lucide-react";
 
 interface GalleryImage {
   id: string;
-  title: string | null;
+  title?: string;
   image_url: string;
-  category: string | null;
+  category?: string;
 }
-
-const categories = [ "Education", "Medical", "Social Outreach",];
 
 // ================= COMMUNITY (UNCHANGED) =================
 const communityImages: GalleryImage[] = [
@@ -18,70 +26,70 @@ const communityImages: GalleryImage[] = [
     title: "Community Outreach",
     image_url:
       "https://res.cloudinary.com/dapmnkke3/image/upload/v1781430868/b6ej7dwvxqrczx3fu8zf.jpg",
-    category: "Community",
+    category: "Social Outreach",
   },
   {
     id: "community-2",
     title: "Community Outreach",
     image_url:
       "https://res.cloudinary.com/dapmnkke3/image/upload/v1781430867/rmjwssaswomzrixffbjm.jpg",
-    category: "Community",
+    category: "Social Outreach",
   },
   {
     id: "community-3",
     title: "Community Outreach",
     image_url:
       "https://res.cloudinary.com/dapmnkke3/image/upload/v1781430866/eodi71aqz5i4i21zaous.jpg",
-    category: "Community",
+    category: "Social Outreach",
   },
   {
     id: "community-4",
     title: "Community Outreach",
     image_url:
       "https://res.cloudinary.com/dapmnkke3/image/upload/v1781430865/kzk2prohjpm74xfhmd22.jpg",
-    category: "Community",
+    category: "Social Outreach",
   },
   {
     id: "community-5",
     title: "Community Outreach",
     image_url:
       "https://res.cloudinary.com/dapmnkke3/image/upload/v1781430864/kvvnv0dhbzmwrnjp78su.jpg",
-    category: "Community",
+    category: "Social Outreach",
   },
   {
     id: "community-6",
     title: "Community Outreach",
     image_url:
       "https://res.cloudinary.com/dapmnkke3/image/upload/v1781430863/qi6vhjhc6fvmtpvlriju.jpg",
-    category: "Community",
+    category: "Social Outreach",
   },
   {
     id: "community-7",
     title: "Community Outreach",
     image_url:
       "https://res.cloudinary.com/dapmnkke3/image/upload/v1781430862/qvvt6mbucyrhsstu6i1b.jpg",
-    category: "Community",
+    category: "Social Outreach",
   },
   {
     id: "community-8",
     title: "Community Outreach",
     image_url:
       "https://res.cloudinary.com/dapmnkke3/image/upload/v1781430862/adpobdumgolm1t5toulx.jpg",
-    category: "Community",
+    category: "Social Outreach",
   },
   {
     id: "community-9",
     title: "Community Outreach",
     image_url:
       "https://res.cloudinary.com/dapmnkke3/image/upload/v1781430860/xy1awwduege3qixttjmg.jpg",
-    category: "Community",
+    category: "Social Outreach",
   },
   {
     id: "community-10",
     title: "Community Outreach",
     image_url:
       "https://res.cloudinary.com/dapmnkke3/image/upload/v1781430850/wzogf7lzglgygsb2scpd.jpg",
-    category: "Community",
+    category: "Social Outreach",
   },
 ];
 
@@ -162,6 +170,76 @@ const eventsImages: GalleryImage[] = [
     title: "Event Moment 11",
     image_url:
       "https://res.cloudinary.com/dapmnkke3/image/upload/v1781435684/ghcqp82tjl1auwch1v61.jpg",
+    category: "Social Outreach",
+  },
+  {
+    id: "event-12",
+    title: "Community Outreach",
+    image_url:
+      "https://res.cloudinary.com/dapmnkke3/image/upload/v1781430868/b6ej7dwvxqrczx3fu8zf.jpg",
+    category: "Social Outreach",
+  },
+  {
+    id: "event-13",
+    title: "Community Outreach",
+    image_url:
+      "https://res.cloudinary.com/dapmnkke3/image/upload/v1781430867/rmjwssaswomzrixffbjm.jpg",
+    category: "Social Outreach",
+  },
+  {
+    id: "event-14",
+    title: "Community Outreach",
+    image_url:
+      "https://res.cloudinary.com/dapmnkke3/image/upload/v1781430866/eodi71aqz5i4i21zaous.jpg",
+    category: "Social Outreach",
+  },
+  {
+    id: "event-15",
+    title: "Community Outreach",
+    image_url:
+      "https://res.cloudinary.com/dapmnkke3/image/upload/v1781430865/kzk2prohjpm74xfhmd22.jpg",
+    category: "Social Outreach",
+  },
+  {
+    id: "event-16",
+    title: "Community Outreach",
+    image_url:
+      "https://res.cloudinary.com/dapmnkke3/image/upload/v1781430864/kvvnv0dhbzmwrnjp78su.jpg",
+    category: "Social Outreach",
+  },
+  {
+    id: "event-17",
+    title: "Community Outreach",
+    image_url:
+      "https://res.cloudinary.com/dapmnkke3/image/upload/v1781430863/qi6vhjhc6fvmtpvlriju.jpg",
+    category: "Social Outreach",
+  },
+  {
+    id: "event-18",
+    title: "Community Outreach",
+    image_url:
+      "https://res.cloudinary.com/dapmnkke3/image/upload/v1781430862/qvvt6mbucyrhsstu6i1b.jpg",
+    category: "Social Outreach",
+  },
+  {
+    id: "event-19",
+    title: "Community Outreach",
+    image_url:
+      "https://res.cloudinary.com/dapmnkke3/image/upload/v1781430862/adpobdumgolm1t5toulx.jpg",
+    category: "Social Outreach",
+  },
+  {
+    id: "event-20",
+    title: "Community Outreach",
+    image_url:
+      "https://res.cloudinary.com/dapmnkke3/image/upload/v1781430860/xy1awwduege3qixttjmg.jpg",
+    category: "Social Outreach",
+  },
+  {
+    id: "event-21",
+    title: "Community Outreach",
+    image_url:
+      "https://res.cloudinary.com/dapmnkke3/image/upload/v1781430850/wzogf7lzglgygsb2scpd.jpg",
     category: "Social Outreach",
   },
 ];
@@ -299,30 +377,85 @@ const educationImages: GalleryImage[] = [
   },
 ];
 
+type DivisionId = "education" | "medical" | "social" | "community" | null;
+
+interface DivisionCard {
+  id: Exclude<DivisionId, null>;
+  title: string;
+  subtitle: string;
+  description: string;
+  coverImage: string;
+  count: number;
+  icon: React.ReactNode;
+  accent: string;
+}
 export default function GalleryPage() {
-  const [filter, setFilter] = useState("All");
+  const [activeDivision, setActiveDivision] = useState<DivisionId>(null);
   const [selected, setSelected] = useState<GalleryImage | null>(null);
 
-  // ================= MERGED DATA =================
-  const images = useMemo(
-    () => [...communityImages, ...eventsImages, ...healthImages, ...educationImages],
-    []
+  const divisions: DivisionCard[] = useMemo(
+    () => [
+      {
+        id: "education",
+        title: "Education",
+        subtitle: "Empowering Young Minds",
+        description:
+          "School programs, SSLC milestones, student mentorship, and educational workshops.",
+        coverImage:
+          "https://res.cloudinary.com/dapmnkke3/image/upload/v1786964077/o3wagcmnhinmu9fosjrp.jpg",
+        count: educationImages.length,
+        icon: <GraduationCap className="w-6 h-6 text-emerald-300" />,
+        accent: "from-emerald-950/90 via-emerald-950/50 to-transparent",
+      },
+      {
+        id: "medical",
+        title: "Medical",
+        subtitle: "Healthcare & Wellness",
+        description:
+          "Patient care, clinical checkups, free health camps, and medical support.",
+        coverImage:
+          "https://res.cloudinary.com/dapmnkke3/image/upload/v1781436387/m1vlaxvecczqqkcqdbse.jpg",
+        count: healthImages.length,
+        icon: <HeartPulse className="w-6 h-6 text-amber-300" />,
+        accent: "from-teal-950/90 via-emerald-950/50 to-transparent",
+      },
+      {
+        id: "social",
+        title: "Social Outreach",
+        subtitle: "Events & Drives",
+        description:
+          "Special outreach programs, environmental drives, and awareness initiatives.",
+        coverImage:
+          "https://res.cloudinary.com/dapmnkke3/image/upload/v1781435685/ahopwxj5ilkgng4nkab5.jpg",
+        count: eventsImages.length,
+        icon: <HandHeart className="w-6 h-6 text-emerald-300" />,
+        accent: "from-[#0d3320]/90 via-emerald-950/50 to-transparent",
+      },
+    ],
+    [],
   );
 
-  const filtered = useMemo(() => {
-    if (filter === "All") return images;
-    return images.filter(
-      (img) => img.category?.toLowerCase() === filter.toLowerCase()
-    );
-  }, [filter, images]);
+  const divisionImages = useMemo(() => {
+    switch (activeDivision) {
+      case "education":
+        return educationImages;
+      case "medical":
+        return healthImages;
+      case "social":
+        return eventsImages;
+      case "community":
+        return communityImages;
+      default:
+        return [];
+    }
+  }, [activeDivision]);
+
+  const currentDivisionInfo = divisions.find((d) => d.id === activeDivision);
 
   return (
-    <main className="bg-[#f5faf7] text-[#0f1f14] overflow-hidden">
-
+    <main className="min-h-screen bg-[#f5faf7] text-[#0f1f14] overflow-hidden">
       {/* ================= HERO ================= */}
-      <section className="relative py-28 text-center text-white overflow-hidden">
-
-        {/* BACKGROUND IMAGE */}
+      <section className="relative py-24 md:py-28 text-center text-white overflow-hidden">
         <div className="absolute inset-0">
           <img
             src="https://res.cloudinary.com/dapmnkke3/image/upload/f_auto,q_auto,w_1920/v1781555326/bh6nuscxzlnlazoh7vej.png"
@@ -335,13 +468,11 @@ export default function GalleryPage() {
           <div className="absolute inset-0 bg-gradient-to-t from-[#0a1711] via-transparent to-transparent" />
         </div>
 
-        {/* glow effects */}
         <div className="absolute -top-24 -left-24 w-96 h-96 bg-emerald-400/15 blur-3xl rounded-full animate-pulse" />
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-cyan-300/10 blur-3xl rounded-full" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#f59e0b]/5 blur-3xl rounded-full" />
 
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="px-4 relative z-10"
@@ -349,100 +480,178 @@ export default function GalleryPage() {
           <span className="inline-block px-4 py-1.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm text-xs font-medium tracking-widest uppercase text-emerald-200 mb-5">
             Our Journey in Frames
           </span>
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight">
-            Photo <span className="text-emerald-300">Gallery</span>
+          <h1 className="text-4xl md:text-7xl font-bold tracking-tight align-middle">
+            {currentDivisionInfo ? (
+              <>
+                {currentDivisionInfo.title}{" "}
+                <span className="text-emerald-300">Gallery</span>
+              </>
+            ) : (
+              <>
+                Photo <span className="text-emerald-300">Gallery</span>
+              </>
+            )}
           </h1>
-          <p className="mt-4 text-white/60 max-w-xl mx-auto text-sm md:text-base">
-            Moments of compassion, community, and care — captured across our outreach programs
+          <p className="mt-4 text-white/70 max-w-xl mx-auto text-sm md:text-base">
+            {currentDivisionInfo
+              ? currentDivisionInfo.description
+              : "Choose one of our four divisions below to view dedicated photos from our initiatives."}
           </p>
         </motion.div>
 
         <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-[#355E3B] to-[#f59e0b]" />
       </section>
+      {/* ================= MAIN CONTENT ================= */}
+      <AnimatePresence mode="wait">
+        {!activeDivision ? (
+          /* ================= 4 DIVISION CARDS VIEW ================= */
+          <motion.section
+            key="divisions-view"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.4 }}
+            className="max-w-7xl mx-auto px-4 md:px-6 py-16"
+          >
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+              {divisions.map((div, index) => (
+                <motion.div
+                  key={div.id}
+                  initial={{ opacity: 0, y: 24 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.45, delay: index * 0.08 }}
+                  whileHover={{ y: -8 }}
+                  onClick={() => setActiveDivision(div.id)}
+                  className="group relative h-[410px] rounded-3xl overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl hover:shadow-emerald-950/25 border border-emerald-900/10 bg-[#0d3320]"
+                >
+                  <img
+                    src={div.coverImage}
+                    alt={div.title}
+                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 opacity-90"
+                  />
+                  <div
+                    className={`absolute inset-0 bg-gradient-to-t ${div.accent}`}
+                  />
+                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300" />
 
-      {/* ================= FILTER ================= */}
-      <section className="py-10 sticky top-0 z-30 bg-[#f5faf7]/80 backdrop-blur-md border-b border-emerald-900/5">
-        <div className="flex flex-wrap justify-center gap-2.5 px-4">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setFilter(cat)}
-              className={`relative px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 ${
-                filter === cat
-                  ? "text-white shadow-lg shadow-emerald-900/20"
-                  : "text-emerald-900/60 bg-white border border-emerald-900/10 hover:border-emerald-900/30 hover:text-emerald-900"
-              }`}
-            >
-              {filter === cat && (
-                <motion.span
-                  layoutId="activeFilterPill"
-                  className="absolute inset-0 rounded-full bg-gradient-to-r from-[#355E3B] to-[#1c3f2c]"
-                  transition={{ type: "spring", stiffness: 350, damping: 30 }}
-                />
-              )}
-              <span className="relative z-10">{cat}</span>
-            </button>
-          ))}
-        </div>
-      </section>
-
-      {/* ================= GRID ================= */}
-      <section className="px-4 md:px-6 py-10">
-        <div className="columns-2 md:columns-3 lg:columns-4 gap-3 md:gap-4 max-w-7xl mx-auto space-y-3 md:space-y-4">
-
-          <AnimatePresence mode="popLayout">
-            {filtered.map((img, i) => (
-              <motion.div
-                key={img.id}
-                layout
-                initial={{ opacity: 0, scale: 0.92 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.92 }}
-                transition={{ duration: 0.35, delay: (i % 8) * 0.04 }}
-                whileHover={{ y: -6 }}
-                onClick={() => setSelected(img)}
-                className="relative group cursor-pointer rounded-2xl overflow-hidden break-inside-avoid mb-3 md:mb-4
-                  border border-black/5 shadow-sm hover:shadow-xl hover:shadow-emerald-900/15
-                  transition-shadow duration-400 bg-white"
-              >
-                <img
-                  src={img.image_url}
-                  alt={img.title || ""}
-                  loading="lazy"
-                  decoding="async"
-                  className="w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
-                />
-
-                {/* gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0d3320]/80 via-[#0d3320]/0 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
-
-                {/* inner ring */}
-                <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/0 group-hover:ring-white/15 transition-all duration-400" />
-
-                {/* category badge */}
-                <div className="absolute top-3 left-3 px-3 py-1 text-[11px] font-semibold rounded-full bg-white/90 backdrop-blur-sm text-emerald-800 opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 transition-all duration-300 shadow-sm">
-                  {img.category}
-                </div>
-
-                {/* title */}
-                {img.title && (
-                  <div className="absolute bottom-0 left-0 right-0 p-4 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-                    <p className="text-white font-semibold text-sm drop-shadow-sm">
-                      {img.title}
-                    </p>
+                  <div className="absolute top-4 left-4 right-4 flex items-center justify-between">
+                    <div className="w-11 h-11 rounded-2xl bg-white/15 backdrop-blur-md border border-white/20 flex items-center justify-center">
+                      {div.icon}
+                    </div>
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/45 backdrop-blur-md border border-white/15 text-xs font-medium text-white">
+                      <Images className="w-3.5 h-3.5 text-emerald-300" />
+                      {div.count} Photos
+                    </span>
                   </div>
-                )}
-              </motion.div>
-            ))}
-          </AnimatePresence>
 
-        </div>
+                  <div className="absolute bottom-0 left-0 right-0 p-5 text-white">
+                    <p className="text-[11px] uppercase tracking-widest text-emerald-300 font-semibold mb-1">
+                      {div.subtitle}
+                    </p>
+                    <h2 className="text-2xl font-bold tracking-tight mb-2">
+                      {div.title}
+                    </h2>
+                    <p className="text-xs text-white/75 line-clamp-2 mb-4">
+                      {div.description}
+                    </p>
+                    <div className="inline-flex items-center gap-2 text-xs font-semibold text-white bg-white/15 group-hover:bg-emerald-600 px-4 py-2 rounded-full backdrop-blur-sm transition-colors duration-300">
+                      <span>View Photos</span>
+                      <span className="transition-transform duration-300 group-hover:translate-x-1">
+                        →
+                      </span>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.section>
+        ) : (
+          /* ================= SELECTED DIVISION GALLERY VIEW ================= */
+          <motion.section
+            key="gallery-grid-view"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.4 }}
+          >
+            <div className="sticky top-0 z-30 bg-[#f5faf7]/90 backdrop-blur-md border-b border-emerald-900/10 py-4 px-4 md:px-6">
+              <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3">
+                <button
+                  onClick={() => setActiveDivision(null)}
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold text-emerald-900 bg-white border border-emerald-900/15 hover:bg-emerald-900 hover:text-white transition-all shadow-sm self-start md:self-auto"
+                >
+                  <ArrowLeft className="w-4 h-4" />
+                  <span>All Divisions</span>
+                </button>
 
-        {filtered.length === 0 && (
-          <p className="text-center text-gray-500 mt-16">No images available</p>
+                <div className="flex flex-wrap justify-center gap-2">
+                  {divisions.map((div) => (
+                    <button
+                      key={div.id}
+                      onClick={() => setActiveDivision(div.id)}
+                      className={`relative px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300 ${
+                        activeDivision === div.id
+                          ? "text-white shadow-md shadow-emerald-900/20"
+                          : "text-emerald-900/70 bg-white border border-emerald-900/10 hover:text-emerald-900"
+                      }`}
+                    >
+                      {activeDivision === div.id && (
+                        <motion.span
+                          layoutId="activeDivisionPill"
+                          className="absolute inset-0 rounded-full bg-gradient-to-r from-[#355E3B] to-[#1c3f2c]"
+                          transition={{
+                            type: "spring",
+                            stiffness: 350,
+                            damping: 30,
+                          }}
+                        />
+                      )}
+                      <span className="relative z-10">{div.title}</span>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <div className="px-4 md:px-6 py-10 max-w-7xl mx-auto">
+              <div className="columns-2 md:columns-3 lg:columns-4 gap-3 md:gap-4 space-y-3 md:space-y-4">
+                {divisionImages.map((img, i) => (
+                  <motion.div
+                    key={img.id || i}
+                    initial={{ opacity: 0, scale: 0.94 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.35, delay: (i % 8) * 0.04 }}
+                    whileHover={{ y: -5 }}
+                    onClick={() => setSelected(img)}
+                    className="relative group cursor-pointer rounded-2xl overflow-hidden break-inside-avoid mb-3 md:mb-4 border border-black/5 shadow-sm hover:shadow-xl hover:shadow-emerald-900/15 transition-shadow duration-300 bg-white"
+                  >
+                    <img
+                      src={img.image_url}
+                      alt={img.title || currentDivisionInfo?.title || ""}
+                      loading="lazy"
+                      decoding="async"
+                      className="w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0d3320]/85 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    {img.category && (
+                      <div className="absolute top-3 left-3 px-2.5 py-1 text-[10px] font-semibold rounded-full bg-white/90 backdrop-blur-sm text-emerald-900 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        {img.category}
+                      </div>
+                    )}
+                    {img.title && (
+                      <div className="absolute bottom-0 left-0 right-0 p-4 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+                        <p className="text-white font-semibold text-sm drop-shadow-sm">
+                          {img.title}
+                        </p>
+                      </div>
+                    )}
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </motion.section>
         )}
-      </section>
-
+      </AnimatePresence>
       {/* ================= LIGHTBOX ================= */}
       <AnimatePresence>
         {selected && (
@@ -455,41 +664,37 @@ export default function GalleryPage() {
           >
             <button
               onClick={() => setSelected(null)}
-              className="absolute top-5 right-5 w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors border border-white/10"
+              aria-label="Close modal"
+              className="absolute top-5 right-5 w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors border border-white/10 z-50"
             >
               <X size={20} />
             </button>
 
             <motion.div
-              initial={{ scale: 0.85, opacity: 0, y: 20 }}
+              initial={{ scale: 0.88, opacity: 0, y: 20 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
-              exit={{ scale: 0.85, opacity: 0, y: 20 }}
+              exit={{ scale: 0.88, opacity: 0, y: 20 }}
               transition={{ type: "spring", stiffness: 300, damping: 28 }}
-              className="relative max-w-full max-h-[85vh]"
+              className="relative max-w-5xl max-h-[85vh] flex flex-col items-center"
               onClick={(e) => e.stopPropagation()}
             >
               <img
                 src={selected.image_url}
                 alt={selected.title || ""}
-                className="max-h-[85vh] max-w-full rounded-2xl shadow-2xl border border-white/10"
+                className="max-h-[78vh] max-w-full rounded-2xl shadow-2xl border border-white/10 object-contain"
               />
 
               {selected.title && (
-                <motion.div
-                  initial={{ y: 15, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.15 }}
-                  className="absolute bottom-5 left-1/2 -translate-x-1/2 bg-black/50 backdrop-blur-md text-white px-5 py-2 rounded-full text-sm border border-white/10"
-                >
-                  {selected.title}
-                </motion.div>
+                <div className="mt-4 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/10 text-center">
+                  <p className="text-white font-medium text-sm md:text-base">
+                    {selected.title}
+                  </p>
+                </div>
               )}
             </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
-      {/* Feature - YOUTUBE  */}
-    {/* <MediaVideoSection/> */}
     </main>
   );
 }

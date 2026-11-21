@@ -122,7 +122,7 @@ const coreResources = [
     url: "#"
   },
   {
-    title: "Annual Operational Report",
+    title: "Annual Report",
     description: "Comprehensive operational overview highlighting infrastructure developments, project outcomes, and outreach metrics across regional sectors.",
     tag: "Annual Report",
     icon: FileText,
