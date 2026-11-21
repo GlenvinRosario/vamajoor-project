@@ -48,6 +48,7 @@ const programData = [
           "https://res.cloudinary.com/dapmnkke3/image/upload/v1794207465/xkvij2oeycm20luv6rts.jpg",
         tag: "Hospital",
         url: "#",
+        gallery: ["https://res.cloudinary.com/dapmnkke3/image/upload/v1795287624/jw5iucedreczdbbeet3n.jpg"],
       },
       {
         title: "Maria Giri Geriatric Care Unit, Kuppepadavu",
@@ -93,11 +94,18 @@ const programData = [
           "https://res.cloudinary.com/dapmnkke3/image/upload/v1794207771/ds7xkuxh7bkad2syus1r.jpg",
         tag: "Play School",
         url: "#",
+        gallery: [
+          "https://res.cloudinary.com/dapmnkke3/image/upload/v1795286811/diwzb54dpqeeqxesmc0q.jpg",
+          "https://res.cloudinary.com/dapmnkke3/image/upload/v1795286806/vmkjmhsymgedybgvagko.jpg",
+          "https://res.cloudinary.com/dapmnkke3/image/upload/v1795286801/l58grva4c0bwojo9g2jh.jpg",
+          "https://res.cloudinary.com/dapmnkke3/image/upload/v1795286797/ubkkva1jxeatc98kbbdg.jpg",
+          "https://res.cloudinary.com/dapmnkke3/image/upload/v1795286751/kolffc54zuh61xibbbpd.jpg",
+        ],
       },
       {
         title: "Vidya Jyothi English Medium Primary & High School, Vamanjoor",
         image:
-                 "https://res.cloudinary.com/dapmnkke3/image/upload/v1794207777/ipdsr8o18jrwdtebawam.jpg",
+          "https://res.cloudinary.com/dapmnkke3/image/upload/v1794207777/ipdsr8o18jrwdtebawam.jpg",
         tag: "Primary & High School",
         url: "#",
         gallery: [
@@ -111,7 +119,7 @@ const programData = [
           "https://res.cloudinary.com/dapmnkke3/image/upload/v1795274033/x83pb52dv3uzcaatwu2j.jpg",
           "https://res.cloudinary.com/dapmnkke3/image/upload/v1795274024/k8uxwcbzzcg59pshmr7d.jpg",
           "https://res.cloudinary.com/dapmnkke3/image/upload/v1795274020/vnk9bo6rya9h7y8kjucq.jpg",
-          "https://res.cloudinary.com/dapmnkke3/image/upload/v1795274012/jqfcaordbudyjelpdbv9.jpg"
+          "https://res.cloudinary.com/dapmnkke3/image/upload/v1795274012/jqfcaordbudyjelpdbv9.jpg",
         ],
       },
     ],
@@ -151,6 +159,16 @@ const programData = [
           "https://res.cloudinary.com/dapmnkke3/image/upload/v1794207841/piaswkacvhxne3jtk61u.jpg",
         tag: "Social Centre",
         url: "#",
+        gallery: [
+          "https://res.cloudinary.com/dapmnkke3/image/upload/v1795287277/k8jhgglwqsxixsebrzh8.jpg",
+          "https://res.cloudinary.com/dapmnkke3/image/upload/v1795287338/ecovt2vlezwuspaaocms.jpg",
+          "https://res.cloudinary.com/dapmnkke3/image/upload/v1795287400/vlka0tsve9whphwneqbf.jpg",
+          "https://res.cloudinary.com/dapmnkke3/image/upload/v1795287271/talumtsxf92vfkwg9mnc.jpg",
+          "https://res.cloudinary.com/dapmnkke3/image/upload/v1795287267/ew9xbsudogsr6cvsr4di.jpg",
+          "https://res.cloudinary.com/dapmnkke3/image/upload/v1795287256/nxxuvtckzkfsy8wktvnc.jpg",
+          "https://res.cloudinary.com/dapmnkke3/image/upload/v1795287251/goiykv6rowncfd6ftmfw.jpg"
+
+        ]
       },
     ],
   },
@@ -159,7 +177,7 @@ const programData = [
 
 export default function ProgramsPage() {
   const [expandedSection, setExpandedSection] = useState<string | null>(
-    "medical"
+    "medical",
   );
   const [activeGallery, setActiveGallery] = useState<{
     title: string;
@@ -594,5 +612,3 @@ function PhotoGalleryModal({
     </motion.div>
   );
 }
-
-
