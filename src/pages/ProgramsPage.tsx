@@ -305,7 +305,7 @@ const programData = [
   },
   {
     id: "education",
-    title: "Educational Frameworks",
+    title: "Educational Institutions",
     summary:
       "Primary schooling systems, active high schools, boardings, and play spaces.",
     icon: BookOpen,
