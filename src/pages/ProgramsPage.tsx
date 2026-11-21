@@ -152,7 +152,16 @@ const programData = [
         tag: "Vocational Center",
         url: "#",
         gallery: [
-          ""
+          "https://res.cloudinary.com/dapmnkke3/image/upload/v1795289754/g7p9cpnueay1obszpxl2.jpg",
+          "https://res.cloudinary.com/dapmnkke3/image/upload/v1795289747/hzbeemyrh46uqpfdbrex.jpg",
+          "https://res.cloudinary.com/dapmnkke3/image/upload/v1795289744/affxf8ylzjfebbrh9cd0.jpg",
+          "https://res.cloudinary.com/dapmnkke3/image/upload/v1795289741/szmmkek7wd5viz0pokqx.jpg",
+          "https://res.cloudinary.com/dapmnkke3/image/upload/v1795289738/sqfssdt4b0wl0tnp4tuw.jpg",
+          "https://res.cloudinary.com/dapmnkke3/image/upload/v1795289735/yxxhvjjsln00qspuq5f6.jpg",
+          "https://res.cloudinary.com/dapmnkke3/image/upload/v1795289732/u83vk7m2qvtgzbihkh7h.jpg",
+          "https://res.cloudinary.com/dapmnkke3/image/upload/v1795289727/lpcuuujjmyqq8cbvvsbp.jpg",
+          "https://res.cloudinary.com/dapmnkke3/image/upload/v1795289723/h4t5qlhqqs3f8rnkxwrp.jpg",
+          
         ]
       },
       {
