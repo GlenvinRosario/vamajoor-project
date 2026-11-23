@@ -7,7 +7,7 @@ export default function AboutPage() {
      <>
          <main className="bg-[#f6fbf8] text-[#102018] overflow-hidden w-full min-h-screen antialiased">
         {/* ================= HERO & NARRATIVE SECTION ================= */}
-        <section className="relative pt-24 pb-16 px-4 md:px-6 bg-[#f6fbf8]">
+                 <section className="relative pt-24 pb-16 px-4 md:px-6 bg-[#f6fbf8]">
           {/* Signature Mesh Overlays */}
           <div className="absolute inset-0 bg-[radial-gradient(#1a4d2e_2px,transparent_2px)] [background-size:32px_32px] opacity-[0.04] pointer-events-none" />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(26,77,46,0.06),transparent_45%)]" />
@@ -27,25 +27,27 @@ export default function AboutPage() {
                 </span>
               </div>
 
-              <h2 className="text-4xl font-black text-[#0a2313] mb-6 tracking-tight leading-tight">
-                A Remarkable Legacy <br />
-                of Compassion & Service
+              <h2 className="text-4xl font-black text-[#0a2313] mb-6 tracking-tight leading-[1.18]">
+                A Remarkable Legacy <br className="hidden sm:inline" />
+                of Compassion &amp; Service
               </h2>
 
-              <p className="text-slate-600 leading-relaxed mb-4 text-base font-medium">
-                Dharma Jyothi Charitable Society, Mangalore is a non-profit
-                organization that strives to empower and uplift marginalized
-                communities in the Indian states of Karnataka.
-              </p>
+              <div className="space-y-4 mb-8 text-slate-600 text-base leading-[1.75] text-justify hyphens-none break-words">
+                <p className="font-medium text-slate-700">
+                  Dharma Jyothi Charitable Society, Mangalore is a non-profit
+                  organization that strives to empower and uplift marginalized
+                  communities in the Indian states of Karnataka.
+                </p>
 
-              <p className="text-slate-600 leading-relaxed mb-8 text-base">
-                Founded in 1973, the society has established a remarkable legacy
-                of service through its multifaceted initiatives in education,
-                healthcare, women's empowerment, community development, and
-                environmental protection. Guided by the values of compassion,
-                empowerment, and social justice, we continue to illuminate hope
-                and transform lives as a beacon of resilience.
-              </p>
+                <p>
+                  Founded in 1973, the society has established a remarkable legacy
+                  of service through its multifaceted initiatives in education,
+                  healthcare, women&apos;s empowerment, community development, and
+                  environmental protection. Guided by the values of compassion,
+                  empowerment, and social justice, we continue to illuminate hope
+                  and transform lives as a beacon of resilience.
+                </p>
+              </div>
 
               {/* Dynamic Metric Grid Up To Year 2026 */}
               <div className="grid grid-cols-2 gap-4">
@@ -71,7 +73,7 @@ export default function AboutPage() {
               </div>
             </motion.div>
 
-            {/* Historical Media Showcase (Preserving your exact requested single cloud image structure) */}
+            {/* Historical Media Showcase (100% Untouched Original Size & Width) */}
             <motion.div
               initial={{ opacity: 0, x: 35 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -102,6 +104,8 @@ export default function AboutPage() {
             </motion.div>
           </div>
         </section>
+
+
         {/* ================= CORE STRATEGIC PILLARS (VISION & MISSION) ================= */}
         <section className="py-24 bg-[#eaf4ee] border-t border-b border-[#e1f0e7] px-4 md:px-6">
           <div className="container mx-auto max-w-5xl">

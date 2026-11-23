@@ -50,29 +50,6 @@ const slides = [
     secondCtaHref: "/about",
   },
 
-  {
-    image:
-      "https://res.cloudinary.com/dapmnkke3/image/upload/v1790710982/fjnatbwyhaejfj42foet.jpg",
-    title: "Transforming Lives Across Communities",
-    subtitle:
-      "Through hospitals, schools, social centres, and empowerment programs, we bring hope, dignity, and a better future to those in need.",
-    cta: "View Our Work",
-    ctaHref: "/gallery",
-    secondCta: "Learn More",
-    secondCtaHref: "/about",
-  },
- 
-  {
-    image:
-      "https://res.cloudinary.com/dapmnkke3/image/upload/v1790710784/zs3mghirpwxm3mookcze.jpg",
-    title: "Transforming Lives Across Communities",
-    subtitle:
-      "Through hospitals, schools, social centres, and empowerment programs, we bring hope, dignity, and a better future to those in need.",
-    cta: "View Our Work",
-    ctaHref: "/gallery",
-    secondCta: "Learn More",
-    secondCtaHref: "/about",
-  },
 ];
 
 export default function HeroCarousel() {
@@ -93,8 +70,8 @@ export default function HeroCarousel() {
     setTimeout(() => setAnimating(false), 700);
   }, [animating]);
 
-  useEffect(() => {
-    const timer = setInterval(next, 2000);
+ useEffect(() => {
+    const timer = setInterval(next, 5000); // Changed from 2000ms (2s) to 5000ms (5s)
     return () => clearInterval(timer);
   }, [next]);
 
