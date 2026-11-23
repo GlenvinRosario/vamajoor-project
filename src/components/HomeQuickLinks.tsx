@@ -40,7 +40,7 @@ const quickLinks = [
     description:
       "Empowering women and communities through self-help groups, training, and social development programs.",
     image:
-      "https://res.cloudinary.com/dapmnkke3/image/upload/v1781381313/ytoqk6oh8igeno8kfq77.jpg",
+      "https://res.cloudinary.com/dapmnkke3/image/upload/v1795422035/g8mcbp55mdbmdvntqxyx.jpg",
     href: "/programs",
     accent: "#4ade80",
     accentLight: "#bbf7d0",

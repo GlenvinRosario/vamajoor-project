@@ -64,13 +64,6 @@ const communityImages: GalleryImage[] = [
     category: "Social Outreach",
   },
   {
-    id: "community-7",
-    title: "Community Outreach",
-    image_url:
-      "https://res.cloudinary.com/dapmnkke3/image/upload/v1781430862/qvvt6mbucyrhsstu6i1b.jpg",
-    category: "Social Outreach",
-  },
-  {
     id: "community-8",
     title: "Community Outreach",
     image_url:
@@ -176,55 +169,6 @@ const eventsImages: GalleryImage[] = [
 
 // ================= HEALTH (NEW ADDED) =================
 const healthImages: GalleryImage[] = [
-  {
-    id: "health-4",
-    title: "Health Camp 4",
-    image_url:
-      "https://res.cloudinary.com/dapmnkke3/image/upload/v1781436397/lklivstenwmeghv2w1ei.jpg",
-    category: "Medical",
-  },
-  {
-    id: "health-5",
-    title: "Health Camp 5",
-    image_url:
-      "https://res.cloudinary.com/dapmnkke3/image/upload/v1781436395/kt2uqijc2lexdh45gi5u.jpg",
-    category: "Medical",
-  },
-  {
-    id: "health-6",
-    title: "Health Camp 6",
-    image_url:
-      "https://res.cloudinary.com/dapmnkke3/image/upload/v1781436393/ktq2hih2qqibcm5qm8dx.jpg",
-    category: "Medical",
-  },
-  {
-    id: "health-7",
-    title: "Health Camp 7",
-    image_url:
-      "https://res.cloudinary.com/dapmnkke3/image/upload/v1781436391/owkwrut3wnj1y4g7qezs.jpg",
-    category: "Medical",
-  },
-  {
-    id: "health-8",
-    title: "Health Camp 8",
-    image_url:
-      "https://res.cloudinary.com/dapmnkke3/image/upload/v1781436389/ccux34dwid5f5e5wjwnp.jpg",
-    category: "Medical",
-  },
-  {
-    id: "health-9",
-    title: "Health Camp 9",
-    image_url:
-      "https://res.cloudinary.com/dapmnkke3/image/upload/v1781436387/m1vlaxvecczqqkcqdbse.jpg",
-    category: "Medical",
-  },
-  {
-    id: "health-10",
-    title: "Health Camp 10",
-    image_url:
-      "https://res.cloudinary.com/dapmnkke3/image/upload/v1781436385/t4w9ffsxyrk2cep00xq4.jpg",
-    category: "Medical",
-  },
   {
     id: "event-12",
     title: "Community Outreach",
@@ -375,8 +319,8 @@ const educationImages: GalleryImage[] = [
       "https://res.cloudinary.com/dapmnkke3/image/upload/v1795274012/jqfcaordbudyjelpdbv9.jpg",
     category: "Education",
   },
-  //here 
-    {
+  //here
+  {
     id: "education-11",
     title: "Education Program 11",
     image_url:
@@ -384,28 +328,28 @@ const educationImages: GalleryImage[] = [
     category: "Education",
   },
 
-    {
+  {
     id: "education-11",
     title: "Education Program 11",
     image_url:
       "https://res.cloudinary.com/dapmnkke3/image/upload/v1795289472/mf56qg7ygaks9cizve1r.jpg",
     category: "Education",
   },
-    {
+  {
     id: "education-11",
     title: "Education Program 11",
     image_url:
       "https://res.cloudinary.com/dapmnkke3/image/upload/v1795286811/diwzb54dpqeeqxesmc0q.jpg",
     category: "Education",
   },
-    {
+  {
     id: "education-11",
     title: "Education Program 11",
     image_url:
       "https://res.cloudinary.com/dapmnkke3/image/upload/v1795286751/kolffc54zuh61xibbbpd.jpg",
     category: "Education",
   },
-    {
+  {
     id: "education-11",
     title: "Education Program 11",
     image_url:
@@ -439,7 +383,7 @@ export default function GalleryPage() {
         description:
           "School programs, SSLC milestones, student mentorship, and educational workshops.",
         coverImage:
-          "https://res.cloudinary.com/dapmnkke3/image/upload/v1786964077/o3wagcmnhinmu9fosjrp.jpg",
+          "https://res.cloudinary.com/dapmnkke3/image/upload/v1795421894/qwmo0uxtv5xn6cxctuyt.jpg",
         count: educationImages.length,
         icon: <GraduationCap className="w-6 h-6 text-emerald-300" />,
         accent: "from-emerald-950/90 via-emerald-950/50 to-transparent",

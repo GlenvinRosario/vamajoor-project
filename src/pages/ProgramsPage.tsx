@@ -161,7 +161,7 @@ const programData = [
           "https://res.cloudinary.com/dapmnkke3/image/upload/v1795289732/u83vk7m2qvtgzbihkh7h.jpg",
           "https://res.cloudinary.com/dapmnkke3/image/upload/v1795289727/lpcuuujjmyqq8cbvvsbp.jpg",
           "https://res.cloudinary.com/dapmnkke3/image/upload/v1795289723/h4t5qlhqqs3f8rnkxwrp.jpg",
-          
+
         ]
       },
       {
@@ -194,7 +194,7 @@ const programData = [
       {
         title: "Sneha Jyothi Social Centre",
         image:
-          "https://res.cloudinary.com/dapmnkke3/image/upload/v1794207841/piaswkacvhxne3jtk61u.jpg",
+          "https://res.cloudinary.com/dapmnkke3/image/upload/v1795421731/qnsd5q8v38blt9bpvr7a.jpg",
         tag: "Social Centre",
         url: "#",
         gallery: [
