@@ -41,6 +41,10 @@ const programData = [
           "https://res.cloudinary.com/dapmnkke3/image/upload/v1794207413/oscddd6ssvzonbt3aits.jpg",
         tag: "Health Centre",
         url: "#",
+        gallery:[
+          "https://res.cloudinary.com/dapmnkke3/image/upload/v1781430867/rmjwssaswomzrixffbjm.jpg",
+          "https://res.cloudinary.com/dapmnkke3/image/upload/v1781430868/b6ej7dwvxqrczx3fu8zf.jpg"
+        ]
       },
       {
         title: "Goretti Hospital",
