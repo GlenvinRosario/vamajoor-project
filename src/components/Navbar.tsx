@@ -32,15 +32,17 @@ const dropdownItems = [
 ];
 
 const socialLinks = [
-  { Icon: Facebook, href: "#" },
-  { Icon: Instagram, href: "#" },
-  { Icon: Linkedin, href: "#" },
-  { Icon: Twitter, href: "#" },
+  { Icon: Facebook, href: "#", label: "Facebook" },
+  { Icon: Instagram, href: "#", label: "Instagram" },
+  { Icon: Linkedin, href: "#", label: "LinkedIn" },
+  { Icon: Twitter, href: "#", label: "Twitter" },
 ];
+
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [mobileMoreOpen, setMobileMoreOpen] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -52,12 +54,13 @@ export default function Navbar() {
   useEffect(() => {
     setOpen(false);
     setDropdownOpen(false);
+    setMobileMoreOpen(false);
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [location.pathname]);
-
   return (
+    <>
     <header className="fixed top-0 left-0 w-full z-50 font-sans">
-      {/* ── TOP CONTACT INFO BAR ── */}
+      {/* ── TOP CONTACT INFO BAR (Desktop) ── */}
       <div
         className="hidden md:flex justify-between items-center px-8 py-2 text-white text-xs tracking-wide"
         style={{
@@ -67,16 +70,16 @@ export default function Navbar() {
       >
         <div className="flex gap-5 items-center">
           <a
-            href="mailto:dharmajyothi@gmail.com"
-            className="flex items-center gap-1.5 opacity-80 hover:opacity-100 transition-opacity"
+            href="mailto:dharmajyothicharitablesociety@gmail.com"
+            className="flex items-center gap-1.5 opacity-85 hover:opacity-100 transition-opacity"
           >
             <Mail size={12} className="text-emerald-300" />
-            <span>dharmajyothi@gmail.com</span>
+            <span>dharmajyothicharitablesociety@gmail.com</span>
           </a>
           <span className="w-px h-3 bg-white/20" />
           <a
             href="tel:+917019249483"
-            className="flex items-center gap-1.5 opacity-80 hover:opacity-100 transition-opacity"
+            className="flex items-center gap-1.5 opacity-85 hover:opacity-100 transition-opacity"
           >
             <Phone size={12} className="text-emerald-300" />
             <span>+91 70192 49483</span>
@@ -84,29 +87,29 @@ export default function Navbar() {
         </div>
 
         <div className="flex gap-3 items-center">
-          {socialLinks.map(({ Icon, href }) => (
+          {socialLinks.map(({ Icon, href, label }) => (
             <a
-              key={href}
+              key={label}
               href={href}
-              className="p-1 rounded-full opacity-70 hover:opacity-100 hover:bg-white/10 transition-all"
+              aria-label={label}
+              className="p-1 rounded-full opacity-75 hover:opacity-100 hover:bg-white/10 transition-all"
             >
               <Icon size={13} />
             </a>
           ))}
         </div>
       </div>
-      {/* ── MAIN NAVBAR ── */}
+
       <motion.nav
         animate={{
-          // Increased padding top/bottom to allow the expanded logo and text to breathe
-          paddingTop: scrolled ? "12px" : "20px",
-          paddingBottom: scrolled ? "12px" : "20px",
+          paddingTop: scrolled ? "10px" : "16px",
+          paddingBottom: scrolled ? "10px" : "16px",
         }}
         transition={{ duration: 0.3 }}
-        className="relative px-2 md:px-4"
+        className="relative px-3 sm:px-5"
         style={{
           background: scrolled
-            ? "rgba(255,255,255,0.95)"
+            ? "rgba(255,255,255,0.96)"
             : "linear-gradient(135deg, rgba(240,250,244,0.97) 0%, rgba(232,245,233,0.97) 50%, rgba(244,253,246,0.97) 100%)",
           backdropFilter: "blur(16px)",
           WebkitBackdropFilter: "blur(16px)",
@@ -123,35 +126,38 @@ export default function Navbar() {
           }}
         />
 
-        <div className="container mx-auto max-w-[99%] flex items-center justify-between">
-          {/* LOGO BRAND BLOCK */}
-          <div className="mr-auto flex justify-start pl-0">
-            <Link to="/" className="flex items-center gap-5 group">
+        <div className="container mx-auto max-w-[99%] flex items-center justify-between gap-2">
+          {/* LOGO BRAND BLOCK (Responsive for mobile, full scale on desktop) */}
+          <div className="flex justify-start min-w-0">
+            <Link
+              to="/"
+              className="flex items-center gap-2.5 sm:gap-4 lg:gap-5 group"
+            >
               <div
-                className="p-2 rounded-2xl shadow-md group-hover:shadow-lg transition-shadow shrink-0"
+                className="p-1.5 sm:p-2 rounded-xl sm:rounded-2xl shadow-md group-hover:shadow-lg transition-shadow shrink-0"
                 style={{
                   background: "linear-gradient(135deg, #ffffff, #f0faf4)",
                   border: "1.5px solid rgba(34,197,94,0.2)",
                 }}
               >
-                {/* Scaled logo back to h-16 w-16 */}
                 <img
                   src={dharmaLogo}
-                  className="h-16 w-16 object-contain"
+                  className="h-11 w-11 sm:h-14 sm:w-14 lg:h-16 lg:w-16 object-contain"
                   alt="Dharma Jyothi Logo"
                 />
               </div>
 
-              <div className="text-left flex flex-col justify-center">
-                <h1 className="font-black leading-none text-4xl tracking-tight whitespace-nowrap bg-gradient-to-br from-[#0d3320] to-[#1a7a45] bg-clip-text text-transparent pb-2">
+              <div className="text-left flex flex-col justify-center min-w-0">
+                <h1 className="font-black leading-none text-lg sm:text-3xl lg:text-4xl tracking-tight whitespace-nowrap bg-gradient-to-br from-[#0d3320] to-[#1a7a45] bg-clip-text text-transparent pb-0.5 sm:pb-1.5">
                   DHARMA JYOTHI
                 </h1>
-                <p className="font-medium text-lg uppercase tracking-widest text-emerald-800 opacity-90 matches-prominent">
+                <p className="font-semibold text-[11px] sm:text-sm lg:text-lg uppercase tracking-wider sm:tracking-widest text-emerald-800 opacity-90 truncate">
                   Charitable Society
                 </p>
               </div>
             </Link>
           </div>
+
           {/* DESKTOP LINKS TRACKS */}
           <div className="hidden lg:flex items-center gap-1.5">
             {navItems.map((item) => {
@@ -184,6 +190,7 @@ export default function Navbar() {
               onMouseLeave={() => setDropdownOpen(false)}
             >
               <button
+                type="button"
                 className="flex items-center gap-1 px-4 py-3 text-base font-semibold tracking-wide text-gray-700 hover:text-emerald-800 rounded-xl transition-colors"
                 style={{
                   background: dropdownOpen
@@ -194,7 +201,9 @@ export default function Navbar() {
                 <span>More</span>
                 <ChevronDown
                   size={14}
-                  className={`transition-transform duration-200 ${dropdownOpen ? "rotate-180 text-emerald-700" : ""}`}
+                  className={`transition-transform duration-200 ${
+                    dropdownOpen ? "rotate-180 text-emerald-700" : ""
+                  }`}
                 />
               </button>
 
@@ -222,8 +231,117 @@ export default function Navbar() {
               </AnimatePresence>
             </div>
           </div>
+
+          {/* ── MOBILE HAMBURGER BUTTON (< lg) ── */}
+          <button
+            type="button"
+            onClick={() => setOpen((prev) => !prev)}
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+            className="lg:hidden flex items-center justify-center w-11 h-11 rounded-xl bg-white/90 border border-emerald-600/20 text-[#126630] shadow-sm active:scale-95 transition-all shrink-0"
+          >
+            {open ? <X size={22} /> : <Menu size={22} />}
+          </button>
         </div>
+        {/* ── MOBILE SLIDE-DOWN MENU DRAWER (< lg) ── */}
+        <AnimatePresence>
+          {open && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+              className="lg:hidden overflow-hidden"
+            >
+              <div className="mt-3 pt-3 pb-4 px-2 border-t border-emerald-900/10 bg-white/95 backdrop-blur-xl rounded-2xl shadow-xl max-h-[78vh] overflow-y-auto space-y-1">
+                {navItems.map((item) => {
+                  const active = location.pathname === item.href;
+                  return (
+                    <Link
+                      key={item.label}
+                      to={item.href}
+                      onClick={() => setOpen(false)}
+                      className={`flex items-center justify-between px-4 py-3 rounded-xl text-base font-bold transition-all ${
+                        active
+                          ? "bg-emerald-600/12 text-[#126630] border-l-4 border-emerald-600"
+                          : "text-gray-700 hover:bg-emerald-50/70 hover:text-[#126630]"
+                      }`}
+                    >
+                      <span>{item.label}</span>
+                    </Link>
+                  );
+                })}
+
+                {/* Mobile Collapsible "More" Section */}
+                <div className="pt-1">
+                  <button
+                    type="button"
+                    onClick={() => setMobileMoreOpen((prev) => !prev)}
+                    className="w-full flex items-center justify-between px-4 py-3 rounded-xl text-base font-bold text-gray-700 hover:bg-emerald-50/70 hover:text-[#126630] transition-colors"
+                  >
+                    <span>More</span>
+                    <ChevronDown
+                      size={18}
+                      className={`transition-transform duration-200 ${
+                        mobileMoreOpen ? "rotate-180 text-emerald-700" : ""
+                      }`}
+                    />
+                  </button>
+
+                  <AnimatePresence>
+                    {mobileMoreOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        className="overflow-hidden pl-4 pr-2 space-y-1 mt-1"
+                      >
+                        {dropdownItems.map((subItem) => {
+                          const subActive = location.pathname === subItem.href;
+                          return (
+                            <Link
+                              key={subItem.label}
+                              to={subItem.href}
+                              onClick={() => setOpen(false)}
+                              className={`block px-4 py-2.5 rounded-xl text-sm font-semibold transition-all ${
+                                subActive
+                                  ? "bg-emerald-600/12 text-[#126630]"
+                                  : "text-gray-600 hover:bg-emerald-50 hover:text-emerald-800"
+                              }`}
+                            >
+                              {subItem.label}
+                            </Link>
+                          );
+                        })}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+
+                {/* Mobile Quick Contact Bar (Phone & Email) */}
+                <div className="mt-4 pt-3 border-t border-emerald-900/10 px-2 space-y-2">
+                  <a
+                    href="tel:+917019249483"
+                    className="flex items-center gap-2.5 px-3 py-2.5 rounded-xl bg-[#f0faf4] text-[#126630] text-sm font-bold"
+                  >
+                    <Phone size={15} className="text-emerald-600 shrink-0" />
+                    <span>+91 70192 49483</span>
+                  </a>
+
+                  <a
+                    href="mailto:dharmajyothicharitablesociety@gmail.com"
+                    className="flex items-center gap-2.5 px-3 py-2.5 rounded-xl bg-[#f0faf4] text-[#126630] text-xs font-bold break-all"
+                  >
+                    <Mail size={15} className="text-emerald-600 shrink-0" />
+                    <span>dharmajyothicharitablesociety@gmail.com</span>
+                  </a>
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </motion.nav>
     </header>
+    </>
   );
 }
