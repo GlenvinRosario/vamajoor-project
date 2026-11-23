@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Award, Sparkles, X, ZoomIn, Camera } from "lucide-react";
+import {RecognitionGalleryCard} from "@/components/RecognitionGalleryCard";
 
 const institutionalAwards = [
   {
@@ -57,6 +58,12 @@ const ignatiusAwardPhotos = [
       "https://res.cloudinary.com/dapmnkke3/image/upload/v1795274371/cmdragio2ccioxpzeczr.jpg",
   },
 ];
+const mariaGiriAwardPhotos =[
+  {
+    id: "maria-giri-award-1",
+    image_url: "https://res.cloudinary.com/dapmnkke3/image/upload/v1795288346/esrcssjffxarzsoj6bgl.jpg",
+  },
+]
 
 const mariaGorettiAwardPhotos = [
   {
@@ -74,10 +81,6 @@ const mariaGorettiAwardPhotos = [
   {
     id: "goretti-award-4",
     image_url: "https://res.cloudinary.com/dapmnkke3/image/upload/v1795288352/mmxjdawlqyk9dv2yngnp.jpg",
-  },
-  {
-    id: "goretti-award-5",
-    image_url: "https://res.cloudinary.com/dapmnkke3/image/upload/v1795288346/esrcssjffxarzsoj6bgl.jpg",
   },
 ];
 
@@ -245,61 +248,17 @@ export default function Achievements() {
           ))}
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mt-14 rounded-[32px] bg-white border border-emerald-900/10 p-6 md:p-8 shadow-[0_8px_30px_rgba(16,32,24,0.04)]"
-        >
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0">
-                <Camera size={18} />
-              </div>
-              <div>
-                <h3 className="text-lg md:text-xl font-bold text-[#102018]">
-                  St. Ignatius Hospital — Recognition Moments
-                </h3>
-                <p className="text-xs md:text-sm text-gray-500">
-                  Highlights from our award ceremonies and healthcare milestones
-                </p>
-              </div>
-            </div>
-            <span className="self-start sm:self-auto px-3.5 py-1 rounded-full bg-emerald-50 border border-emerald-200/60 text-xs font-semibold text-emerald-800">
-              {ignatiusAwardPhotos.length} Photos
-            </span>
-          </div>
+      <RecognitionGalleryCard
+          title="St. Ignatius Hospital — Recognition Moments"
+          photos={ignatiusAwardPhotos}
+          onSelectPhoto={setSelectedPhoto}
+        />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
-            {ignatiusAwardPhotos.map((photo, idx) => (
-              <motion.div
-                key={photo.id}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: idx * 0.08 }}
-                whileHover={{ y: -5 }}
-                onClick={() => setSelectedPhoto(photo.image_url)}
-                className="group relative aspect-[4/3] rounded-2xl overflow-hidden cursor-pointer border border-emerald-900/10 bg-[#eaf4ee] shadow-sm hover:shadow-lg transition-all duration-300"
-              >
-                <img
-                  src={photo.image_url}
-                  alt={`St. Ignatius Award ${idx + 1}`}
-                  loading="lazy"
-                  decoding="async"
-                  className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                />
-
-                <div className="absolute inset-0 bg-black/10 group-hover:bg-black/25 transition-opacity duration-300" />
-
-                <div className="absolute top-3 right-3 p-2 rounded-full bg-white/90 text-emerald-900 opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-sm">
-                  <ZoomIn size={14} />
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
+        <RecognitionGalleryCard
+          title="St. Maria Giri Health Centre — Recognition Moments"
+          photos={mariaGiriAwardPhotos}
+          onSelectPhoto={setSelectedPhoto}
+        />
       </section>
          {/* ================= TIMELINE ================= */}
       <div className="relative max-w-2xl mx-auto px-4 py-8 pb-24">
