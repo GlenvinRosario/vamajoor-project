@@ -10,7 +10,7 @@ export default function ContactHero() {
   };
 
   return (
-    <section className="relative py-24 md:py-17 text-center bg-[#cfe7d8] overflow-hidden border-b border-[#b5dbbe]">
+    <section className="relative py-24 md:py-24 text-center bg-[#cfe7d8] overflow-hidden border-b border-[#b5dbbe]">
       {/* Modern Large Dot Matrix Overlay */}
       <div className="absolute inset-0 bg-[radial-gradient(#1a4d2e_2px,transparent_2px)] [background-size:32px_32px] opacity-10 pointer-events-none" />
 
@@ -25,24 +25,24 @@ export default function ContactHero() {
         className="px-6 relative z-10 max-w-4xl mx-auto"
       >
         {/* Micro-badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#1a4d2e] border border-[#143d24] shadow-sm mb-6">
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-          <span className="text-xs font-bold tracking-wider uppercase text-white">
+        <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-[#1a4d2e] border border-[#143d24] shadow-sm mb-6">
+          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+          <span className="text-xs sm:text-sm font-bold tracking-wider uppercase text-white">
             Get In Touch
           </span>
         </div>
 
         {/* Title */}
-        <h1 className="text-5xl md:text-6xl font-black tracking-tight text-[#0a2614] leading-tight">
+        <h1 className="text-5xl sm:text-6xl md:text-7xl font-black tracking-tight text-[#0a2614] leading-tight">
           Contact{" "}
-          <span className="text-[#1a4d2e] bg-white/40 px-3 py-1 rounded-2xl border border-white/20 shadow-sm inline-block">
+          <span className="text-[#1a4d2e] bg-white/40 px-4 py-1 rounded-2xl border border-white/20 shadow-sm inline-block">
             Us
           </span>
         </h1>
 
         {/* Subtitle */}
-        <p className="mt-5 text-[#1c4228] max-w-2xl mx-auto text-base md:text-lg font-medium leading-relaxed">
-          We'd love to connect with you and support your journey. Reach out
+        <p className="mt-6 text-[#1c4228] max-w-2xl mx-auto text-lg sm:text-xl md:text-[21px] font-medium leading-relaxed">
+          We&apos;d love to connect with you and support your journey. Reach out
           through any of our primary channels below.
         </p>
 
@@ -50,25 +50,25 @@ export default function ContactHero() {
         <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
           <a
             href="tel:+917019249483"
-            className="flex items-center gap-2 bg-white/80 hover:bg-white text-[#1a4d2e] border border-[#b5dbbe] font-bold px-6 py-3 rounded-xl transition-all duration-300 shadow-sm hover:-translate-y-0.5"
+            className="flex items-center gap-2.5 bg-white/85 hover:bg-white text-[#1a4d2e] border border-[#b5dbbe] text-base sm:text-lg font-bold px-7 py-3.5 rounded-xl transition-all duration-300 shadow-sm hover:-translate-y-0.5"
           >
-            <Phone size={16} />
+            <Phone size={18} />
             Call Us
           </a>
 
           <a
             href="mailto:dharmajyothicharitablesociety@gmail.com"
-            className="flex items-center gap-2 bg-white/80 hover:bg-white text-[#1a4d2e] border border-[#b5dbbe] font-bold px-6 py-3 rounded-xl transition-all duration-300 shadow-sm hover:-translate-y-0.5"
+            className="flex items-center gap-2.5 bg-white/85 hover:bg-white text-[#1a4d2e] border border-[#b5dbbe] text-base sm:text-lg font-bold px-7 py-3.5 rounded-xl transition-all duration-300 shadow-sm hover:-translate-y-0.5"
           >
-            <Mail size={16} />
+            <Mail size={18} />
             Email Us
           </a>
 
           <a
             href="#location"
-            className="flex items-center gap-2 bg-white/80 hover:bg-white text-[#1a4d2e] border border-[#b5dbbe] font-bold px-6 py-3 rounded-xl transition-all duration-300 shadow-sm hover:-translate-y-0.5"
+            className="flex items-center gap-2.5 bg-white/85 hover:bg-white text-[#1a4d2e] border border-[#b5dbbe] text-base sm:text-lg font-bold px-7 py-3.5 rounded-xl transition-all duration-300 shadow-sm hover:-translate-y-0.5"
           >
-            <MapPin size={16} />
+            <MapPin size={18} />
             Visit Us
           </a>
         </div>
@@ -80,8 +80,8 @@ export default function ContactHero() {
         aria-label="Scroll down"
         className="absolute bottom-6 left-1/2 -translate-x-1/2 cursor-pointer z-10"
       >
-        <div className="w-9 h-9 rounded-full bg-white/40 border border-white/20 backdrop-blur-md flex items-center justify-center animate-bounce hover:bg-white/60 transition-colors shadow-sm text-[#1a4d2e]">
-          <ArrowDown size={16} />
+        <div className="w-10 h-10 rounded-full bg-white/40 border border-white/20 backdrop-blur-md flex items-center justify-center animate-bounce hover:bg-white/60 transition-colors shadow-sm text-[#1a4d2e]">
+          <ArrowDown size={18} />
         </div>
       </button>
     </section>
