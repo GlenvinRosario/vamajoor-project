@@ -47,11 +47,11 @@ const programData = [
         image:
           "https://res.cloudinary.com/dapmnkke3/image/upload/v1795289367/x8qygagkixzdl4dhgubz.jpg",
         tag: "Hospital",
-        url: "#",
-        gallery: [
-          "https://res.cloudinary.com/dapmnkke3/image/upload/v1795287624/jw5iucedreczdbbeet3n.jpg",
-          "https://res.cloudinary.com/dapmnkke3/image/upload/v1795289367/x8qygagkixzdl4dhgubz.jpg"
-        ],
+        url: "https://gorettihospital.com/",
+        // gallery: [
+        //   "https://res.cloudinary.com/dapmnkke3/image/upload/v1795287624/jw5iucedreczdbbeet3n.jpg",
+        //   "https://res.cloudinary.com/dapmnkke3/image/upload/v1795289367/x8qygagkixzdl4dhgubz.jpg"
+        // ],
       },
       {
         title: "Maria Giri Geriatric Care Unit, Kuppepadavu",
