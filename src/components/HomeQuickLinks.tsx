@@ -12,7 +12,7 @@ const quickLinks = [
     description:
       "Supporting schools, child sponsorship programs, and skill development initiatives for marginalized communities.",
     image:
-      "https://res.cloudinary.com/dapmnkke3/image/upload/v1781381319/henhosvmlzidl7xj1qre.jpg",
+      "https://res.cloudinary.com/dapmnkke3/image/upload/v1795421894/qwmo0uxtv5xn6cxctuyt.jpg",
     href: "/programs",
     accent: "#22c55e",
     accentLight: "#dcfce7",

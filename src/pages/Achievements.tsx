@@ -81,10 +81,11 @@ const mariaGorettiAwardPhotos = [
   },
 ];
 
-const groupedAwards = [
+ const groupedAwards = [
   {
     recipient: "Sr. Maria Goretti Quadros",
     role: "Founding Legacy Initiatives",
+    avatar: "https://res.cloudinary.com/dapmnkke3/image/upload/v1795430747/sfw2fizxhffzv1ohvgtu.jpg",
     awards: [
       { year: "2000", text: "Sandesha Award" },
       { year: "2004", text: "Gratias Agit – Govt. of Czech Republic" },
@@ -108,6 +109,7 @@ const groupedAwards = [
     awards: [{ year: "2020", text: "COVID Special Service Award" }],
   },
 ];
+
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -299,7 +301,7 @@ export default function Achievements() {
           </div>
         </motion.div>
       </section>
-      {/* ================= TIMELINE ================= */}
+         {/* ================= TIMELINE ================= */}
       <div className="relative max-w-2xl mx-auto px-4 py-8 pb-24">
         <div className="absolute left-4 top-2 bottom-2 w-0.5 bg-gradient-to-b from-emerald-600 via-[#cfe7d8] to-transparent" />
 
@@ -314,13 +316,23 @@ export default function Achievements() {
             >
               <span className="absolute -left-[33px] top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-[#1a4d2e] ring-4 ring-[#eef7f2] z-10" />
 
-              <div className="bg-[#f4faf6] border border-[#e1f0e7] px-4 py-2 rounded-xl shadow-sm">
-                <h3 className="text-base font-black text-[#0a2313] tracking-tight">
-                  {group.recipient}
-                </h3>
-                <p className="text-[11px] font-bold text-[#2e6f47] uppercase tracking-wider mt-0.5">
-                  {group.role}
-                </p>
+              <div className="bg-[#f4faf6] border border-[#e1f0e7] px-4 py-2.5 rounded-xl shadow-sm flex items-center gap-3.5">
+                {group.avatar && (
+                  <img
+                    src={group.avatar}
+                    alt={group.recipient}
+                    onClick={() => setSelectedPhoto(group.avatar!)}
+                    className="w-12 h-12 rounded-full object-cover object-top border-2 border-[#1a4d2e]/25 shadow-sm shrink-0 cursor-pointer hover:scale-105 transition-transform"
+                  />
+                )}
+                <div>
+                  <h3 className="text-base font-black text-[#0a2313] tracking-tight">
+                    {group.recipient}
+                  </h3>
+                  <p className="text-[11px] font-bold text-[#2e6f47] uppercase tracking-wider mt-0.5">
+                    {group.role}
+                  </p>
+                </div>
               </div>
             </motion.div>
 
@@ -404,6 +416,7 @@ export default function Achievements() {
           </div>
         ))}
       </div>
+
 
       <AnimatePresence>
         {selectedPhoto && (

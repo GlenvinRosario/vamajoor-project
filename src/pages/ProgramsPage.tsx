@@ -87,7 +87,7 @@ const programData = [
         image:
           "https://res.cloudinary.com/dapmnkke3/image/upload/v1794207483/trqkg8azbtfxx5tthkfp.png",
         tag: "Dispensary",
-        url: "#",
+        url: "https://stignatiushospital.org/affiliated-institutions/",
       },
     ],
   },
