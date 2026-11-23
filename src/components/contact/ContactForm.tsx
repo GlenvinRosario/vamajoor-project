@@ -79,20 +79,21 @@ export default function ContactForm() {
       setLoading(false);
     }
   };
-
   return (
     <>
       <motion.form
         onSubmit={handleSubmit}
-        initial={{ opacity: 0, x: 40 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        className="bg-white/85 backdrop-blur-md rounded-3xl shadow-xl border border-[#355E3B]/15 p-8 sm:p-10 space-y-5"
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+        className="w-full bg-white/90 backdrop-blur-md rounded-2xl sm:rounded-3xl shadow-xl border border-[#355E3B]/15 p-5 sm:p-8 md:p-10 space-y-4 sm:space-y-5"
       >
         <div>
-          <h3 className="text-2xl sm:text-3xl font-extrabold text-[#355E3B]">
+          <h3 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-[#355E3B]">
             Send a Message
           </h3>
-          <p className="text-sm sm:text-base text-gray-500 mt-1">
+          <p className="text-xs sm:text-sm md:text-base text-gray-500 mt-1">
             Fill in your details below and we will get back to you soon.
           </p>
         </div>
@@ -103,7 +104,7 @@ export default function ContactForm() {
           placeholder="Your name"
           value={formData.name}
           onChange={handleChange}
-          className={`${INPUT_CLASS} text-base sm:text-lg py-3.5 px-4`}
+          className={`${INPUT_CLASS} w-full text-base sm:text-lg py-3 sm:py-3.5 px-4`}
           required
         />
 
@@ -113,7 +114,7 @@ export default function ContactForm() {
           placeholder="+91 XXXXX XXXXX"
           value={formData.phone}
           onChange={handleChange}
-          className={`${INPUT_CLASS} text-base sm:text-lg py-3.5 px-4`}
+          className={`${INPUT_CLASS} w-full text-base sm:text-lg py-3 sm:py-3.5 px-4`}
         />
 
         <input
@@ -122,32 +123,33 @@ export default function ContactForm() {
           placeholder="your@email.com"
           value={formData.email}
           onChange={handleChange}
-          className={`${INPUT_CLASS} text-base sm:text-lg py-3.5 px-4`}
+          className={`${INPUT_CLASS} w-full text-base sm:text-lg py-3 sm:py-3.5 px-4`}
           required
         />
 
         <textarea
-          rows={5}
+          rows={4}
           name="message"
           placeholder="How can we help you?"
           value={formData.message}
           onChange={handleChange}
-          className={`${INPUT_CLASS} text-base sm:text-lg py-3.5 px-4 resize-none`}
+          className={`${INPUT_CLASS} w-full text-base sm:text-lg py-3 sm:py-3.5 px-4 resize-none`}
           required
         />
 
         <motion.button
-          whileTap={{ scale: 0.95 }}
-          whileHover={{ scale: 1.02 }}
+          type="submit"
+          whileTap={{ scale: 0.97 }}
+          whileHover={{ scale: 1.01 }}
           disabled={loading}
-          className="w-full flex items-center justify-center gap-2.5 bg-gradient-to-r from-[#355E3B] to-[#1f2d24] text-white text-base sm:text-lg font-bold py-4 rounded-xl shadow-lg disabled:opacity-60 cursor-pointer"
+          className="w-full flex items-center justify-center gap-2.5 bg-gradient-to-r from-[#355E3B] to-[#1f2d24] text-white text-base sm:text-lg font-bold py-3.5 sm:py-4 rounded-xl shadow-lg disabled:opacity-60 cursor-pointer"
         >
           <Send size={18} />
-          {loading ? "Sending..." : "Send Message"}
+          <span>{loading ? "Sending..." : "Send Message"}</span>
         </motion.button>
       </motion.form>
 
-      {/* Stylish Animated Dialog Modal */}
+      {/* Responsive Animated Dialog Modal */}
       <AnimatePresence>
         {dialog.open && (
           <motion.div
@@ -155,15 +157,15 @@ export default function ContactForm() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setDialog((prev) => ({ ...prev, open: false }))}
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/55 backdrop-blur-sm p-4"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4"
           >
             <motion.div
-              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              initial={{ opacity: 0, scale: 0.92, y: 18 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              exit={{ opacity: 0, scale: 0.92, y: 18 }}
               transition={{ type: "spring", stiffness: 320, damping: 24 }}
               onClick={(e) => e.stopPropagation()}
-              className="relative w-full max-w-md overflow-hidden rounded-3xl bg-white p-8 text-center shadow-2xl border border-[#355E3B]/15"
+              className="relative w-full max-w-sm sm:max-w-md overflow-hidden rounded-2xl sm:rounded-3xl bg-white p-6 sm:p-8 text-center shadow-2xl border border-[#355E3B]/15"
             >
               <div
                 className={`absolute top-0 inset-x-0 h-1.5 ${
@@ -177,30 +179,30 @@ export default function ContactForm() {
                 type="button"
                 onClick={() => setDialog((prev) => ({ ...prev, open: false }))}
                 aria-label="Close dialog"
-                className="absolute top-4 right-4 rounded-full p-1.5 text-gray-400 hover:bg-gray-100 hover:text-gray-700 transition-colors"
+                className="absolute top-3.5 right-3.5 rounded-full p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-700 transition-colors"
               >
                 <X size={20} />
               </button>
 
               <div
-                className={`mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl shadow-sm ${
+                className={`mx-auto mb-4 flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-2xl shadow-sm ${
                   dialog.type === "success"
                     ? "bg-[#eaf6ee] text-[#355E3B]"
                     : "bg-red-50 text-red-600"
                 }`}
               >
                 {dialog.type === "success" ? (
-                  <CheckCircle2 size={36} />
+                  <CheckCircle2 size={32} />
                 ) : (
-                  <AlertCircle size={36} />
+                  <AlertCircle size={32} />
                 )}
               </div>
 
-              <h4 className="text-2xl font-extrabold text-gray-900">
+              <h4 className="text-xl sm:text-2xl font-extrabold text-gray-900">
                 {dialog.title}
               </h4>
 
-              <p className="mt-3 text-base leading-relaxed text-gray-600">
+              <p className="mt-2.5 text-sm sm:text-base leading-relaxed text-gray-600">
                 {dialog.message}
               </p>
 
@@ -209,7 +211,7 @@ export default function ContactForm() {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.97 }}
                 onClick={() => setDialog((prev) => ({ ...prev, open: false }))}
-                className={`mt-6 w-full rounded-xl py-3.5 text-base font-bold text-white shadow-md transition-all cursor-pointer ${
+                className={`mt-6 w-full rounded-xl py-3.5 text-sm sm:text-base font-bold text-white shadow-md transition-all cursor-pointer ${
                   dialog.type === "success"
                     ? "bg-gradient-to-r from-[#355E3B] to-[#1f2d24] hover:shadow-lg"
                     : "bg-red-600 hover:bg-red-700"
