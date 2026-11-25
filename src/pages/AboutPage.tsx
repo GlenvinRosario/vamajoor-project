@@ -40,7 +40,7 @@ export default function AboutPage() {
                 </p>
 
                 <p>
-                  Founded in 1973, the society has established a remarkable legacy
+                  Founded in 1976, the society has established a remarkable legacy
                   of service through its multifaceted initiatives in education,
                   healthcare, women&apos;s empowerment, community development, and
                   environmental protection. Guided by the values of compassion,
@@ -99,7 +99,7 @@ export default function AboutPage() {
                 <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest">
                   Founded
                 </p>
-                <p className="text-3xl font-black text-[#1a4d2e]">1973</p>
+                <p className="text-3xl font-black text-[#1a4d2e]">1976</p>
               </motion.div>
             </motion.div>
           </div>
