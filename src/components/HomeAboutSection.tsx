@@ -155,7 +155,7 @@ export default function Home() {
                   border: "2px solid rgba(255,255,255,0.2)",
                 }}
               >
-                <p className="text-white font-bold text-2xl">1976</p>
+                <p className="text-white font-bold text-2xl">1973</p>
                 <p className="text-emerald-300 text-xs tracking-widest uppercase">
                   Founded
                 </p>
@@ -189,7 +189,7 @@ export default function Home() {
               <p className="text-gray-500 leading-8 text-[15px]">
                 Dharma Jyothi Charitable Society has been serving communities
                 through education, healthcare, women empowerment, and social
-                outreach programs since 1976.
+                outreach programs since 1973.
               </p>
               <p className="text-gray-500 leading-8 text-[15px]">
                 Inspired by faith and committed to human dignity, we work to

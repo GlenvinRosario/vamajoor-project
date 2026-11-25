@@ -4,7 +4,7 @@ import { Sparkles, Heart, Globe2, Users, Award, Building2 } from "lucide-react";
 const highlights = [
   {
     icon: Heart,
-    title: "Empowering Communities Since 1976",
+    title: "Empowering Communities Since 1973",
     desc: "Dharma Jyothi Charitable Society has transformed lives through education, healthcare and social outreach across multiple states.",
   },
   {

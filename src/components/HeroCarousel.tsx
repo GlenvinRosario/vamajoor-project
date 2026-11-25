@@ -8,7 +8,7 @@ const slides = [
       "https://res.cloudinary.com/dapmnkke3/image/upload/v1786947690/roxdddecutz28hsw8uvm.jpg",
     title: "Serving Humanity with Compassion and Love",
     subtitle:
-      "Dharma Jyothi Charitable Society, Vamanjoor — founded in 1976, empowering marginalized communities through education, healthcare, and social outreach across Karnataka, Goa, and Manipur.",
+      "Dharma Jyothi Charitable Society, Vamanjoor — founded in 1973, empowering marginalized communities through education, healthcare, and social outreach across Karnataka, Goa, and Manipur.",
     cta: "Explore Our Mission",
     ctaHref: "/about",
     secondCta: "Contact Us",

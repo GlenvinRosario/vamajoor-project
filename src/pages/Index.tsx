@@ -12,7 +12,7 @@ const announcements = [
   "👩‍👧 Women Empowerment through skill training & self-help groups",
   "🌿 Community Development: Medical camps, awareness & environmental programs",
   "🤝 Supporting marginalized communities across Karnataka, Goa & Manipur",
-  "❤️ 45+ Years of compassionate service since 1976",
+  "❤️ 45+ Years of compassionate service since 1973",
 ];
 
 // Animation
